@@ -11,7 +11,7 @@ interface IradioProps {
   className?: string;
   defaultChecked?: boolean;
   disabled?: boolean;
-  onChange?: React.MouseEventHandler<HTMLAnchorElement>;
+  onChange?: any;
   value?: any;
 }
 

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 const classNames = require('classnames');
-// import Radio from "./Radio";
+import Radio from "./Radio";
 
 interface IgroupProps {
   prefixCls: string;
@@ -30,22 +30,27 @@ class Group extends React.PureComponent<IgroupProps> {
   render() {
     const { prefixCls, className, defaultValue, disabled, name, options, onChange, children, ...others } = this.props;
     const classes = classNames(className, {});
+    const otherProps = {
+      name,
+      disabled: disabled ? true : false,
+      onChange: typeof onChange == 'function' ? onChange : null,
+    }
 
     const radios = React.Children.map(children, (radio: React.ReactElement<any>, index) => {
       if (!radio) {
         return null;
       }
       return React.cloneElement(radio, {
-        name,
         defaultChecked: index == defaultValue,
-        disabled: disabled ? true : false,
-        onChange: typeof onChange == 'function' ? onChange : null,
         value: radio.props.children,
+        ...otherProps,
       })
     })
 
     if (options && options.length > 0) {
-      return <div>sds</div>
+      return options.map((item, index) => {
+        return <Radio { ...otherProps } value={item} defaultChecked={index == defaultValue} key={index}>{item}</Radio>
+      })
     }
 
     return (
