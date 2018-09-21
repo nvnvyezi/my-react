@@ -1,0 +1,50 @@
+@prefixCls: row;
+
+.whg {
+  width: 100%;
+  height: auto;
+}
+
+.@{prefixCls} {
+  .whg;
+  overflow: hidden;
+}
+
+.@{prefixCls}-flex {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  .whg;
+}
+
+.@{prefixCls}-start {
+  justify-content: flex-start;
+}
+
+.@{prefixCls}-end {
+  justify-content: flex-end;
+}
+
+.@{prefixCls}-center {
+  justify-content: center;
+}
+
+.@{prefixCls}-space-around {
+  justify-content: space-around;
+}
+
+.@{prefixCls}-space-between {
+  justify-content: space-between;
+}
+
+.@{prefixCls}-top {
+  align-items: flex-start;
+}
+
+.@{prefixCls}-middle {
+  align-items: center;
+}
+
+.@{prefixCls}-bottom {
+  align-items: flex-end;
+}

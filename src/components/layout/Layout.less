@@ -1,0 +1,37 @@
+@import '../style/default.less';
+
+@prefixCls: nvnv-layout;
+
+
+.@{prefixCls} {
+  .whg;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.@{prefixCls}-row {
+  flex-direction: row;
+}
+
+.@{prefixCls}-column {
+  flex-direction: column;
+}
+
+.@{prefixCls}-header,
+.@{prefixCls}-footer {
+  .whg;
+  padding: 20px 0;
+}
+
+.@{prefixCls}-content {
+  .whg;
+  padding: 50px 0;
+  flex: 1 1 auto;
+}
+
+.@{prefixCls}-sider {
+  .whg;
+  padding: 50px 0;
+  flex: 1 1 auto;
+}

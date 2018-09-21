@@ -1,0 +1,40 @@
+@import '../style/default.less';
+@prefixCls: nvnv-sidebar;
+
+.@{prefixCls} {
+  min-width: 180px;
+  width: 260px;
+  height: auto;
+  .@{prefixCls}-img {
+    width: 100%;
+    height: 150px;
+  }
+}
+
+.@{prefixCls}-ul {
+  list-style: none;
+  user-select: none;
+  .@{prefixCls}-li {
+    width: 100%;
+    height: 30px;
+  }
+  .@{prefixCls}-istitle {
+    .whg;
+    margin: 20px 0;
+    color: @hColor;
+    font: 600 18px/18px @fontFamily;
+  }
+  .@{prefixCls}-isct {
+    color: @grayColor;
+    font: 400 13px/23px @fontFamily;
+  }
+  .@{prefixCls}-url {
+    text-decoration: none;
+    display: inline-block;
+    color: @wordColor;
+    font: 400 15px/15px @fontFamily;
+    &:hover {
+      color: @blueColor;
+    }
+  }
+}

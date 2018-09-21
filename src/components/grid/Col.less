@@ -1,0 +1,26 @@
+@import '../style/default.less';
+
+@prefixCls: col;
+
+.@{prefixCls} {
+  float: left;
+  height: auto;
+  min-height: 30px;
+  padding: 5px 0;
+  display: block;
+  color: white;
+  text-align: center;
+  box-sizing: border-box;
+  -webkit-box-flex: 0;
+  flex: 0 0 auto;
+  font: 400 14px/14px @fontFamily;
+}
+
+.@{prefixCls}-offset {
+  box-sizing: content-box;
+}
+
+.@{prefixCls}-push,
+.@{prefixCls}-pull {
+  position: relative;
+}

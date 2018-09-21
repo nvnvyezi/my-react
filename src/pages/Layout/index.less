@@ -1,0 +1,84 @@
+@import '../style/default.less';
+
+@prefixCls: layout;
+
+.@{prefixCls} {
+  .whg;
+  .@{prefixCls}-aide {
+    .aideg;
+  }
+}
+
+.@{prefixCls}-header {
+  h1 {
+    .h1g;
+  }
+  p {
+    .pg;
+    padding: 20px 0;
+  }
+}
+
+.@{prefixCls}-rule {
+  h2 {
+    .h2g;
+  }
+  .@{prefixCls}-rule-box {
+    h4 {
+      font: 400 18px/20px @fontFamily;
+      margin: 30px 0 15px;
+    }
+    p {
+      .pg;
+    }
+    ul {
+      .whg;
+      list-style-type: circle;
+      margin: 15px 0 0 30px;
+      li {
+        .pg;
+      }
+    }
+  }
+}
+
+.@{prefixCls}-summary {
+  h2 {
+    .h2g;
+  }
+  ul {
+    .whg;
+    margin-left: 30px;
+    list-style-type: circle;
+    li {
+      .pg;
+    }
+  }
+}
+
+.@{prefixCls}-code {
+  h2 {
+    .h2g;
+  }
+}
+
+.@{prefixCls}-box {
+  width: 100%;
+}
+
+.@{prefixCls}-layout {
+  margin-bottom: 40px;
+  color: white;
+  .@{prefixCls}-layout-header {
+    background-color: @blueColor;
+  }
+  .@{prefixCls}-layout-content {
+    background-color: rgba(16, 142, 233, 1);
+  }
+  .@{prefixCls}-layout-footer {
+    background-color: @blueColor;
+  }
+  .@{prefixCls}-layout-sider {
+    background-color: rgba(16, 142, 233, .8);
+  }
+}

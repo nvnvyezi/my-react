@@ -1,0 +1,161 @@
+@import '../style/default.less';
+
+@prefixCls: grid;
+
+.idea-lineg {
+  text-align: center;
+  font-size: 100%;
+  color: white;
+  font: 400 18px/18px @fontFamily;
+  padding: 30px 0;
+  background-color: @blueColor;
+}
+.lineg {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 0 10px;
+}
+
+.@{prefixCls} {
+  .whg;
+  .@{prefixCls}-aide {
+    .aideg;
+  }
+}
+
+.@{prefixCls}-header {
+  .whg;
+  h1 {
+    .h1g;
+  }
+  h2 {
+    .h2g;
+  }
+  p {
+    .pg;
+  }
+  margin: 0 0 40px;
+}
+
+.@{prefixCls}-idea {
+  .whg;
+  h2 {
+    .h2g;
+  }
+  p {
+    .pg;
+  }
+  .@{prefixCls}-idea-line1 {
+    .whg;
+    .idea-lineg;
+    margin: 20px 0 10px;
+  }
+  .@{prefixCls}-idea-line2 {
+    .whg;
+    .lineg;
+    & > div {
+      .idea-lineg;
+      width: 25%;
+      &:nth-child(even) {
+        background-color: rgb(241, 241, 241);
+        color: @wordColor;
+      }
+    }
+  }
+  .@{prefixCls}-idea-line3 {
+    .whg;
+    .lineg;
+    & > div {
+      .idea-lineg;
+      width: 33.33%;
+      &:nth-child(even) {
+        background-color: rgb(241, 241, 241);
+        color: @wordColor;
+      }
+    }
+  }
+  .@{prefixCls}-idea-line4 {
+    .whg;
+    .lineg;
+    & > div {
+      .idea-lineg;
+      width: 50%;
+      &:nth-child(even) {
+        background-color: rgb(241, 241, 241);
+        color: @wordColor;
+      }
+    }
+  }
+  .@{prefixCls}-idea-line5 {
+    .whg;
+    .lineg;
+    & > div {
+      .idea-lineg;
+      width: 33.33%;
+      &:first-child {
+        width: 66.66%;
+      }
+      &:nth-child(even) {
+        background-color: rgb(241, 241, 241);
+        color: @wordColor;
+      }
+    }
+  }
+}
+
+.@{prefixCls}-summary {
+  h2 {
+    .h2g;
+  }
+  p {
+    .pg;
+  }
+  .@{prefixCls}-ol {
+    .whg;
+    ul {
+      list-style-type: circle;
+      li {
+        width: 100%;
+        color: @wordColor;
+        font: 400 14px @fontFamily;
+        margin: 0 0 5px 20px;
+      }
+    }
+  }
+}
+
+.@{prefixCls}-flex {
+  margin-top: 40px;
+  h2 {
+    .h2g;
+  }
+  p {
+    .pg;
+  }
+}
+
+.@{prefixCls}-code {
+  .whg;
+  h2 {
+    .h2g;
+  }
+}
+
+.@{prefixCls}-box {
+  @media screen and (min-width: 700px) {
+    width: 100%;
+  }
+  .@{prefixCls}-row {
+    margin-bottom: 10px;
+    .@{prefixCls}-col {
+      .@{prefixCls}-coli {
+        background-color: @blueColor;
+        padding: 16px 0;
+        font: 400 14px/18px @fontFamily;
+      }
+      &:nth-child(even) {
+        opacity: .65;
+      }
+    }
+  }
+}

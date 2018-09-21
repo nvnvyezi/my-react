@@ -1,0 +1,66 @@
+@import '../style/default.less';
+@prefixCls: nvnv-radio;
+
+.@{prefixCls} {
+  cursor: pointer;
+  position: relative;
+  padding: 0 0 0 20px;
+}
+
+.@{prefixCls}-circle {
+  width: 13px;
+  height: 13px;
+  cursor: pointer;
+  border: none;
+  border: 1px solid @defaultColor;
+  border-radius: 50%;
+  position: relative;
+  display: inline-block;
+  margin-right: 7px;
+  vertical-align: middle;
+  &::after {
+    content: '';
+    width: 4px;
+    height: 4px;
+    background-color: #ffffff;
+    border-radius: 100%;
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -2.2px;
+    margin-left: -2px;
+    transform: scale(0);
+    transition: transform .15s ease-in;
+  }
+}
+
+.@{prefixCls}-radio {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+input[type="radio"]:checked+span{
+  background-color: @primaryColor;
+  border: 1px solid @primaryColor;
+  &::after {
+    transform: scale(1);
+  }
+  &+div {
+    color: @primaryColor;
+  }
+}
+
+.@{prefixCls}-others {
+  display: inline-block;
+  vertical-align: middle;
+  font: 400 15px/14px @fontFamily;
+  color: @wordColor;
+}
+
+.@{prefixCls}-disabled {
+  cursor: not-allowed;
+  color: red;
+}
