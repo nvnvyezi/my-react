@@ -1,6 +1,5 @@
 @import '../style/default.less';
-
-@prefixCls: show-radio;
+@prefixCls: show-autocomplete;
 
 .@{prefixCls} {
   .whg;
@@ -18,20 +17,16 @@
   }
 }
 
-.@{prefixCls}-use {
+.@{prefixCls}-user {
   h2 {
     .h2g;
   }
-  ul {
-    list-style-type: circle;
-    li {
-      .pg;
-    }
+  p {
+    .pg;
   }
 }
 
-.@{prefixCls}-code {
-  h2 {
-    .h2g;
-  }
+.@{prefixCls}-box-aide {
+  display: flex;
+  justify-content: space-between;
 }

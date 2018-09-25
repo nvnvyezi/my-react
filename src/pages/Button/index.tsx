@@ -23,10 +23,10 @@ class index extends React.Component {
             <h2>
               <span>代码演示</span>
             </h2>
-            <main className={`${prefixCls}-content`}>
-              <section className={`${prefixCls}-box`}>
+            <main className={`${prefixCls}-code-content`}>
+              <section className={`${prefixCls}-code-content-box`}>
                 <div className={`${prefixCls}-box-header`}>
-                  <div className={`${prefixCls}-box-btn`}>
+                  <div className={`${prefixCls}-box-aide`}>
                     <ul>
                       {
                         button.map((item, key) => (
@@ -53,9 +53,9 @@ class index extends React.Component {
                   </pre>
                 </div>
               </section>
-              <section className={`${prefixCls}-box`}>
+              <section className={`${prefixCls}-code-content-box`}>
                 <div className={`${prefixCls}-box-header`}>
-                  <div className={`${prefixCls}-box-btn`}>
+                  <div className={`${prefixCls}-box-aide`}>
                     <ul>
                       <li><Button type="default" size="small">Small</Button></li>
                       <li><Button type="default" size="default">Default</Button></li>
@@ -79,9 +79,9 @@ class index extends React.Component {
                   </pre>
                 </div>
               </section>
-              <section className={`${prefixCls}-box`}>
+              <section className={`${prefixCls}-code-content-box`}>
                 <div className={`${prefixCls}-box-header`}>
-                  <div className={`${prefixCls}-box-btn`}>
+                  <div className={`${prefixCls}-box-aide`}>
                     <ul>
                       <li><Button type="default" size="small" disabled>Disabled</Button></li>
                       <li><Button type="primary" disabled>Disabled Primary</Button></li>
@@ -104,9 +104,9 @@ class index extends React.Component {
                   </pre>
                 </div>
               </section>
-              <section className={`${prefixCls}-box`}>
+              <section className={`${prefixCls}-code-content-box`}>
                 <div className={`${prefixCls}-box-header`}>
-                  <div className={`${prefixCls}-box-btn`}>
+                  <div className={`${prefixCls}-box-aide`}>
                     <ul>
                       <li><Button size="small" shape="circle">C</Button></li>
                       <li><Button type="primary" size="default" shape="circle">C</Button></li>
@@ -130,9 +130,9 @@ class index extends React.Component {
                   </pre>
                 </div>
               </section>
-              <section className={`${prefixCls}-box`}>
+              <section className={`${prefixCls}-code-content-box`}>
                 <div className={`${prefixCls}-box-header`}>
-                  <div className={`${prefixCls}-box-btn`}>
+                  <div className={`${prefixCls}-box-aide`}>
                     <ul>
                       <li><Button type="primary" size="small" loading>Click me</Button></li>
                       <li><Button type="primary" size="default" loading>Click me</Button></li>
@@ -159,9 +159,9 @@ class index extends React.Component {
                   </pre>
                 </div>
               </section>
-              <section className={`${prefixCls}-box`}>
+              <section className={`${prefixCls}-code-content-box`}>
                 <div className={`${prefixCls}-box-header`}>
-                  <div className={`${prefixCls}-box-btn`}>
+                  <div className={`${prefixCls}-box-aide`}>
                     <ul>
                       <li className='ww'><Button block type="dashed">Dashed</Button></li>
                       <li className='ww'><Button block type="primary">Primary</Button></li>
@@ -185,9 +185,9 @@ class index extends React.Component {
                   </pre>
                 </div>
               </section>
-              <section className={`${prefixCls}-box`}>
+              <section className={`${prefixCls}-code-content-box`}>
                 <div className={`${prefixCls}-box-header`}>
-                  <div className={`${prefixCls}-box-btn`}>
+                  <div className={`${prefixCls}-box-aide`}>
                     <ul className="backbutton">
                       <li><Button ghost type="dashed">Click me</Button></li>
                       <li><Button ghost type="primary">Click me</Button></li>

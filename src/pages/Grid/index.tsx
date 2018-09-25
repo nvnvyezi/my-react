@@ -4,7 +4,7 @@ import './index.less'
 
 class index extends React.Component {
   render() {
-    const prefixCls = 'grid';
+    const prefixCls = 'show-grid';
     return (
       <div className={prefixCls}>
         <div className={`${prefixCls}-aide`}>
@@ -67,9 +67,9 @@ class index extends React.Component {
           </section>
           <section className={`${prefixCls}-code`}>
             <h2>代码演示</h2>
-            <div className={`${prefixCls}-box`}>
+            <div className={`${prefixCls}-code-content-box`}>
               <header className={`${prefixCls}-box-header`}>
-                <div className={`${prefixCls}-box-btn`}>
+                <div className={`${prefixCls}-box-aide`}>
                   <Row className={`${prefixCls}-row`}>
                       <Col className={`${prefixCls}-col`} span={12}><div className={`${prefixCls}-coli`}>col-12</div></Col>
                       <Col className={`${prefixCls}-col`} span={12}><div className={`${prefixCls}-coli`}>col-12</div></Col>
@@ -94,34 +94,14 @@ class index extends React.Component {
                 <p>从堆叠到水平排列。使用单一的一组 <code>Row</code> 和 <code>Col</code> 栅格组件，就可以创建一个基本的栅格系统，所有列（Col）必须放在 <code>Row</code> 内。</p>
               </div>
               <footer className={`${prefixCls}-box-info`}>
-                <div className={`${prefixCls}-info-title`}>
-                  <span>代码示例</span>
-                </div>
                 <pre>
-                  &lt;<span>Row</span>&gt;<br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span>Col</span> <span className={`${prefixCls}-nature`}>span</span>={'{'}<span>12</span>{'}'}&gt;&lt;<span>div</span>&gt;col<span>-12</span>&lt;/<span>div</span>&gt;&lt;/<span>Col</span>&gt;<br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span>Col</span> <span className={`${prefixCls}-nature`}>span</span>={'{'}<span>12</span>{'}'}&gt;&lt;<span>div</span>&gt;col<span>-12</span>&lt;/<span>div</span>&gt;&lt;/<span>Col</span>&gt;<br/>
-                  &lt;/<span>Row</span>&gt;
-                  <br/>
-                  &lt;<span>Row</span>&gt;<br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span>Col</span> <span className={`${prefixCls}-nature`}>span</span>={'{'}<span>8</span>{'}'}&gt;&lt;<span>div</span>&gt;col<span>-8</span>&lt;/<span>div</span>&gt;&lt;/<span>Col</span>&gt;<br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span>Col</span> <span className={`${prefixCls}-nature`}>span</span>={'{'}<span>8</span>{'}'}&gt;&lt;<span>div</span>&gt;col<span>-8</span>&lt;/<span>div</span>&gt;&lt;/<span>Col</span>&gt;<br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span>Col</span> <span className={`${prefixCls}-nature`}>span</span>={'{'}<span>8</span>{'}'}&gt;&lt;<span>div</span>&gt;col<span>-8</span>&lt;/<span>div</span>&gt;&lt;/<span>Col</span>&gt;<br/>
-                  &lt;/<span>Row</span>&gt;
-                  <br/>
-                  &lt;<span>Row</span>&gt;<br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span>Col</span> <span className={`${prefixCls}-nature`}>span</span>={'{'}<span>6</span>{'}'}&gt;&lt;<span>div</span>&gt;col<span>-6</span>&lt;/<span>div</span>&gt;&lt;/<span>Col</span>&gt;<br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span>Col</span> <span className={`${prefixCls}-nature`}>span</span>={'{'}<span>6</span>{'}'}&gt;&lt;<span>div</span>&gt;col<span>-6</span>&lt;/<span>div</span>&gt;&lt;/<span>Col</span>&gt;<br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span>Col</span> <span className={`${prefixCls}-nature`}>span</span>={'{'}<span>6</span>{'}'}&gt;&lt;<span>div</span>&gt;col<span>-6</span>&lt;/<span>div</span>&gt;&lt;/<span>Col</span>&gt;<br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span>Col</span> <span className={`${prefixCls}-nature`}>span</span>={'{'}<span>6</span>{'}'}&gt;&lt;<span>div</span>&gt;col<span>-6</span>&lt;/<span>div</span>&gt;&lt;/<span>Col</span>&gt;<br/>
-                  &lt;/<span>Row</span>&gt;
-                  <br/>
+                  sd
                 </pre>
               </footer>
             </div>
-            <div className={`${prefixCls}-box`}>
+            <div className={`${prefixCls}-code-content-box`}>
               <header className={`${prefixCls}-box-header`}>
-                <div className={`${prefixCls}-box-btn`}>
+                <div className={`${prefixCls}-box-aide`}>
                   <Row className={`${prefixCls}-row`} gutter={16}>
                       <Col className={`${prefixCls}-col`} span={6}><div className={`${prefixCls}-coli`}>col-6</div></Col>
                       <Col className={`${prefixCls}-col`} span={6}><div className={`${prefixCls}-coli`}>col-6</div></Col>
@@ -137,22 +117,14 @@ class index extends React.Component {
                 <p>栅格常常需要和间隔进行配合，你可以使用 <code>Row</code> 的 <code>gutter</code> 属性，我们推荐使用 <code>(16+8n)px</code> 作为栅格间隔。(n 是自然数)。</p>
               </div>
               <footer className={`${prefixCls}-box-info`}>
-                <div className={`${prefixCls}-info-title`}>
-                  <span>代码示例</span>
-                </div>
                 <pre>
-                  &lt;<span>Row</span><span className={`${prefixCls}-nature`}> gutter</span>={'{'}<span>16</span>{'}'}&gt;<br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span>Col</span> <span className={`${prefixCls}-nature`}>span</span>={'{'}<span>6</span>{'}'}&gt;&lt;<span>div</span>&gt;col<span>-6</span>&lt;/<span>div</span>&gt;&lt;/<span>Col</span>&gt;<br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span>Col</span> <span className={`${prefixCls}-nature`}>span</span>={'{'}<span>6</span>{'}'}&gt;&lt;<span>div</span>&gt;col<span>-6</span>&lt;/<span>div</span>&gt;&lt;/<span>Col</span>&gt;<br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span>Col</span> <span className={`${prefixCls}-nature`}>span</span>={'{'}<span>6</span>{'}'}&gt;&lt;<span>div</span>&gt;col<span>-6</span>&lt;/<span>div</span>&gt;&lt;/<span>Col</span>&gt;<br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span>Col</span> <span className={`${prefixCls}-nature`}>span</span>={'{'}<span>6</span>{'}'}&gt;&lt;<span>div</span>&gt;col<span>-6</span>&lt;/<span>div</span>&gt;&lt;/<span>Col</span>&gt;<br/>
-                  &lt;/<span>Row</span>&gt;
+                  sdd
                 </pre>
               </footer>
             </div>
-            <div className={`${prefixCls}-box`}>
+            <div className={`${prefixCls}-code-content-box`}>
               <header className={`${prefixCls}-box-header`}>
-                <div className={`${prefixCls}-box-btn`}>
+                <div className={`${prefixCls}-box-aide`}>
                   <Row className={`${prefixCls}-row`}>
                       <Col className={`${prefixCls}-col`} span={8}><div className={`${prefixCls}-coli`}>col-8</div></Col>
                       <Col className={`${prefixCls}-col`} span={8} offset={8}><div className={`${prefixCls}-coli`}>col-8</div></Col>
@@ -175,29 +147,14 @@ class index extends React.Component {
                 </p>
               </div>
               <footer className={`${prefixCls}-box-info`}>
-                <div className={`${prefixCls}-info-title`}>
-                  <span>代码示例</span>
-                </div>
                 <pre>
-                  &lt;<span>Row</span>&gt;<br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span>Col</span> <span className={`${prefixCls}-nature`}>span</span>={'{'}<span>8</span>{'}'}&gt;&lt;<span>div</span>&gt;col<span>-8</span>&lt;/<span>div</span>&gt;&lt;/<span>Col</span>&gt;<br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span>Col</span> <span className={`${prefixCls}-nature`}>span</span>={'{'}<span>8</span>{'}'} <span className={`${prefixCls}-nature`}>offset</span>={'{'}<span>8</span>{'}'}&gt;&lt;<span>div</span>&gt;col<span>-8</span>&lt;/<span>div</span>&gt;&lt;/<span>Col</span>&gt;<br/>
-                  &lt;/<span>Row</span>&gt;
-                  <br/>
-                  &lt;<span>Row</span>&gt;<br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span>Col</span> <span className={`${prefixCls}-nature`}>span</span>={'{'}<span>6</span>{'}'} <span className={`${prefixCls}-nature`}>offset</span>={'{'}<span>6</span>{'}'}&gt;&lt;<span>div</span>&gt;col<span>-6</span> col-offset<span>-6</span>&lt;/<span>div</span>&gt;&lt;/<span>Col</span>&gt;<br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span>Col</span> <span className={`${prefixCls}-nature`}>span</span>={'{'}<span>6</span>{'}'} <span className={`${prefixCls}-nature`}>offset</span>={'{'}<span>6</span>{'}'}&gt;&lt;<span>div</span>&gt;col<span>-6</span> col-offset<span>-6</span>&lt;/<span>div</span>&gt;&lt;/<span>Col</span>&gt;<br/>
-                  &lt;/<span>Row</span>&gt;
-                  <br/>
-                  &lt;<span>Row</span>&gt;<br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span>Col</span> <span className={`${prefixCls}-nature`}>span</span>={'{'}<span>12</span>{'}'} <span className={`${prefixCls}-nature`}>offset</span>={'{'}<span>6</span>{'}'}&gt;&lt;<span>div</span>&gt;col<span>-12</span> col-offset<span>-6</span>&lt;/<span>div</span>&gt;&lt;/<span>Col</span>&gt;<br/>
-                  &lt;/<span>Row</span>&gt;
+                  sd
                 </pre>
               </footer>
             </div>
-            <div className={`${prefixCls}-box`}>
+            <div className={`${prefixCls}-code-content-box`}>
               <header className={`${prefixCls}-box-header`}>
-                <div className={`${prefixCls}-box-btn`}>
+                <div className={`${prefixCls}-box-aide`}>
                   <Row className={`${prefixCls}-row`}>
                       <Col className={`${prefixCls}-col`} span={18} push={6}><div className={`${prefixCls}-coli`}>col-18 col-push-6</div></Col>
                       <Col className={`${prefixCls}-col`} span={6} pull={18}><div className={`${prefixCls}-coli`}>col-6 col-pull-18</div></Col>
@@ -213,20 +170,14 @@ class index extends React.Component {
                 </p>
               </div>
               <footer className={`${prefixCls}-box-info`}>
-                <div className={`${prefixCls}-info-title`}>
-                  <span>代码示例</span>
-                </div>
                 <pre>
-                  &lt;<span>Row</span>&gt;<br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span>Col</span> <span className={`${prefixCls}-nature`}>span</span>={'{'}<span>18</span>{'}'} <span className={`${prefixCls}-nature`}>push</span>={'{'}<span>6</span>{'}'}&gt;&lt;<span>div</span>&gt;col<span>-18</span> col-push<span>-6</span>&lt;/<span>div</span>&gt;&lt;/<span>Col</span>&gt;<br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span>Col</span> <span className={`${prefixCls}-nature`}>span</span>={'{'}<span>8</span>{'}'} <span className={`${prefixCls}-nature`}>pull</span>={'{'}<span>18</span>{'}'}&gt;&lt;<span>div</span>&gt;col<span>-6</span> col-pull<span>-18</span>&lt;/<span>div</span>&gt;&lt;/<span>Col</span>&gt;<br/>
-                  &lt;/<span>Row</span>&gt;
+                  sd
                 </pre>
               </footer>
             </div>
-            <div className={`${prefixCls}-box`}>
+            <div className={`${prefixCls}-code-content-box`}>
               <header className={`${prefixCls}-box-header`}>
-                <div className={`${prefixCls}-box-btn`}>
+                <div className={`${prefixCls}-box-aide`}>
                   <p>sub-element align left</p>
                   <Row className={`${prefixCls}-row`} type="flex" justify="start">
                       <Col className={`${prefixCls}-col`} span={4}><div className={`${prefixCls}-coli`}>col-4</div></Col>
@@ -274,55 +225,14 @@ class index extends React.Component {
                 </p>
               </div>
               <footer className={`${prefixCls}-box-info`}>
-                <div className={`${prefixCls}-info-title`}>
-                  <span>代码示例</span>
-                </div>
                 <pre>
-                  &lt;<span>p</span>&gt;sub-element align left&lt;/<span>p</span>&gt;<br/>
-                  &lt;<span>Row</span> <span className={`${prefixCls}-nature`}>type</span>="<span>flex</span>" <span className={`${prefixCls}-nature`}>justify</span>="<span>start</span>"&gt;<br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span>Col</span> <span className={`${prefixCls}-nature`}>span</span>={'{'}<span>4</span>{'}'}&gt;&lt;<span>div</span>&gt;col<span>-4</span>&lt;/<span>div</span>&gt;&lt;/<span>Col</span>&gt;<br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span>Col</span> <span className={`${prefixCls}-nature`}>span</span>={'{'}<span>4</span>{'}'}&gt;&lt;<span>div</span>&gt;col<span>-4</span>&lt;/<span>div</span>&gt;&lt;/<span>Col</span>&gt;<br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span>Col</span> <span className={`${prefixCls}-nature`}>span</span>={'{'}<span>4</span>{'}'}&gt;&lt;<span>div</span>&gt;col<span>-4</span>&lt;/<span>div</span>&gt;&lt;/<span>Col</span>&gt;<br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span>Col</span> <span className={`${prefixCls}-nature`}>span</span>={'{'}<span>4</span>{'}'}&gt;&lt;<span>div</span>&gt;col<span>-4</span>&lt;/<span>div</span>&gt;&lt;/<span>Col</span>&gt;<br/>
-                  &lt;/<span>Row</span>&gt;
-                  <br/>
-                  &lt;<span>p</span>&gt;sub-element align center&lt;/<span>p</span>&gt;<br/>
-                  &lt;<span>Row</span> <span className={`${prefixCls}-nature`}>type</span>="<span>flex</span>" <span className={`${prefixCls}-nature`}>justify</span>="<span>center</span>"&gt;<br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span>Col</span> <span className={`${prefixCls}-nature`}>span</span>={'{'}<span>4</span>{'}'}&gt;&lt;<span>div</span>&gt;col<span>-4</span>&lt;/<span>div</span>&gt;&lt;/<span>Col</span>&gt;<br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span>Col</span> <span className={`${prefixCls}-nature`}>span</span>={'{'}<span>4</span>{'}'}&gt;&lt;<span>div</span>&gt;col<span>-4</span>&lt;/<span>div</span>&gt;&lt;/<span>Col</span>&gt;<br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span>Col</span> <span className={`${prefixCls}-nature`}>span</span>={'{'}<span>4</span>{'}'}&gt;&lt;<span>div</span>&gt;col<span>-4</span>&lt;/<span>div</span>&gt;&lt;/<span>Col</span>&gt;<br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span>Col</span> <span className={`${prefixCls}-nature`}>span</span>={'{'}<span>4</span>{'}'}&gt;&lt;<span>div</span>&gt;col<span>-4</span>&lt;/<span>div</span>&gt;&lt;/<span>Col</span>&gt;<br/>
-                  &lt;/<span>Row</span>&gt;
-                  <br/>
-                  &lt;<span>p</span>&gt;sub-element align right&lt;/<span>p</span>&gt;<br/>
-                  &lt;<span>Row</span> <span className={`${prefixCls}-nature`}>type</span>="<span>flex</span>" <span className={`${prefixCls}-nature`}>justify</span>="<span>end</span>"&gt;<br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span>Col</span> <span className={`${prefixCls}-nature`}>span</span>={'{'}<span>4</span>{'}'}&gt;&lt;<span>div</span>&gt;col<span>-4</span>&lt;/<span>div</span>&gt;&lt;/<span>Col</span>&gt;<br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span>Col</span> <span className={`${prefixCls}-nature`}>span</span>={'{'}<span>4</span>{'}'}&gt;&lt;<span>div</span>&gt;col<span>-4</span>&lt;/<span>div</span>&gt;&lt;/<span>Col</span>&gt;<br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span>Col</span> <span className={`${prefixCls}-nature`}>span</span>={'{'}<span>4</span>{'}'}&gt;&lt;<span>div</span>&gt;col<span>-4</span>&lt;/<span>div</span>&gt;&lt;/<span>Col</span>&gt;<br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span>Col</span> <span className={`${prefixCls}-nature`}>span</span>={'{'}<span>4</span>{'}'}&gt;&lt;<span>div</span>&gt;col<span>-4</span>&lt;/<span>div</span>&gt;&lt;/<span>Col</span>&gt;<br/>
-                  &lt;/<span>Row</span>&gt;
-                  <br/>
-                  &lt;<span>p</span>&gt;sub-element monospaced arrangement&lt;/<span>p</span>&gt;<br/>
-                  &lt;<span>Row</span> <span className={`${prefixCls}-nature`}>type</span>="<span>flex</span>" <span className={`${prefixCls}-nature`}>justify</span>="<span>space-between</span>"&gt;<br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span>Col</span> <span className={`${prefixCls}-nature`}>span</span>={'{'}<span>4</span>{'}'}&gt;&lt;<span>div</span>&gt;col<span>-4</span>&lt;/<span>div</span>&gt;&lt;/<span>Col</span>&gt;<br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span>Col</span> <span className={`${prefixCls}-nature`}>span</span>={'{'}<span>4</span>{'}'}&gt;&lt;<span>div</span>&gt;col<span>-4</span>&lt;/<span>div</span>&gt;&lt;/<span>Col</span>&gt;<br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span>Col</span> <span className={`${prefixCls}-nature`}>span</span>={'{'}<span>4</span>{'}'}&gt;&lt;<span>div</span>&gt;col<span>-4</span>&lt;/<span>div</span>&gt;&lt;/<span>Col</span>&gt;<br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span>Col</span> <span className={`${prefixCls}-nature`}>span</span>={'{'}<span>4</span>{'}'}&gt;&lt;<span>div</span>&gt;col<span>-4</span>&lt;/<span>div</span>&gt;&lt;/<span>Col</span>&gt;<br/>
-                  &lt;/<span>Row</span>&gt;
-                  <br/>
-                  &lt;<span>p</span>&gt;sub-element align full&lt;/<span>p</span>&gt;<br/>
-                  &lt;<span>Row</span> <span className={`${prefixCls}-nature`}>type</span>="<span>flex</span>" <span className={`${prefixCls}-nature`}>justify</span>="<span>space-around</span>"&gt;<br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span>Col</span> <span className={`${prefixCls}-nature`}>span</span>={'{'}<span>4</span>{'}'}&gt;&lt;<span>div</span>&gt;col<span>-4</span>&lt;/<span>div</span>&gt;&lt;/<span>Col</span>&gt;<br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span>Col</span> <span className={`${prefixCls}-nature`}>span</span>={'{'}<span>4</span>{'}'}&gt;&lt;<span>div</span>&gt;col<span>-4</span>&lt;/<span>div</span>&gt;&lt;/<span>Col</span>&gt;<br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span>Col</span> <span className={`${prefixCls}-nature`}>span</span>={'{'}<span>4</span>{'}'}&gt;&lt;<span>div</span>&gt;col<span>-4</span>&lt;/<span>div</span>&gt;&lt;/<span>Col</span>&gt;<br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span>Col</span> <span className={`${prefixCls}-nature`}>span</span>={'{'}<span>4</span>{'}'}&gt;&lt;<span>div</span>&gt;col<span>-4</span>&lt;/<span>div</span>&gt;&lt;/<span>Col</span>&gt;<br/>
-                  &lt;/<span>Row</span>&gt;
+                  sd
                 </pre>
               </footer>
             </div>
-            <div className={`${prefixCls}-box`}>
+            <div className={`${prefixCls}-code-content-box`}>
               <header className={`${prefixCls}-box-header`}>
-                <div className={`${prefixCls}-box-btn`}>
+                <div className={`${prefixCls}-box-aide`}>
                   <p>Align Top</p>
                   <Row className={`${prefixCls}-row`} type="flex" justify="center" align="top">
                       <Col className={`${prefixCls}-col`} span={4}><div className={`${prefixCls}-coli`} style={{height: '100px'}}>col-4</div></Col>
@@ -355,39 +265,14 @@ class index extends React.Component {
                 </p>
               </div>
               <footer className={`${prefixCls}-box-info`}>
-                <div className={`${prefixCls}-info-title`}>
-                  <span>代码示例</span>
-                </div>
                 <pre>
-                  &lt;<span>p</span>&gt;Align Top&lt;/<span>p</span>&gt;<br/>
-                  &lt;<span>Row</span> <span className={`${prefixCls}-nature`}>type</span>="<span>flex</span>" <span className={`${prefixCls}-nature`}>justify</span>="<span>center</span>" <span className={`${prefixCls}-nature`}>align</span>="<span>top</span>"&gt;<br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span>Col</span> <span className={`${prefixCls}-nature`}>span</span>={'{'}<span>4</span>{'}'}&gt;&lt;<span>div</span>&gt;col<span>-4</span>&lt;/<span>div</span>&gt;&lt;/<span>Col</span>&gt;<br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span>Col</span> <span className={`${prefixCls}-nature`}>span</span>={'{'}<span>4</span>{'}'}&gt;&lt;<span>div</span>&gt;col<span>-4</span>&lt;/<span>div</span>&gt;&lt;/<span>Col</span>&gt;<br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span>Col</span> <span className={`${prefixCls}-nature`}>span</span>={'{'}<span>4</span>{'}'}&gt;&lt;<span>div</span>&gt;col<span>-4</span>&lt;/<span>div</span>&gt;&lt;/<span>Col</span>&gt;<br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span>Col</span> <span className={`${prefixCls}-nature`}>span</span>={'{'}<span>4</span>{'}'}&gt;&lt;<span>div</span>&gt;col<span>-4</span>&lt;/<span>div</span>&gt;&lt;/<span>Col</span>&gt;<br/>
-                  &lt;/<span>Row</span>&gt;
-                  <br/>
-                  &lt;<span>p</span>&gt;Align Center&lt;/<span>p</span>&gt;<br/>
-                  &lt;<span>Row</span> <span className={`${prefixCls}-nature`}>type</span>="<span>flex</span>" <span className={`${prefixCls}-nature`}>justify</span>="<span>space-around</span>" <span className={`${prefixCls}-nature`}>align</span>="<span>middle</span>&gt;<br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span>Col</span> <span className={`${prefixCls}-nature`}>span</span>={'{'}<span>4</span>{'}'}&gt;&lt;<span>div</span>&gt;col<span>-4</span>&lt;/<span>div</span>&gt;&lt;/<span>Col</span>&gt;<br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span>Col</span> <span className={`${prefixCls}-nature`}>span</span>={'{'}<span>4</span>{'}'}&gt;&lt;<span>div</span>&gt;col<span>-4</span>&lt;/<span>div</span>&gt;&lt;/<span>Col</span>&gt;<br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span>Col</span> <span className={`${prefixCls}-nature`}>span</span>={'{'}<span>4</span>{'}'}&gt;&lt;<span>div</span>&gt;col<span>-4</span>&lt;/<span>div</span>&gt;&lt;/<span>Col</span>&gt;<br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span>Col</span> <span className={`${prefixCls}-nature`}>span</span>={'{'}<span>4</span>{'}'}&gt;&lt;<span>div</span>&gt;col<span>-4</span>&lt;/<span>div</span>&gt;&lt;/<span>Col</span>&gt;<br/>
-                  &lt;/<span>Row</span>&gt;
-                  <br/>
-                  &lt;<span>p</span>&gt;Align Bottom&lt;/<span>p</span>&gt;<br/>
-                  &lt;<span>Row</span> <span className={`${prefixCls}-nature`}>type</span>="<span>flex</span>" <span className={`${prefixCls}-nature`}>justify</span>="<span>space-between</span>" <span className={`${prefixCls}-nature`}>align</span>="<span>bottom</span>"&gt;<br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span>Col</span> <span className={`${prefixCls}-nature`}>span</span>={'{'}<span>4</span>{'}'}&gt;&lt;<span>div</span>&gt;col<span>-4</span>&lt;/<span>div</span>&gt;&lt;/<span>Col</span>&gt;<br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span>Col</span> <span className={`${prefixCls}-nature`}>span</span>={'{'}<span>4</span>{'}'}&gt;&lt;<span>div</span>&gt;col<span>-4</span>&lt;/<span>div</span>&gt;&lt;/<span>Col</span>&gt;<br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span>Col</span> <span className={`${prefixCls}-nature`}>span</span>={'{'}<span>4</span>{'}'}&gt;&lt;<span>div</span>&gt;col<span>-4</span>&lt;/<span>div</span>&gt;&lt;/<span>Col</span>&gt;<br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span>Col</span> <span className={`${prefixCls}-nature`}>span</span>={'{'}<span>4</span>{'}'}&gt;&lt;<span>div</span>&gt;col<span>-4</span>&lt;/<span>div</span>&gt;&lt;/<span>Col</span>&gt;<br/>
-                  &lt;/<span>Row</span>&gt;
+                  sds
                 </pre>
               </footer>
             </div>
-            <div className={`${prefixCls}-box`}>
+            <div className={`${prefixCls}-code-content-box`}>
               <header className={`${prefixCls}-box-header`}>
-                <div className={`${prefixCls}-box-btn`}>
+                <div className={`${prefixCls}-box-aide`}>
                   <Row className={`${prefixCls}-row`} type="flex">
                       <Col className={`${prefixCls}-col`} span={6} order={4}><div className={`${prefixCls}-coli`}>1 col-order-4</div></Col>
                       <Col className={`${prefixCls}-col`} span={6} order={3}><div className={`${prefixCls}-coli`}>2 col-order-3</div></Col>
@@ -405,16 +290,8 @@ class index extends React.Component {
                 </p>
               </div>
               <footer className={`${prefixCls}-box-info`}>
-                <div className={`${prefixCls}-info-title`}>
-                  <span>代码示例</span>
-                </div>
                 <pre>
-                  &lt;<span>Row</span> <span className={`${prefixCls}-nature`}>type</span>="<span>flex</span>"&gt;<br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span>Col</span> <span className={`${prefixCls}-nature`}>span</span>={'{'}<span>6</span>{'}'}  <span className={`${prefixCls}-nature`}>order</span>={'{'}<span>4</span>{'}'}&gt;&lt;<span>div</span>&gt;<span>1 </span>col-order<span>-4</span>&lt;/<span>div</span>&gt;&lt;/<span>Col</span>&gt;<br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span>Col</span> <span className={`${prefixCls}-nature`}>span</span>={'{'}<span>6</span>{'}'}  <span className={`${prefixCls}-nature`}>order</span>={'{'}<span>3</span>{'}'}&gt;&lt;<span>div</span>&gt;<span>2 </span>col-order<span>-3</span>&lt;/<span>div</span>&gt;&lt;/<span>Col</span>&gt;<br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span>Col</span> <span className={`${prefixCls}-nature`}>span</span>={'{'}<span>6</span>{'}'}  <span className={`${prefixCls}-nature`}>order</span>={'{'}<span>2</span>{'}'}&gt;&lt;<span>div</span>&gt;<span>3 </span>col-order<span>-2</span>&lt;/<span>div</span>&gt;&lt;/<span>Col</span>&gt;<br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span>Col</span> <span className={`${prefixCls}-nature`}>span</span>={'{'}<span>6</span>{'}'}  <span className={`${prefixCls}-nature`}>order</span>={'{'}<span>1</span>{'}'}&gt;&lt;<span>div</span>&gt;<span>4 </span>col-order<span>-1</span>&lt;/<span>div</span>&gt;&lt;/<span>Col</span>&gt;<br/>
-                  &lt;/<span>Row</span>&gt;
+                  sd
                 </pre>
               </footer>
             </div>

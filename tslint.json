@@ -1,6 +1,7 @@
 {
   "extends": ["tslint-react", "tslint-eslint-rules", "tslint-config-prettier"],
   "rules": {
+    "object-literal-sort-keys": [false],
     "eofline": true,
     "forin": true,
     "jsdoc-format": false,
@@ -27,7 +28,7 @@
     "no-shadowed-variable": true,
     "no-string-literal": true,
     "no-trailing-whitespace": true,
-    "no-unused-expression": true,
+    "no-unused-expression": false,
     "no-var-keyword": true,
     "one-variable-per-declaration": [true, "ignore-for-loop"],
     "radix": true,

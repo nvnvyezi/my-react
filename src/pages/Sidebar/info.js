@@ -2,6 +2,7 @@ import Button from '../Button/index';
 import Grid from "../Grid/index";
 import Layout from "../Layout/index";
 import Radio from '../Radio/index'
+import Autocomplete from '../AutoComplete/index'
 
 export default [
   {
@@ -43,5 +44,9 @@ export default [
     name: 'Radio 单选框',
     url: '/radio',
     template: Radio
+  },{
+    name: 'AutoComplete 自动完成',
+    url: '/rautocomplete',
+    template: Autocomplete
   }
 ]

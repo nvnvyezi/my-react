@@ -58,9 +58,8 @@
   }
 }
 
-
-
-.@{prefixCls}-box {
+// 展示区代码框
+.@{prefixCls}-code-content-box {
   .codeg;
   margin-bottom: 20px;
   .@{prefixCls}-box-header {
@@ -69,7 +68,7 @@
       .pg;
     }
   }
-  .@{prefixCls}-box-btn {
+  .@{prefixCls}-box-aide {
     .aideg;
 
     ul {
@@ -88,7 +87,7 @@
     }
   }
 }
-
+// 代码框的信息
 .@{prefixCls}-box-info {
   border: 1px solid #ebedf0;
   border-top: none;
@@ -105,7 +104,7 @@
   .@{prefixCls}-info-code-show {
     position: absolute;
     right: 16px;
-    bottom: 23px;
+    bottom: 29px;
     cursor: pointer;
     width: 16px;
     height: 16px;
@@ -124,6 +123,7 @@
   }
 
   pre {
+    white-space: pre-wrap;
     padding: 20px 0 0 0;
     color: red;
     font: 550 13px/20px @fontFamily;
@@ -136,7 +136,7 @@
     }
   }
 }
-
+// 参数表格信息
 .@{prefixCls}-table {
   width: 100%;
   text-align: left;
@@ -202,7 +202,7 @@
 }
 
 //展示区布局
-.@{prefixCls}-content {
+.@{prefixCls}-code-content {
   width: 100%;
   height: auto;
   display: flex;

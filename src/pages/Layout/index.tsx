@@ -55,9 +55,9 @@ class index extends React.Component {
           </section>
           <section className={`${prefixCls}-code`}>
             <h2>代码演示</h2>
-            <div className={`${prefixCls}-box`}>
+            <div className={`${prefixCls}-code-content-box`}>
               <header className={`${prefixCls}-box-header`}>
-                <div className={`${prefixCls}-box-btn`}>
+                <div className={`${prefixCls}-box-aide`}>
                   <Layout className={`${prefixCls}-layout`} type="column">
                     <Header className={`${prefixCls}-layout-header`}>header</Header>
                     <Content className={`${prefixCls}-layout-content`}>content</Content>
@@ -98,42 +98,8 @@ class index extends React.Component {
                 </p>
               </section>
               <footer className={`${prefixCls}-box-info`}>
-                <div className={`${prefixCls}-info-title`}>
-                  <span>代码示例</span>
-                </div>
                 <pre>
-                  &lt;<span>Layout</span> <span className={`${prefixCls}-nature`}>type</span>="<span>column</span>"&gt;<br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span>Header</span>&gt;header&lt;/<span>Header</span>&gt;<br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span>Content</span>&gt;content&lt;/<span>Content</span>&gt;<br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span>Footer</span>&gt;footer&lt;/<span>Footer</span>&gt;<br/>
-                  &lt;/<span>Layout</span>&gt;
-                  <br/>
-                  &lt;<span>Layout</span>&gt;<br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span>Header</span>&gt;header&lt;/<span>Header</span>&gt;<br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span>Layout</span>  <span className={`${prefixCls}-nature`}>type</span>="<span>row</span>"&gt;<br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span>Sider</span>&gt;sider&lt;/<span>Sider</span>&gt;<br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span>Content</span>&gt;content&lt;/<span>Content</span>&gt;<br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;/<span>Layout</span>&gt;<br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span>Footer</span>&gt;footer&lt;/<span>Footer</span>&gt;<br/>
-                  &lt;/<span>Layout</span>&gt;
-                  <br/>
-                  &lt;<span>Layout</span>&gt;<br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span>Header</span>&gt;header&lt;/<span>Header</span>&gt;<br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span>Layout</span>  <span className={`${prefixCls}-nature`}>type</span>="<span>row</span>"&gt;<br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span>Content</span>&gt;content&lt;/<span>Content</span>&gt;<br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span>Sider</span>&gt;sider&lt;/<span>Sider</span>&gt;<br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;/<span>Layout</span>&gt;<br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span>Footer</span>&gt;footer&lt;/<span>Footer</span>&gt;<br/>
-                  &lt;/<span>Layout</span>&gt;
-                  <br/>
-                  &lt;<span>Layout</span>  <span className={`${prefixCls}-nature`}>type</span>="<span>row</span>"&gt;<br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span>Sider</span>&gt;sider&lt;/<span>Sider</span>&gt;<br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span>Layout</span>&gt;<br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span>Header</span>&gt;header&lt;/<span>Header</span>&gt;<br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span>Content</span>&gt;content&lt;/<span>Content</span>&gt;<br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span>Footer</span>&gt;footer&lt;/<span>Footer</span>&gt;<br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;/<span>Layout</span>&gt;<br/>
-                  &lt;/<span>Layout</span>&gt;
+                  sd
                 </pre>
               </footer>
             </div>

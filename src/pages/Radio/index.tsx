@@ -88,8 +88,8 @@ class index extends React.PureComponent<IradioProps, Istate> {
           </section>
           <section className={`${prefixCls}-code`}>
             <h2>代码演示</h2>
-            <section className={`${prefixCls}-content`}>
-              <div className={`${prefixCls}-box`}>
+            <section className={`${prefixCls}-code-content`}>
+              <div className={`${prefixCls}-code-content-box`}>
                 <header className={`${prefixCls}-box-header`}>
                   <div className={`${prefixCls}-box-aide`}>
                     <Radio name="radio">Radio</Radio>
@@ -97,7 +97,7 @@ class index extends React.PureComponent<IradioProps, Istate> {
                 </header>
                 <InfoCode prefixCls={prefixCls} flag={this.state.flag1} code={code1} onFlag={this.handleFlag.bind(this, 1)} title={'基本'} text={'最简单的用法。'} />
               </div>
-              <div className={`${prefixCls}-box`}>
+              <div className={`${prefixCls}-code-content-box`}>
                 <header className={`${prefixCls}-box-header`}>
                   <div className={`${prefixCls}-box-aide`}>
                     <Radio.Group defaultValue={2} name="radio1">
@@ -110,7 +110,7 @@ class index extends React.PureComponent<IradioProps, Istate> {
                 </header>
                 <InfoCode prefixCls={prefixCls} flag={this.state.flag2} code={code1} onFlag={this.handleFlag.bind(this, 2)} title={'单选组合'} text={'一组互斥的 Radio 配合使用。并且携带默认值。'} />
               </div>
-              <div className={`${prefixCls}-box`}>
+              <div className={`${prefixCls}-code-content-box`}>
                 <header className={`${prefixCls}-box-header`}>
                   <div className={`${prefixCls}-box-aide`}>
                     <Radio.Group disabled>
@@ -123,13 +123,26 @@ class index extends React.PureComponent<IradioProps, Istate> {
                 </header>
                 <InfoCode prefixCls={prefixCls} flag={this.state.flag3} code={code1} onFlag={this.handleFlag.bind(this, 3)} title={'不可用'} text={'Radio 不可用。'} />
               </div>
-              <div className={`${prefixCls}-box`}>
+              <div className={`${prefixCls}-code-content-box`}>
                 <header className={`${prefixCls}-box-header`}>
                   <div className={`${prefixCls}-box-aide`}>
                     <Radio.Group name="radio2" options={options} onChange={this.handleChange} />
                   </div>
                 </header>
                 <InfoCode prefixCls={prefixCls} flag={this.state.flag4} code={code1} onFlag={this.handleFlag.bind(this, 4)} title={'组合 - 配置方式'} text={'通过配置 options 参数来渲染单选框。'} />
+              </div>
+              <div className={`${prefixCls}-code-content-box`}>
+                <header className={`${prefixCls}-box-header`}>
+                  <div className={`${prefixCls}-box-aide`}>
+                    <Radio.Group name="radio2">
+                      <Radio>A</Radio>
+                      <Radio>B</Radio>
+                      <Radio>C</Radio>
+                      <Radio><input type="text"/></Radio>
+                    </Radio.Group>
+                  </div>
+                </header>
+                <InfoCode prefixCls={prefixCls} flag={this.state.flag3} code={code1} onFlag={this.handleFlag.bind(this, 3)} title={'不可用'} text={'Radio 不可用。'} />
               </div>
             </section>
           </section>

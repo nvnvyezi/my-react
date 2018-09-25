@@ -13,6 +13,7 @@ interface IradioProps {
   disabled?: boolean;
   onChange?: any;
   value?: any;
+  checked?: boolean;
 }
 
 class Radio extends React.Component<IradioProps> {
@@ -36,7 +37,7 @@ class Radio extends React.Component<IradioProps> {
   }
 
   render() {
-    const { prefixCls, className, defaultChecked, disabled, name, id, onChange, children, value, ...others} = this.props;
+    const { prefixCls, className, defaultChecked, checked, disabled, name, id, onChange, children, value, ...others} = this.props;
     const classes = classNames(`${prefixCls}-radio`, className, {
     })
     const classLabel = classNames(prefixCls, {
@@ -44,7 +45,7 @@ class Radio extends React.Component<IradioProps> {
     })
     return (
       <label className={classLabel}>
-        <input { ...others } className={classes} type="radio" name={name} id={id} defaultChecked={defaultChecked} disabled={disabled} onChange={this.handleChange} value={value}/>
+        <input { ...others } className={classes} type="radio" name={name} id={id} defaultChecked={defaultChecked} disabled={disabled} onChange={this.handleChange} value={value} checked={checked}/>
         <span className={`${prefixCls}-circle`} />
         <div className={`${prefixCls}-others`}>{children}</div>
       </label>
