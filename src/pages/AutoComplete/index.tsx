@@ -25,7 +25,7 @@ class index extends React.PureComponent<IautoProps, IautoState> {
   constructor(props: IautoProps) {
     super(props);
     this.state = {
-      dataSource: [1, 2, 3],
+      dataSource: [],
       flag: false,
     }
   }
@@ -77,7 +77,7 @@ class index extends React.PureComponent<IautoProps, IautoState> {
               <div className={`${prefixCls}-code-content-box`}>
                 <header className={`${prefixCls}-box-header`}>
                   <div className={`${prefixCls}-box-aide`}>
-                    <AutoComplete dataSource={dataSource} onSearch={this.handleSearch} allowClear placeholder="nvnvyezi" onSelect={this.handleSelect} autoFocus style={{ width: '300px' }} onFocus={this.handleFocus} onBlur={this.handleBlur} onChange={this.handleChange} />
+                    <AutoComplete dataSource={dataSource} onSearch={this.handleSearch} allowClear placeholder="nvnvyezi" onSelect={this.handleSelect} style={{ width: '300px' }} onFocus={this.handleFocus} onBlur={this.handleBlur} onChange={this.handleChange}/>
                   </div>
                 </header>
                 <InfoCode prefixCls={prefixCls} flag={flag} onFlag={this.handleFlag} code={code} text="基本使用。通过 dataSource 设置自动完成的数据源。" title="基本使用" />

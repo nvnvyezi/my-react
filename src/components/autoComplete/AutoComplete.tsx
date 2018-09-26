@@ -4,13 +4,13 @@ import { IautoProps, IautoState } from "./interfance";
 const classNames = require('classnames');
 
 import './AutoComplete.less'
-
 class AutoComplete extends React.PureComponent<IautoProps, IautoState> {
   static defaultProps = {
     prefixCls: 'nvnv-autocomplete',
     allowClear: false,
     placeholder: 'input here',
     autoFocus: false,
+    dataSource: [],
   }
   static propTypes = {
     prefixCls: PropTypes.string,
@@ -44,10 +44,15 @@ class AutoComplete extends React.PureComponent<IautoProps, IautoState> {
       const { prefixCls } = this.props;
       e = e || event;
       let currentKey = e.keyCode || e.which || e.charCode;
+      let node;
+      try {
+        node = this.selectBox.children;
+      } catch (error) {
+        node = []
+      }
         // 向上
-      if (allowSelectBox && currentKey === 38) {
+      if (node.length && allowSelectBox && currentKey === 38) {
         let num = +keyNum - 1;
-        let node = this.selectBox.children;
         if (num === -1) {
           num = node.length - 1;
         }
@@ -62,9 +67,8 @@ class AutoComplete extends React.PureComponent<IautoProps, IautoState> {
         node[num + 1].classList.remove(`${prefixCls}-bgColor`)
       }
       // 向下
-      if (allowSelectBox && currentKey === 40) {
+      if (node.length && allowSelectBox && currentKey === 40) {
         let num = +keyNum + 1;
-        let node = this.selectBox.children;
         if (num === node.length) {
           num = 0;
         }
@@ -78,8 +82,8 @@ class AutoComplete extends React.PureComponent<IautoProps, IautoState> {
         :
         node[num - 1].classList.remove(`${prefixCls}-bgColor`)
       }
-      if (allowSelectBox && currentKey === 13) {
-        let node = this.selectBox.children[keyNum];
+      if (node.length && allowSelectBox && currentKey === 13) {
+        node = node[keyNum];
         this.setState({
           value: node.innerText || node.innerText.textContent,
           keyNum: node.getAttribute('data-index'),
@@ -118,7 +122,6 @@ class AutoComplete extends React.PureComponent<IautoProps, IautoState> {
   handleAllowClear = () => {
     this.setState({
       value: '',
-      allowSelectBox: false,
     })
   }
   // 处理input　onChange事件
@@ -139,11 +142,15 @@ class AutoComplete extends React.PureComponent<IautoProps, IautoState> {
         select: 0,
         keyNum: 0,
       }, () => {
-        let node = this.selectBox.children;
-        for (let i = 0, len = node.length; i < len; i++) {
-          node[i].classList.remove('nvnv-autocomplete-bgColor');
+        try {
+          let node = this.selectBox.children;
+          for (let i = 0, len = node.length; i < len; i++) {
+            node[i].classList.remove('nvnv-autocomplete-bgColor');
+          }
+          node[0].classList.add('nvnv-autocomplete-bgColor');
+        } catch (error) {
+          console.log('别慌，正常操作');
         }
-        node[0].classList.add('nvnv-autocomplete-bgColor');
       })
     } else {
       this.setState({
@@ -167,7 +174,10 @@ class AutoComplete extends React.PureComponent<IautoProps, IautoState> {
 
   // focus blur 处理
   handleShowSelect = () => {
-    this.focus();
+    const { onFocus } = this.props;
+    if (onFocus && typeof onFocus === 'function') {
+      onFocus();
+    };
     const { value } = this.state;
     if (value) {
       this.setState({
@@ -176,7 +186,10 @@ class AutoComplete extends React.PureComponent<IautoProps, IautoState> {
     }
   }
   handleHideSelect = () => {
-    this.blur();
+    const { onBlur } = this.props;
+    if (onBlur && typeof onBlur === 'function') {
+      onBlur();
+    }
     setTimeout(() => {
       this.setState({
         allowSelectBox: false,
@@ -185,9 +198,10 @@ class AutoComplete extends React.PureComponent<IautoProps, IautoState> {
   }
 
   render() {
-    const { prefixCls, placeholder, allowClear, autoFocus, dataSource, onSearch, style, onSelect, onFocus, onBlur, onChange, ...others } = this.props;
+    const { prefixCls, placeholder, allowClear, autoFocus, dataSource, onSearch, style, onSelect, onFocus, onBlur, onChange, disabled, ...others } = this.props;
     const { allowClearFlag, value, select, allowSelectBox } = this.state;
     const classesInput = classNames(`${prefixCls}-input`, {
+      [`${prefixCls}-disabled`]: disabled,
     })
     const classesallowclear = classNames(`${prefixCls}-allowclear`, {
       [`${prefixCls}-allowclear-hidden`]: !allowClearFlag,
@@ -195,7 +209,7 @@ class AutoComplete extends React.PureComponent<IautoProps, IautoState> {
     return (
       <div { ...others} className={prefixCls} style={style}>
         <span className={`${prefixCls}-input-aide`}>
-          <input ref={this.savecheckinput} className={classesInput} type="text" name="" id="" placeholder={placeholder} value={value} onChange={this.handleChange} onFocus={this.handleShowSelect} onBlur={this.handleHideSelect}/>
+          <input ref={this.savecheckinput} className={classesInput} type="text" name="" id="" placeholder={placeholder} value={value} onChange={this.handleChange} onFocus={this.handleShowSelect} onBlur={this.handleHideSelect} disabled={disabled} />
           {
             allowClear && <i className={classesallowclear} onClick={this.handleAllowClear}/>
           }
@@ -205,7 +219,7 @@ class AutoComplete extends React.PureComponent<IautoProps, IautoState> {
           <div className={`${prefixCls}-search-box`}>
             <ul ref={this.saveSelectBox} className={`${prefixCls}-search-ul`}>
               {
-                dataSource.map((item: any, index: any) => {
+                dataSource && dataSource.map((item: any, index: any) => {
                   const classesSelect = classNames(`${prefixCls}-search-li`, {
                     [`${prefixCls}-select`]: select == index,
                     [`${prefixCls}-bgColor`]: select == index,

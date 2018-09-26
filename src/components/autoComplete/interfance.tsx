@@ -5,9 +5,10 @@ type DataSourceItemType = string | DataSourceObject;
 export interface IautoProps {
   prefixCls?: string;
   allowClear?: boolean;
+  disabled?: boolean;
   placeholder?: string;
   autoFocus?: boolean;
-  dataSource: DataSourceItemType[];
+  dataSource?: DataSourceItemType[];
   onSearch?: Function;
   onSelect?: Function;
   onFocus?: Function;
