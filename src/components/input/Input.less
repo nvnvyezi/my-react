@@ -1,0 +1,25 @@
+@import '../style/default.less';
+
+@prefixCls: nvnv-input;
+
+.@{prefixCls}-input {
+  width: 100%;
+  font: 400 14px/30px @fontFamily;
+  border: none;
+  border-radius: 5px;
+  border: 1px solid @grayColor;
+  text-indent: 12px;
+  box-sizing: border-box;
+  padding-right: 12px;
+  &::placeholder {
+    color: @grayColor;
+    text-indent: 12px;
+    font: 400 14px/30px @fontFamily;
+  }
+  &:focus {
+    outline: 0;
+    border-color: @primaryFocusColor;
+    border-radius: 5px;
+    box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+  }
+}

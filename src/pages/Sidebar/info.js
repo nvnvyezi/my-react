@@ -3,6 +3,9 @@ import Grid from "../Grid/index";
 import Layout from "../Layout/index";
 import Radio from '../Radio/index'
 import Autocomplete from '../AutoComplete/index'
+import Cascader from '../Cascader/index'
+import Input from '../Input/index'
+import Select from '../Select/index'
 
 export default [
   {
@@ -48,5 +51,17 @@ export default [
     name: 'AutoComplete 自动完成',
     url: '/rautocomplete',
     template: Autocomplete
+  },{
+    name: 'Cascader 级联选择',
+    url: '/cascader',
+    template: Cascader
+  },{
+    name: 'Input 输入框',
+    url: '/input',
+    template: Input
+  },{
+    name: 'Select 选择器',
+    url: '/select',
+    template: Select
   }
 ]

@@ -1,0 +1,153 @@
+@import '../style/default.less';
+
+@prefixCls: nvnv-select;
+
+.@{prefixCls} {
+  position: relative;
+  width: 150px;
+  height: auto;
+  user-select: none;
+}
+
+.@{prefixCls}-select {
+  width: 100%;
+  height: 32px;
+  position: relative;
+  cursor: pointer;
+  border: 1px solid @grayColor;
+  border-radius: 5px;
+  box-sizing: border-box;
+  transition: color 0.3s ease, opacity 0.15s ease;
+  &:hover {
+    transition: color 0.3s ease, opacity 0.15s ease;
+    border-color: @primaryFocusColor;
+  }
+  &:focus {
+    outline: 0;
+    border-color: @primaryFocusColor;
+    box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+  }
+  .@{prefixCls}-aide {
+    width: 100%;
+    padding: 0 12px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .@{prefixCls}-title {
+      max-width: calc(100% - 23px);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: @wordColor;
+      font: 400 14px/30px @fontFamily;
+    }
+  }
+}
+
+// 上拉收起图标的转换
+.@{prefixCls}-icon-hide {
+  transition: transform .5s ease;
+  transform: rotate(180deg);
+}
+.@{prefixCls}-icon-show {
+  transition: transform .5s ease;
+  transform: rotate(0);
+}
+
+.@{prefixCls}-icon {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  background: url('./image/向下边框三角.svg') no-repeat  0 0;
+  background-size: 100% 100%;
+}
+
+// option的box
+.@{prefixCls}-option {
+  width: 100%;
+  height: auto;
+  box-shadow: 0 1px 3px 1px @grayColor;
+  position: absolute;
+  margin-top: 2px;
+  left: 0;
+  background-color: #fff;
+  z-index: 999;
+  border-radius: 5px;
+  animation: optionFade .1s ease;
+  animation-fill-mode: forwards;
+  transform-origin: 50% 0;
+}
+
+@keyframes optionFade {
+  0%{transform: scale(1,0);}
+  25%{transform: scale(1,0.25);}
+  50%{transform: scale(1,0.5);}
+  75%{transform: scale(1,0.75);}
+  100%{transform: scale(1,1);}
+}
+// option multiple
+.@{prefixCls}-option-multiple {
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+// 禁止点击
+.@{prefixCls}-disabled {
+  background-color: @grayColor1;
+  cursor: not-allowed;
+  .@{prefixCls}-title {
+    color: @grayColor !important;
+    display: flex;
+    align-items: center;
+  }
+  &:hover {
+    border-color: @grayColor;
+  }
+}
+
+// multiple　select框
+.@{prefixCls}-select-multiple {
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  min-height: 30px;
+}
+.@{prefixCls}-multiple {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 5px;
+  color: @grayColor;
+}
+
+// 选中的框 
+.@{prefixCls}-multiple-box {
+  width: auto;
+  padding: 3px 1px 1px 7px;
+  margin: 4px 2px !important;
+  margin: 0;
+  font: 400 14px/14px @fontFamily;
+  display: inline-block;
+  border: 1px solid @grayColor;
+  color: @wordColor;
+  background-color: @grayColor1;
+  animation: multipleFade .25s ease;
+  .@{prefixCls}-multiple-icon {
+    vertical-align: middle;
+    width: 20px;
+    height: 14px;
+    display: inline-block;
+    background: url('./image/错误.svg') no-repeat 5px 0;
+    background-size: 14px 14px;
+  }
+}
+@keyframes multipleFade {
+  from {
+    transform: scale3d(0,0,0);
+  }
+  to {
+    transform: scale3d(1,1,1);
+  }
+}
