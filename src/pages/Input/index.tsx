@@ -1,39 +1,86 @@
 import * as React from 'react';
 import './index.less'
-import { Input } from "../../components/nvnvyezi";
+import { Input, Select } from "../../components/nvnvyezi";
 import { InfoCode } from "../common/InfoCode/index";
 
 interface IinputProps {
   prefixCls: string;
   code: string;
+  code1: string;
 }
 interface IinputState {
   flag: boolean;
+  flag1: boolean;
 }
 
+const selectBefore = (
+  <Select defaultValue="Http://" style={{ width: 100}} classNameSelect="show-input-before">
+    <Select.Option value="Http://">Http://</Select.Option>
+    <Select.Option value="Https://">Https://</Select.Option>
+  </Select>
+);
+const selectAfter = (
+  <Select defaultValue=".com" style={{ width: 80 }} classNameSelect="show-input-after">
+    <Select.Option value=".com">.com</Select.Option>
+    <Select.Option value=".jp">.jp</Select.Option>
+    <Select.Option value=".cn">.cn</Select.Option>
+    <Select.Option value=".org">.org</Select.Option>
+  </Select>
+);
 class index extends React.PureComponent<IinputProps, IinputState> {
   static defaultProps = {
     prefixCls: 'show-input',
     code: '<Input placeholder="Basic usage" />',
+    code1: `
+const selectBefore = (
+  <Select defaultValue="Http://" style={{ width: 100}} classNameSelect="show-input-before">
+    <Select.Option value="Http://">Http://</Select.Option>
+    <Select.Option value="Https://">Https://</Select.Option>
+  </Select>
+);
+const selectAfter = (
+  <Select defaultValue=".com" style={{ width: 80 }} classNameSelect="show-input-after">
+    <Select.Option value=".com">.com</Select.Option>
+    <Select.Option value=".jp">.jp</Select.Option>
+    <Select.Option value=".cn">.cn</Select.Option>
+    <Select.Option value=".org">.org</Select.Option>
+  </Select>
+);
+
+<Input placeholder="mysite" addonBefore="Http://" addonAfter=".com" defaultValue="nvnvyezi"/>
+<Input className={} placeholder="mysite" addonBefore={selectBefore} addonAfter={selectAfter} defaultValue="nvnvyezi"/>
+<Input className={} placeholder="mysite" addonAfter={selectAfter} defaultValue="nvnvyezi"/>
+    `,
   }
   constructor(props: IinputProps) {
     super(props);
     this.state = {
       flag: false,
+      flag1: false,
     }
   }
 
-  handleFlag = () => {
-    this.setState({
-      flag: !this.state.flag,
-    })
+  handleFlag = (num: number) => {
+    switch (num) {
+      case 0:
+      this.setState({
+        flag: !this.state.flag,
+      })
+        break;
+      case 1:
+      this.setState({
+        flag1: !this.state.flag1,
+      })
+      default:
+        break;
+    }
   }
   handleChange = (e: any) => {
     console.log(e.target.value);
   }
   render() {
-    const { prefixCls, code } = this.props;
-    const { flag } = this.state;
+    const { prefixCls, code, code1 } = this.props;
+    const { flag, flag1 } = this.state;
     return (
       <div className={prefixCls}>
         <div className={`${prefixCls}-aide`}>
@@ -57,15 +104,17 @@ class index extends React.PureComponent<IinputProps, IinputState> {
                     <Input placeholder="Basic usage" onChange={this.handleChange}/>
                   </div>
                 </header>
-                <InfoCode prefixCls={prefixCls} text="基本使用。" title="基本使用" code={code} flag={flag} onFlag={this.handleFlag} />
+                <InfoCode prefixCls={prefixCls} text="基本使用。" title="基本使用" code={code} flag={flag} onFlag={this.handleFlag.bind(this, 0)} />
               </div>
               <div className={`${prefixCls}-code-content-box`}>
                 <header className={`${prefixCls}-box-header`}>
                   <div className={`${prefixCls}-box-aide`}>
-                    <Input placeholder="mysite" addonBefore="Http://"/>
+                    <Input placeholder="mysite" addonBefore="Http://" addonAfter=".com" defaultValue="nvnvyezi"/>
+                    <Input className={`${prefixCls}-input`} placeholder="mysite" addonBefore={selectBefore} addonAfter={selectAfter} defaultValue="nvnvyezi"/>
+                    <Input className={`${prefixCls}-input`} placeholder="mysite" addonAfter={selectAfter} defaultValue="nvnvyezi"/>
                   </div>
                 </header>
-                <InfoCode prefixCls={prefixCls} text="基本使用。" title="基本使用" code={code} flag={flag} onFlag={this.handleFlag} />
+                <InfoCode prefixCls={prefixCls} text="用于配置一些固定组合。" title="前置/后置标签" code={code1} flag={flag1} onFlag={this.handleFlag.bind(this, 1)} />
               </div>
             </div>
           </section>

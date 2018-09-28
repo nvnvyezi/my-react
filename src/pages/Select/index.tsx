@@ -158,6 +158,12 @@ for (let i = 10; i < 36; i++) {
                   <td>-</td>
                 </tr>
                 <tr>
+                  <td>classNameSelect</td>
+                  <td>设置select样式</td>
+                  <td>string</td>
+                  <td>-</td>
+                </tr>
+                <tr>
                   <td>disabled</td>
                   <td>是否禁用</td>
                   <td>boolean</td>

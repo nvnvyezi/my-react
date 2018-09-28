@@ -20,6 +20,7 @@ class Select extends React.PureComponent<IselectProps, IselectState> {
     disabled: PropTypes.bool,
     multiple: PropTypes.bool,
     placeholder: PropTypes.string,
+    classNameSelect: PropTypes.string,
   }
   // 处理首次显示
   static getDerivedStateFromProps (props: any, state: any) {
@@ -158,11 +159,11 @@ class Select extends React.PureComponent<IselectProps, IselectState> {
   }
 
   render() {
-    const { prefixCls, children, style, className, disabled, multiple } = this.props;
+    const { prefixCls, children, style, className, classNameSelect, disabled, multiple } = this.props;
     const { allowOptionBox, text, valueFlag, multipleArr } = this.state;
     const classes = classNames(prefixCls, className, {
     })
-    const classesSelect = classNames(`${prefixCls}-select`, {
+    const classesSelect = classNames(`${prefixCls}-select`, classNameSelect, {
       [`${prefixCls}-disabled`]: disabled,
       [`${prefixCls}-select-multiple`]: multiple,
     })

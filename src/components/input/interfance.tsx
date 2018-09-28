@@ -1,7 +1,11 @@
 export interface IinputProps {
   prefixCls: string;
   placeholder?: string;
-  addonAfter?: string | Array<any> | React.ReactNode;
-  addonBefore?: string | Array<any> | React.ReactNode;
+  addonAfter?: string | React.ReactNode;
+  addonBefore?: string | React.ReactNode;
   onChange?: Function;
+  className?: string;
+  defaultValue?: string;
+  radiusLeft?: boolean;
+  radiusRight?: boolean;
 }

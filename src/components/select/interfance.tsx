@@ -15,6 +15,7 @@ export interface IselectProps extends Igong {
   onFocus?: Function;
   onBlur?: Function;
   autoFocus?: boolean;
+  classNameSelect?: string;
 }
 
 export interface IselectState extends Igong {
