@@ -7,10 +7,12 @@ interface IinputProps {
   prefixCls: string;
   code: string;
   code1: string;
+  code2: string;
 }
 interface IinputState {
   flag: boolean;
   flag1: boolean;
+  flag2: boolean;
 }
 
 const selectBefore = (
@@ -38,6 +40,7 @@ const selectBefore = (
     <Select.Option value="Https://">Https://</Select.Option>
   </Select>
 );
+
 const selectAfter = (
   <Select defaultValue=".com" style={{ width: 80 }} classNameSelect="show-input-after">
     <Select.Option value=".com">.com</Select.Option>
@@ -48,15 +51,28 @@ const selectAfter = (
 );
 
 <Input placeholder="mysite" addonBefore="Http://" addonAfter=".com" defaultValue="nvnvyezi"/>
+
 <Input className={} placeholder="mysite" addonBefore={selectBefore} addonAfter={selectAfter} defaultValue="nvnvyezi"/>
+
 <Input className={} placeholder="mysite" addonAfter={selectAfter} defaultValue="nvnvyezi"/>
     `,
+    code2: `
+<Input.Search className={} placeholder="input search text" onChange={this.handleChange} onSearch={this.handleSearch} />
+
+<br/><br/>
+
+<Input.Search enterButton placeholder="input search text" onChange={this.handleChange} onSearch={this.handleSearch} />
+
+<br/><br/>
+
+<Input.Search enterButton="Search" placeholder="input search text" onChange={this.handleChange} onSearch={this.handleSearch} />`,
   }
   constructor(props: IinputProps) {
     super(props);
     this.state = {
       flag: false,
       flag1: false,
+      flag2: false,
     }
   }
 
@@ -71,6 +87,10 @@ const selectAfter = (
       this.setState({
         flag1: !this.state.flag1,
       })
+      case 2:
+      this.setState({
+        flag2: !this.state.flag2,
+      })
       default:
         break;
     }
@@ -78,9 +98,12 @@ const selectAfter = (
   handleChange = (e: any) => {
     console.log(e.target.value);
   }
+  handleSearch = (value: any, e: any) => {
+    console.log(value, e);
+  }
   render() {
-    const { prefixCls, code, code1 } = this.props;
-    const { flag, flag1 } = this.state;
+    const { prefixCls, code, code1, code2 } = this.props;
+    const { flag, flag1, flag2 } = this.state;
     return (
       <div className={prefixCls}>
         <div className={`${prefixCls}-aide`}>
@@ -115,6 +138,18 @@ const selectAfter = (
                   </div>
                 </header>
                 <InfoCode prefixCls={prefixCls} text="用于配置一些固定组合。" title="前置/后置标签" code={code1} flag={flag1} onFlag={this.handleFlag.bind(this, 1)} />
+              </div>
+              <div className={`${prefixCls}-code-content-box`}>
+                <header className={`${prefixCls}-box-header`}>
+                  <div className={`${prefixCls}-box-aide`}>
+                    <Input.Search className={`${prefixCls}-input-search`} placeholder="input search text" onChange={this.handleChange} onSearch={this.handleSearch} />
+                    <br/><br/>
+                    <Input.Search enterButton placeholder="input search text" onChange={this.handleChange} onSearch={this.handleSearch} />
+                    <br/><br/>
+                    <Input.Search enterButton="Search" placeholder="input search text" onChange={this.handleChange} onSearch={this.handleSearch} />
+                  </div>
+                </header>
+                <InfoCode prefixCls={prefixCls} text="带有搜索按钮的输入框。" title="搜索框" code={code2} flag={flag2} onFlag={this.handleFlag.bind(this, 2)} />
               </div>
             </div>
           </section>
