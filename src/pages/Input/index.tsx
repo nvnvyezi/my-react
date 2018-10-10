@@ -8,11 +8,15 @@ interface IinputProps {
   code: string;
   code1: string;
   code2: string;
+  code3: string;
+  code4: string;
 }
 interface IinputState {
   flag: boolean;
   flag1: boolean;
   flag2: boolean;
+  flag3: boolean;
+  flag4: boolean;
 }
 
 const selectBefore = (
@@ -66,6 +70,12 @@ const selectAfter = (
 <br/><br/>
 
 <Input.Search enterButton="Search" placeholder="input search text" onChange={this.handleChange} onSearch={this.handleSearch} />`,
+    code3: `
+<Input.TextArea className={} placeholder="Autosize height based on content lines" autosize onChange={this.handleChange} onPressEnter={this.handlePressEnter} />
+<br /> <br />
+<Input.TextArea className={} placeholder="Autosize height with minimum and maximum number of lines" autosize={{ minRows: 2, maxRows: 6 }} />`,
+    code4: `
+<Input.TextArea rows={4} />`,
   }
   constructor(props: IinputProps) {
     super(props);
@@ -73,37 +83,14 @@ const selectAfter = (
       flag: false,
       flag1: false,
       flag2: false,
+      flag3: false,
+      flag4: false,
     }
   }
 
-  handleFlag = (num: number) => {
-    switch (num) {
-      case 0:
-      this.setState({
-        flag: !this.state.flag,
-      })
-        break;
-      case 1:
-      this.setState({
-        flag1: !this.state.flag1,
-      })
-      case 2:
-      this.setState({
-        flag2: !this.state.flag2,
-      })
-      default:
-        break;
-    }
-  }
-  handleChange = (e: any) => {
-    console.log(e.target.value);
-  }
-  handleSearch = (value: any, e: any) => {
-    console.log(value, e);
-  }
   render() {
-    const { prefixCls, code, code1, code2 } = this.props;
-    const { flag, flag1, flag2 } = this.state;
+    const { prefixCls, code, code1, code2, code3, code4 } = this.props;
+    const { flag, flag1, flag2, flag3, flag4 } = this.state;
     return (
       <div className={prefixCls}>
         <div className={`${prefixCls}-aide`}>
@@ -151,11 +138,198 @@ const selectAfter = (
                 </header>
                 <InfoCode prefixCls={prefixCls} text="带有搜索按钮的输入框。" title="搜索框" code={code2} flag={flag2} onFlag={this.handleFlag.bind(this, 2)} />
               </div>
+              <div className={`${prefixCls}-code-content-box`}>
+                <header className={`${prefixCls}-box-header`}>
+                  <div className={`${prefixCls}-box-aide`}>
+                    <Input.TextArea className={`${prefixCls}-input-search`} placeholder="Autosize height based on content lines" autosize onChange={this.handleChange} onPressEnter={this.handlePressEnter} />
+                    <br /> <br />
+                    <Input.TextArea className={`${prefixCls}-input-search`} placeholder="Autosize height with minimum and maximum number of lines" autosize={{ minRows: 2, maxRows: 6 }} />
+                 </div>
+                </header>
+                <InfoCode prefixCls={prefixCls} text="<code>autosize</code> 属性适用于 <code>textarea</code> 节点，并且只有高度会自动变化。另外 <code>autosize</code> 可以设定为一个对象，指定最小行数和最大行数。" title="适应文本高度的文本域" code={code3} flag={flag3} onFlag={this.handleFlag.bind(this, 3)} />
+              </div>
+              <div className={`${prefixCls}-code-content-box`}>
+                <header className={`${prefixCls}-box-header`}>
+                  <div className={`${prefixCls}-box-aide`}>
+                    <Input.TextArea rows={4} />
+                 </div>
+                </header>
+                <InfoCode prefixCls={prefixCls} text="用于多行输入。" title="文本域" code={code4} flag={flag4} onFlag={this.handleFlag.bind(this, 4)} />
+              </div>
             </div>
           </section>
+          <footer className={`${prefixCls}-footer`}>
+            <hgroup>
+              <h2>API</h2>
+              <h3>Input</h3>
+            </hgroup>
+            <table cellSpacing="0" className={`${prefixCls}-table`}>
+              <thead className={`${prefixCls}-thead`}>
+                <tr>
+                  <th>参数</th>
+                  <th>说明</th>
+                  <th>类型</th>
+                  <th>默认值</th>
+                </tr>
+              </thead>
+              <tbody className={`${prefixCls}-tbody`}>
+                <tr>
+                  <td>addonAfter</td>
+                  <td>带标签的 input，设置后置标签</td>
+                  <td>string|ReactNode</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td>addonBefore</td>
+                  <td>带标签的 input，设置前置标签</td>
+                  <td>string|ReactNode</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td>defaultValue</td>
+                  <td>输入框默认内容</td>
+                  <td>string</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td>disabled</td>
+                  <td>是否禁用状态，默认为 false</td>
+                  <td>boolean</td>
+                  <td>false</td>
+                  </tr>
+                <tr>
+                  <td>id</td>
+                  <td>输入框的 id</td>
+                  <td>string</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td>value</td>
+                  <td>输入框内容</td>
+                  <td>string</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td>onChange</td>
+                  <td>输入框内容变化时的回调</td>
+                  <td>function(e)</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td>onPressEnter</td>
+                  <td>按下回车的回调</td>
+                  <td>function(e)</td>
+                  <td>-</td>
+                </tr>
+              </tbody>
+            </table>
+            <br/><br/>
+            <h3>TextArea</h3>
+            <br/>
+            <table cellSpacing="0" className={`${prefixCls}-table`}>
+              <thead className={`${prefixCls}-thead`}>
+                <tr>
+                  <th>参数</th>
+                  <th>说明</th>
+                  <th>类型</th>
+                  <th>默认值</th>
+                </tr>
+              </thead>
+              <tbody className={`${prefixCls}-tbody`}>
+                <tr>
+                  <td>autosize</td>
+                  <td>自适应内容高度，可设置为 <code>true|false</code> 或对象：<code>{' minRows: 2, maxRows: 6 '}</code></td>
+                  <td>boolean|object</td>
+                  <td>false</td>
+                </tr>
+                <tr>
+                  <td>defaultValue</td>
+                  <td>输入框默认内容</td>
+                  <td>string</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td>value</td>
+                  <td>输入框内容</td>
+                  <td>string</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td>onPressEnter</td>
+                  <td>按下回车的回调</td>
+                  <td>function(e)</td>
+                  <td>-</td>
+                </tr>
+              </tbody>
+            </table>
+            <br/><br/>
+            <h3>Search</h3>
+            <br/>
+            <table cellSpacing="0" className={`${prefixCls}-table`}>
+              <thead className={`${prefixCls}-thead`}>
+                <tr>
+                  <th>参数</th>
+                  <th>说明</th>
+                  <th>类型</th>
+                  <th>默认值</th>
+                </tr>
+              </thead>
+              <tbody className={`${prefixCls}-tbody`}>
+                <tr>
+                  <td>enterButton</td>
+                  <td>是否有确认按钮，可设为按钮文字</td>
+                  <td>boolean|ReactNode</td>
+                  <td>false</td>
+                </tr>
+                <tr>
+                  <td>onSearch</td>
+                  <td>点击搜索或按下回车键时的回调</td>
+                  <td>function(value, event)</td>
+                  <td>-</td>
+                </tr>
+              </tbody>
+            </table>
+          </footer>
         </div>
       </div>
     );
+  }
+
+  handleFlag = (num: number) => {
+    switch (num) {
+      case 0:
+      this.setState({
+        flag: !this.state.flag,
+      })
+        break;
+      case 1:
+      this.setState({
+        flag1: !this.state.flag1,
+      })
+      case 2:
+      this.setState({
+        flag2: !this.state.flag2,
+      })
+      case 3:
+      this.setState({
+        flag3: !this.state.flag3,
+      })
+      case 4:
+      this.setState({
+        flag4: !this.state.flag4,
+      })
+      default:
+        break;
+    }
+  }
+  handleChange = (e: any) => {
+    console.log(e.target.value);
+  }
+  handleSearch = (value: any, e: any) => {
+    console.log(value, e);
+  }
+  handlePressEnter = (e: any) => {
+    console.log(e, 'enter');
   }
 }
 

@@ -1,12 +1,14 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import { IinputProps, IinputState } from "./interfance";
-const classNames = require('classnames');
-import './Input.less'
+import classNames from 'classnames';
+import './style/Input.less'
 import Search from './Search'
+import TextArea from './TextArea'
 
 class Input extends React.PureComponent<IinputProps> {
   static Search = Search;
+  static TextArea = TextArea;
   static defaultProps = {
     prefixCls: 'nvnv-input',
   }
@@ -17,14 +19,14 @@ class Input extends React.PureComponent<IinputProps> {
     addonBefore: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
     addonAfter: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
     defaultValue: PropTypes.string,
+    classNameInput: PropTypes.string,
+    prefix: PropTypes.node,
+    suffix: PropTypes.node,
   }
   private selectInput: any;
 
-  handleSearch = () => {
-    return this.selectInput.handleSearch();
-  }
   render() {
-    const { prefixCls, placeholder, addonBefore, addonAfter, className, style, onChange, ...others } = this.props;
+    const { prefixCls, placeholder, addonBefore, addonAfter, className, style, onChange, classNameInput, ...others } = this.props;
     const classes = classNames(`${prefixCls}-group-wrapper`, className);
     const classesBefore = classNames(`${prefixCls}-group-addon`, {
       [`${prefixCls}-group-multiple`]: addonBefore && typeof addonBefore !== 'string',
@@ -34,14 +36,14 @@ class Input extends React.PureComponent<IinputProps> {
     })
     if (addonBefore || addonAfter) {
       return (
-        <span className={classes} style={style} {...others}>
+        <span className={classes} style={style}>
           {
             addonBefore &&
             <span className={classesBefore}>
               {addonBefore}
             </span>
           }
-          <BasicInput prefixCls={prefixCls} radiusLeft={!!addonBefore} radiusRight={!!addonAfter} placeholder={placeholder} onChange={onChange}/>
+          <BasicInput prefixCls={prefixCls} radiusLeft={!!addonBefore} radiusRight={!!addonAfter} placeholder={placeholder} onChange={onChange} classNameInput={classNameInput}  {...others}/>
           {
             addonAfter &&
             <span className={classesAfter}>
@@ -52,9 +54,13 @@ class Input extends React.PureComponent<IinputProps> {
       )
     } else {
       return (
-        <BasicInput ref={node => this.selectInput = node} className={className} style={style} prefixCls={prefixCls} placeholder={placeholder} onChange={onChange}/>
+        <BasicInput ref={node => this.selectInput = node} className={className} style={style} prefixCls={prefixCls} placeholder={placeholder} onChange={onChange} classNameInput={classNameInput} {...others} />
       );
     }
+  }
+
+  handleSearch = () => {
+    return this.selectInput.handleSearch();
   }
 }
 
@@ -92,14 +98,14 @@ class BasicInput extends React.PureComponent<IinputProps, IinputState> {
   }
 
   render () {
-    const { prefixCls, className, placeholder, style, radiusLeft, radiusRight } = this.props;
+    const { prefixCls, className, placeholder, style, radiusLeft, radiusRight, classNameInput, ...others } = this.props;
     const { value } = this.state;
-    const classesInput = classNames(`${prefixCls}-input`, className, {
+    const classesInput = classNames(`${prefixCls}-input`, className, classNameInput, {
       [`${prefixCls}-radius-left`]: radiusLeft,
       [`${prefixCls}-radius-right`]: radiusRight,
     });
     return (
-      <input ref={this.saveSelectInput} type="text" value={value} className={classesInput} style={style} onChange={this.handleChange} placeholder={placeholder}/>
+      <input ref={this.saveSelectInput} {...others} type="text" defaultValue={value} className={classesInput} style={style} onChange={this.handleChange} placeholder={placeholder}/>
     )
   }
 }

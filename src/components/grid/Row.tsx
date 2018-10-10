@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Children, cloneElement } from 'react';
 import * as PropTypes from 'prop-types';
-const  classNames = require('classnames');
+import classNames from 'classnames';
 
 import './Row.less'
 

@@ -1,4 +1,4 @@
-@import '../style/default.less';
+@import '../../style/default.less';
 
 @prefixCls: nvnv-autocomplete;
 
@@ -23,7 +23,7 @@
   text-indent: 12px;
   padding-right: 30px;
   font: 400 14px/30px @fontFamily;
-  color: @wordColor;
+  color: @blackColor;
   &::placeholder {
     color: @grayColor;
     text-indent: 12px;
@@ -31,7 +31,7 @@
   }
   &:focus {
     outline: 0;
-    border-color: @primaryFocusColor;
+    border-color: @blueColor2;
     border-radius: 5px;
     box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
   }
@@ -43,7 +43,7 @@
   width: 16px;
   height: 16px;
   // background-color: red;
-  background: url('./image/清除.svg') no-repeat 0 0;
+  background: url('../image/清除.svg') no-repeat 0 0;
   background-size: 16px 16px;
   vertical-align: middle;
   position: absolute;
@@ -84,7 +84,7 @@
       display: inline-block;
       box-sizing: border-box;
       padding-right: 10px;
-      color: @wordColor;
+      color: @blackColor;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;

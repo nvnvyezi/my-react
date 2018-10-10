@@ -1,9 +1,9 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import { IautoProps, IautoState } from "./interfance";
-const classNames = require('classnames');
+import classNames from 'classnames';
+import './style/AutoComplete.less'
 
-import './AutoComplete.less'
 class AutoComplete extends React.PureComponent<IautoProps, IautoState> {
   static defaultProps = {
     prefixCls: 'nvnv-autocomplete',

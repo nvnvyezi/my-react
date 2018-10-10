@@ -1,4 +1,4 @@
-@import '../style/default.less';
+@import '../../style/default.less';
 
 @prefixCls: nvnv-select;
 
@@ -20,11 +20,11 @@
   transition: color 0.3s ease, opacity 0.15s ease;
   &:hover {
     transition: color 0.3s ease, opacity 0.15s ease;
-    border-color: @primaryFocusColor;
+    border-color: @blueColor2;
   }
   &:focus {
     outline: 0;
-    border-color: @primaryFocusColor;
+    border-color: @blueColor2;
     box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
   }
   .@{prefixCls}-aide {
@@ -39,7 +39,7 @@
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-      color: @wordColor;
+      color: @blackColor;
       font: 400 14px/28px @fontFamily;
     }
   }
@@ -59,7 +59,7 @@
   width: 20px;
   height: 20px;
   display: inline-block;
-  background: url('./image/向下边框三角.svg') no-repeat  0 0;
+  background: url('../image/向下边框三角.svg') no-repeat  0 0;
   background-size: 100% 100%;
 }
 
@@ -131,7 +131,7 @@
   font: 400 14px/14px @fontFamily;
   display: inline-block;
   border: 1px solid @grayColor;
-  color: @wordColor;
+  color: @blackColor;
   background-color: @grayColor1;
   animation: multipleFade .25s ease;
   .@{prefixCls}-multiple-icon {
@@ -139,7 +139,7 @@
     width: 20px;
     height: 14px;
     display: inline-block;
-    background: url('./image/错误.svg') no-repeat 5px 0;
+    background: url('../image/错误.svg') no-repeat 5px 0;
     background-size: 14px 14px;
   }
 }

@@ -2,21 +2,18 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import './index.less'
 import { AutoComplete } from "../../components/nvnvyezi";
-import InfoCode from '../common/InfoCode/index'
+import { InfoCode, ShowContent } from '../common/index'
 
 interface IautoProps {
   prefixCls: string;
-  code: string;
 }
 interface IautoState {
   dataSource: any;
-  flag: boolean;
 }
 
 class index extends React.PureComponent<IautoProps, IautoState> {
   static defaultProps = {
     prefixCls: 'show-autocomplete',
-    code: '<AutoComplete dataSource={dataSource} onSearch={this.handleSearch} allowClear placeholder="nvnvyezi" onSelect={this.handleSelect}  autoFocus style={{width: "300px"}} onFocus={this.handleFocus} onBlur={this.handleBlur} onChange={this.handleChange} />',
   }
   static propTypes = {
     prefixCls: PropTypes.string,
@@ -26,40 +23,12 @@ class index extends React.PureComponent<IautoProps, IautoState> {
     super(props);
     this.state = {
       dataSource: [],
-      flag: false,
     }
   }
 
-  handleSearch = (value: any) => {
-    this.setState({
-      dataSource: [
-        value,
-        value + value,
-        value + value + value,
-      ],
-    });
-  }
-  handleSelect = (value: any) => {
-    console.log('onselect: ', value);
-  }
-  handleFocus = () => {
-    console.log('focus');
-  }
-  handleBlur = () => {
-    console.log('blur');
-  }
-  handleChange = () => {
-    console.log('change');
-  }
-  handleFlag = () => {
-    this.setState({
-      flag: !this.state.flag,
-    })
-  }
-
   render() {
-    const { prefixCls, code } = this.props;
-    const { dataSource, flag } = this.state;
+    const { prefixCls } = this.props;
+    const { dataSource } = this.state;
     return (
       <div className={prefixCls}>
         <div className={`${prefixCls}-aide`}>
@@ -75,12 +44,10 @@ class index extends React.PureComponent<IautoProps, IautoState> {
             <h2>代码演示</h2>
             <div className={`${prefixCls}-code-content`}>
               <div className={`${prefixCls}-code-content-box`}>
-                <header className={`${prefixCls}-box-header`}>
-                  <div className={`${prefixCls}-box-aide`}>
-                    <AutoComplete dataSource={dataSource} onSearch={this.handleSearch} allowClear placeholder="nvnvyezi" onSelect={this.handleSelect} style={{ width: '300px' }} onFocus={this.handleFocus} onBlur={this.handleBlur} onChange={this.handleChange}/>
-                  </div>
-                </header>
-                <InfoCode prefixCls={prefixCls} flag={flag} onFlag={this.handleFlag} code={code} text="基本使用。通过 dataSource 设置自动完成的数据源。" title="基本使用" />
+                <ShowContent prefixCls={prefixCls}>
+                  <AutoComplete dataSource={dataSource} onSearch={this.handleSearch} allowClear onSelect={this.handleSelect} style={{ width: '300px' }}/>
+                </ShowContent>
+                <InfoCode prefixCls={prefixCls} text="基本使用。通过 dataSource 设置自动完成的数据源。" title="基本使用" />
               </div>
             </div>
           </section>
@@ -158,8 +125,7 @@ class index extends React.PureComponent<IautoProps, IautoState> {
                 </tr>
               </tbody>
             </table>
-          </footer>
-          <footer className={`${prefixCls}-footer`}>
+            <br/><br/>
             <h2>方法</h2>
             <table cellSpacing="0" className={`${prefixCls}-table`}>
               <thead className={`${prefixCls}-thead`}>
@@ -183,6 +149,30 @@ class index extends React.PureComponent<IautoProps, IautoState> {
         </div>
       </div>
     );
+  }
+
+  // 基本使用的search
+  handleSearch = (value: any) => {
+    this.setState({
+      dataSource: [
+        value,
+        value + value,
+        value + value + value,
+      ],
+    });
+  }
+
+  handleSelect = (value: any) => {
+    console.log('onselect: ', value);
+  }
+  handleFocus = () => {
+    console.log('focus');
+  }
+  handleBlur = () => {
+    console.log('blur');
+  }
+  handleChange = () => {
+    console.log('change');
   }
 }
 

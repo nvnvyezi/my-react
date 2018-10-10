@@ -1,4 +1,4 @@
-@import '../style/default.less';
+@import '../../style/default.less';
 
 @prefixCls: nvnv-input;
 
@@ -13,7 +13,7 @@
   text-indent: 12px;
   box-sizing: border-box;
   padding-right: 12px;
-  color: @wordColor;
+  color: @blackColor;
   &::placeholder {
     color: @grayColor;
     text-indent: 12px;
@@ -21,7 +21,7 @@
   }
   &:focus {
     outline: 0;
-    border-color: @primaryFocusColor;
+    border-color: @blueColor2;
     border-radius: 5px;
     box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
   }
@@ -32,7 +32,7 @@
   border-left: none;
   &:focus {
     border-radius: 0;
-    border: 1px solid @primaryFocusColor;
+    border: 1px solid @blueColor2;
   }
 }
 .@{prefixCls}-radius-right {
@@ -40,7 +40,7 @@
   border-right: none;
   &:focus {
     border-radius: 0;
-    border: 1px solid @primaryFocusColor;
+    border: 1px solid @blueColor2;
   }
 }
 
@@ -56,7 +56,7 @@
     border: 1px solid @grayColor;
     padding: 0 11px;
     box-sizing: border-box;
-    color: @wordColor;
+    color: @blackColor;
     display: flex;
     align-items: center;
     text-align: center;

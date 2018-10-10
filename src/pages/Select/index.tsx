@@ -1,86 +1,24 @@
 import * as React from 'react';
 import './index.less'
 import { Select } from "../../components/nvnvyezi";
-import { InfoCode } from "../common/InfoCode/index";
+import { InfoCode, ShowContent } from "../common/index";
 
 const Option = Select.Option;
 
 interface IinputProps {
   prefixCls: string;
-  code: string;
-  code1: string;
-  code2: string;
 }
-interface IinputState {
-  flag: boolean;
-  flag1: boolean;
-  flag2: boolean;
-}
-
 const children: any = [];
 for (let i = 10; i < 36; i++) {
   children.push(<Option key={i.toString(36) + i}>{i.toString(36) + i}</Option>);
 }
-class index extends React.PureComponent<IinputProps, IinputState> {
+class index extends React.PureComponent<IinputProps> {
   static defaultProps = {
     prefixCls: 'show-select',
-    code: `
-<Select defaultValue="lucy" style={{width: '120px'}}>
-  <Option value="jack">Jack</Option>
-  <Option value="lucy">Lucy</Option>
-  <Option value="disabled" disabled>Disabled</Option>
-  <Option value="yiminghe">Yiminghe</Option>
-</Select>`,
-  code1: `
-<Select defaultValue="lucy" style={{width: '120px'}} disabled>
-  <Option value="lucy">Lucy</Option>
-</Select>`,
-code2: `
-const children: any = [];
-for (let i = 10; i < 36; i++) {
-  children.push(<Option key={i.toString(36) + i}>{i.toString(36) + i}</Option>);
-}
-
-<Select defaultValue="lucy" multiple style={{width: '100%'}} placeholder="multiple" onChange={this.handleChange}>
-{children}
-</Select>`,
-  }
-  constructor(props: IinputProps) {
-    super(props);
-    this.state = {
-      flag: false,
-      flag1: false,
-      flag2: false,
-    }
   }
 
-  handleFlag = (num: number) => {
-    switch (num) {
-      case 0:
-        this.setState({
-          flag: !this.state.flag,
-        })
-        break;
-      case 1:
-        this.setState({
-          flag1: !this.state.flag1,
-        })
-        break;
-      case 2:
-        this.setState({
-          flag2: !this.state.flag2,
-        })
-        break;
-      default:
-        break;
-    }
-  }
-  handleChange = (e: any) => {
-    console.log(e.target.innerText);
-  }
   render() {
-    const { prefixCls, code, code1, code2 } = this.props;
-    const { flag, flag1, flag2 } = this.state;
+    const { prefixCls } = this.props;
     return (
       <div className={prefixCls}>
         <div className={`${prefixCls}-aide`}>
@@ -99,37 +37,36 @@ for (let i = 10; i < 36; i++) {
             <h2>代码演示</h2>
             <div className={`${prefixCls}-code-content`}>
               <div className={`${prefixCls}-code-content-box`}>
-                <header className={`${prefixCls}-box-header`}>
-                  <div className={`${prefixCls}-box-aide`}>
-                    <Select defaultValue="lucy" style={{width: '120px'}} className={`${prefixCls}-select`} onChange={this.handleChange}>
-                      <Option value="jack">Jack</Option>
-                      <Option value="lucy">Lucy</Option>
-                      <Option value="disabled" disabled>Disabled</Option>
-                      <Option value="yiminghe">Yiminghesdsdsd</Option>
-                    </Select>
-                  </div>
-                </header>
-                <InfoCode prefixCls={prefixCls} text="基本使用。" title="基本使用" code={code} flag={flag} onFlag={this.handleFlag.bind(this, 0)} />
+                <ShowContent prefixCls={prefixCls}>
+                  <Select defaultValue="lucy" style={{width: '120px'}} className={`${prefixCls}-select`} onChange={this.handleChange}>
+                    <Option value="jack">Jack</Option>
+                    <Option value="lucy">Lucy</Option>
+                    <Option value="disabled" disabled>Disabled</Option>
+                    <Option value="yiminghe">Yiminghe</Option>
+                  </Select>
+                  <Select defaultValue="lucy" style={{width: '120px'}} className={`${prefixCls}-select`} disabled>
+                    <Option value="jack">Jack</Option>
+                  </Select>
+                </ShowContent>
+                <InfoCode prefixCls={prefixCls} text="基本使用。" title="基本使用" />
               </div>
               <div className={`${prefixCls}-code-content-box`}>
-                <header className={`${prefixCls}-box-header`}>
-                  <div className={`${prefixCls}-box-aide`}>
-                    <Select defaultValue="lucy" style={{width: '120px'}} className={`${prefixCls}-select`} disabled>
-                      <Option value="lucy">Lucy</Option>
-                    </Select>
-                  </div>
-                </header>
-                <InfoCode prefixCls={prefixCls} title="禁用状态" text="选择器不可用状态。" code={code1} flag={flag1} onFlag={this.handleFlag.bind(this, 1)} />
+                <ShowContent prefixCls={prefixCls}>
+                  <Select defaultValue="lucy" showSearch style={{width: '200px'}}>
+                    <Option value="jack">Jack</Option>
+                    <Option value="lucy">Lucy</Option>
+                    <Option value="yiminghe">Yiminghe</Option>
+                  </Select>
+                </ShowContent>
+                <InfoCode prefixCls={prefixCls} title="带搜索框" text="展开后可对各项进行搜索" />
               </div>
               <div className={`${prefixCls}-code-content-box`}>
-                <header className={`${prefixCls}-box-header`}>
-                  <div className={`${prefixCls}-box-aide`}>
-                    <Select defaultValue="lucy" multiple style={{width: '100%'}} placeholder="multiple" onChange={this.handleChange}>
-                      {children}
-                    </Select>
-                  </div>
-                </header>
-                <InfoCode prefixCls={prefixCls} text="多选，从已有条目中选择。" title="多选" code={code2} flag={flag2} onFlag={this.handleFlag.bind(this, 2)} />
+                <ShowContent prefixCls={prefixCls}>
+                  <Select defaultValue="lucy" multiple style={{width: '100%'}} placeholder="multiple" onChange={this.handleChange}>
+                    {children}
+                  </Select>
+                </ShowContent>
+                <InfoCode prefixCls={prefixCls} text="多选，从已有条目中选择。" title="多选" />
               </div>
             </div>
           </section>
@@ -258,6 +195,10 @@ for (let i = 10; i < 36; i++) {
         </div>
       </div>
     );
+  }
+
+  handleChange = (e: any) => {
+    console.log(e.target.innerText);
   }
 }
 

@@ -8,7 +8,7 @@ export const InfoCode = (props: any) => {
       <div className={`${prefixCls}-info-title`}>
         <span>{ title }</span>
       </div>
-      <p>{ text }</p>
+      <p dangerouslySetInnerHTML = {{ __html:text }} />
       <span className={`${prefixCls}-info-code-show`} onClick={onFlag}>
         {
           flag

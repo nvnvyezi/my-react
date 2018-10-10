@@ -3,42 +3,43 @@ import Grid from "../Grid/index";
 import Layout from "../Layout/index";
 import Radio from '../Radio/index'
 import Autocomplete from '../AutoComplete/index'
-import Cascader from '../Cascader/index'
+import Checkbox from '../Checkbox/index'
 import Input from '../Input/index'
 import Select from '../Select/index'
+import DataPicker from '../Data-picker/index'
 
 export default [
   {
-    "name": "开发指南",
-    "isTitle": true
+    name: "开发指南",
+    isTitle: true
   },{
-    "name": "安装",
-    "url": "/install",
+    name: "安装",
+    url: "/install",
     template: Button
   },{
-    "name": "快速上手",
-    "url": "/quickstart",
+    name: "快速上手",
+    url: "/quickstart",
     template: Button
   },{
-    "name": "组件",
-    "isTitle": true
+    name: "组件",
+    isTitle: true
   },{
-    "name": "General",
-    "isCT": true
+    name: "General",
+    isCT: true
   },{
-    "name": "Button 按钮",
-    "url": "/button",
+    name: "Button 按钮",
+    url: "/button",
     template: Button
   },{
-    "name": "Layout",
-    "isCT": true
+    name: "Layout",
+    isCT: true
   },{
-    "name": "Grid 栅格",
-    "url": "/grid",
+    name: "Grid 栅格",
+    url: "/grid",
     template: Grid
   },{
-    "name": "Layout 布局",
-    "url": "/layout",
+    name: "Layout 布局",
+    url: "/layout",
     template: Layout
   },{
     name: 'Form',
@@ -52,9 +53,9 @@ export default [
     url: '/rautocomplete',
     template: Autocomplete
   },{
-    name: 'Cascader 级联选择',
-    url: '/cascader',
-    template: Cascader
+    name: 'Checkbox 多选框',
+    url: '/checkbox',
+    template: Checkbox
   },{
     name: 'Input 输入框',
     url: '/input',
@@ -63,5 +64,9 @@ export default [
     name: 'Select 选择器',
     url: '/select',
     template: Select
+  },{
+    name: 'DataPicker 日期选择器',
+    url: '/datapicker',
+    template: DataPicker
   }
 ]

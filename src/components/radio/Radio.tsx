@@ -1,23 +1,14 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import './Radio.less'
-const classNames = require('classnames');
+import './style/Radio.less'
+import { IradioProps } from "./interfance";
 import RadioGroup from "./Group";
-
-interface IradioProps {
-  name?: string;
-  id?: string;
-  prefixCls: string;
-  className?: string;
-  defaultChecked?: boolean;
-  disabled?: boolean;
-  onChange?: any;
-  value?: any;
-  checked?: boolean;
-}
+import RadioButton from './Button';
+import classNames from 'classnames';
 
 class Radio extends React.Component<IradioProps> {
   static Group: typeof RadioGroup;
+  static Button: typeof RadioButton;
   static defaultProps = {
     prefixCls: 'nvnv-radio',
   }
@@ -27,6 +18,8 @@ class Radio extends React.Component<IradioProps> {
     className: PropTypes.string,
     defaultChecked: PropTypes.bool,
     disabled: PropTypes.bool,
+    classNameLabel: PropTypes.string,
+    isButton: PropTypes.string,
   }
 
   handleChange = (e: any) => {
@@ -37,17 +30,26 @@ class Radio extends React.Component<IradioProps> {
   }
 
   render() {
-    const { prefixCls, className, defaultChecked, checked, disabled, name, id, onChange, children, value, ...others} = this.props;
-    const classes = classNames(`${prefixCls}-radio`, className, {
+    const { prefixCls, className, isChecked, defaultChecked, outDisabled, disabled, name, id, children, value, style, classNameLabel, isButton } = this.props;
+    const isDisabled = disabled || outDisabled;
+
+    const classes = classNames(`${prefixCls}-radio`, className);
+    const classLabel = classNames(prefixCls, classNameLabel, {
+      [`${prefixCls}-disabled-button`]: isDisabled && isButton,
+      [`${prefixCls}-disabled`]: isDisabled && !isButton,
     })
-    const classLabel = classNames(prefixCls, {
-      [`${prefixCls}-disabled`]: disabled,
+    const classesContent = classNames({
+      [`${prefixCls}-content-normal`]: !isButton,
+      [`${prefixCls}-content-button-solid`]: isButton === 'solid',
+      [`${prefixCls}-content-button-outline`]: isButton === 'outline',
     })
     return (
-      <label className={classLabel}>
-        <input { ...others } className={classes} type="radio" name={name} id={id} defaultChecked={defaultChecked} disabled={disabled} onChange={this.handleChange} value={value} checked={checked}/>
-        <span className={`${prefixCls}-circle`} />
-        <div className={`${prefixCls}-others`}>{children}</div>
+      <label className={classLabel} style={style}>
+        <input className={classes} type="radio" name={name} id={id} disabled={isDisabled} onChange={this.handleChange} value={value} checked={isChecked} defaultChecked={defaultChecked}/>
+        {
+          !isButton && <span className={`${prefixCls}-circle`} />
+        }
+        <div className={classesContent}>{children}</div>
       </label>
     );
   }

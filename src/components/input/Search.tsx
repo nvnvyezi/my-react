@@ -2,8 +2,8 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import { IsearchProps } from "./interfance";
 import Input from './Input'
-import './Search.less'
-const classNames = require('classnames');
+import './style/Search.less'
+import classNames  from 'classnames';
 
 class Search extends React.PureComponent<IsearchProps> {
   static defaultProps = {

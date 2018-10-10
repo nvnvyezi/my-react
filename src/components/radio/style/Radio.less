@@ -1,0 +1,128 @@
+@import '../../style/default.less';
+@prefixCls: nvnv-radio;
+
+// 公共组件
+.content-g {
+  display: inline-block;
+  vertical-align: middle;
+  font: 400 15px/30px @fontFamily;
+  color: @blackColor;
+}
+
+.@{prefixCls} {
+  cursor: pointer;
+  position: relative;
+  box-sizing: border-box;
+  margin-left: 20px;
+}
+
+// 选中的普通的样式
+.@{prefixCls}-circle {
+  width: 13px;
+  height: 13px;
+  cursor: pointer;
+  border: none;
+  border: 1px solid @grayColor;
+  border-radius: 50%;
+  position: relative;
+  display: inline-block;
+  margin-right: 7px;
+  vertical-align: middle;
+  &::after {
+    content: '';
+    width: 4px;
+    height: 4px;
+    background-color: white;
+    border-radius: 100%;
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -2.2px;
+    margin-left: -2px;
+    transform: scale(0);
+    transition: transform .15s ease-in;
+  }
+}
+
+// input 样式
+.@{prefixCls}-radio {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+// 普通选中后的样式
+input[type="radio"]:checked+span{
+  background-color: @blueColor2;
+  border: 1px solid @blueColor2;
+  &::after {
+    transform: scale(1);
+  }
+  &+div {
+    color: @blueColor;
+  }
+}
+// button solid 选中后的样式
+input[type="radio"]:checked+.@{prefixCls}-content-button-solid {
+  color: white;
+  border: 1px solid @blueColor;
+  animation: solidFade 1s ease;
+  animation-fill-mode: forwards;
+}
+@keyframes solidFade {
+  from {
+    background-color: @blueColor2;
+  }
+  to {
+    background-color: @blueColor;
+  }
+}
+// button outline 选中后的样式
+input[type="radio"]:checked+.@{prefixCls}-content-button-outline {
+  color: @blueColor;
+  border: 1px solid @blueColor2;
+  animation: outlineFade .25s ease;
+}
+@keyframes outlineFade {
+  from {
+    // background-color: @blueColor2;
+  }
+  to {
+    // background-color: @blueColor;
+    box-shadow: 0 0 10px 0 @blueColor2;
+  }
+}
+
+// radio children
+.@{prefixCls}-content-normal {
+  .content-g;
+}
+.@{prefixCls}-content-button-solid,
+.@{prefixCls}-content-button-outline {
+  .content-g;
+  padding: 0 15px;
+  &:hover {
+    color: @blueColor;
+  }
+}
+
+// disabled
+.@{prefixCls}-disabled {
+  user-select: none;
+  cursor: not-allowed;
+   .@{prefixCls}-circle, div {
+     color: @grayColor2;
+   }
+}
+.@{prefixCls}-disabled-button {
+  user-select: none;
+  cursor: not-allowed;
+   .@{prefixCls}-circle, div {
+     color: @grayColor2;
+     background-color: @grayColor1;
+     &:hover {
+       color: @grayColor2;
+     }
+   }
+}

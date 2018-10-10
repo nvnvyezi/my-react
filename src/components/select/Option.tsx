@@ -1,8 +1,8 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import { IoptionProps, IoptionState } from "./interfance";
-import './Option.less'
-const classNames = require('classnames');
+import './style/Option.less'
+import classNames from 'classnames';
 
 class Option extends React.PureComponent<IoptionProps, IoptionState> {
   static defaultProps = {

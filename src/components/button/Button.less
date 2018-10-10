@@ -1,6 +1,6 @@
 @import '../style/default.less';
 
-@prefixCls: button;
+@prefixCls: nvnv-button;
 
 .button-styleg {
   border: none;
@@ -10,7 +10,7 @@
   border-radius: 4px;
   cursor: pointer;
   text-align: center;
-  color: @wordColor;
+  color: @blackColor;
   white-space: nowrap;
   outline: none;
   position: relative;
@@ -46,42 +46,42 @@
 .@{prefixCls} {
   .button-styleg;
   background-color: white;
-  border: 1px solid @defaultColor;
+  border: 1px solid @grayColor;
   &:hover {
-    border-color: @primaryFocusColor;
-    color: @primaryFocusColor;
+    border-color: @blueColor2;
+    color: @blueColor2;
   }
 }
 
 .@{prefixCls}-primary {
   .button-styleg;
   color: white;
-  background: @primaryColor;
+  background: @blueColor;
   &:hover {
     color: white;
-    background-color: @primaryFocusColor;
+    background-color: @blueColor2;
   }
 }
 
 .@{prefixCls}-dashed {
   .button-styleg;
   background-color: white;
-  border: 1px dashed @defaultColor;
+  border: 1px dashed @grayColor;
   &:hover {
-    border-color: @primaryFocusColor;
-    color: @primaryFocusColor;
+    border-color: @blueColor2;
+    color: @blueColor2;
   }
 }
 
 .@{prefixCls}-danger {
   .button-styleg;
-  color: @dangerColor;
+  color: @redColor;
   background-color: #f5f5f5;
   border: 1px solid #d9d9d9;
   &:hover {
-    background-color: @dangerColor;
+    background-color: @redColor;
     color: white;
-    border-color: @dangerColor;
+    border-color: @redColor;
   }
 }
 
