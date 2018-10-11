@@ -2,21 +2,24 @@
 
 @prefixCls: nvnv-input;
 
+
+.@{prefixCls}-input-assist {
+  position: relative;
+}
+
+// input 样式
 .@{prefixCls}-input {
   width: 100%;
   height: 100%;
   min-height: 30px;
+  box-sizing: border-box;
+  padding: 0 12px;
+  color: @blackColor;
   font: 400 14px @fontFamily;
-  border: none;
   border-radius: 5px;
   border: 1px solid @grayColor;
-  text-indent: 12px;
-  box-sizing: border-box;
-  padding-right: 12px;
-  color: @blackColor;
   &::placeholder {
     color: @grayColor;
-    text-indent: 12px;
     font: 400 14px @fontFamily;
   }
   &:focus {
@@ -26,7 +29,8 @@
     box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
   }
 }
-// 圆角
+
+// 当input 在中间 取消两边圆角
 .@{prefixCls}-radius-left {
   border-radius: 0;
   border-left: none;
@@ -44,6 +48,7 @@
   }
 }
 
+// input有前置后置标签
 .@{prefixCls}-group-wrapper {
   width: 100%;
   height: 30px;
@@ -76,4 +81,38 @@
 .@{prefixCls}-group-multiple {
   padding: 0 !important;
   border: none !important;
+}
+
+// 前后缀
+// 公共组件
+.style-g {
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  top: 0;
+  // transform: translateY(50%);
+  .@{prefixCls}-icon-box {
+    width: 100%;
+    height: 100%;
+  }
+}
+// 有前缀图标
+.@{prefixCls}-prefix {
+  position: absolute;
+  .style-g;
+  left: 12px;
+}
+// 有后缀
+.@{prefixCls}-suffix {
+  position: absolute;
+  .style-g;
+  right: 12px;
+}
+
+// 有前后缀input 宽度变化
+.@{prefixCls}-icon-prefix {
+  padding-left: 35px;
+}
+.@{prefixCls}-icon-suffix {
+  padding-right: 35px;
 }

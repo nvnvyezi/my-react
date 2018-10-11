@@ -1,2 +1,6 @@
 export { default as ShowContent } from './ShowContent/index'
 export { default as InfoCode } from './InfoCode/index'
+export { default as Header } from './Header/index'
+export { default as ShowLayout } from './Layout/index'
+export { default as ShowUser } from './ShowUser/index'
+export { default as ShowCode } from './ShowCode/index'

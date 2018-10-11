@@ -1,0 +1,169 @@
+@import '../../style/default.less';
+
+@prefixCls: nvnv-switch;
+
+// 公共组件
+.checked-g {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 100px;
+}
+.checked-after-g {
+  content: '';
+  position: absolute;
+  top: 2px;
+  width: 18px;
+  height: 18px;
+  border-radius: 100%;
+  background-color: white;
+}
+
+// 开关样式
+.@{prefixCls} {
+  min-width: 44px;
+  height: 22px;
+  border: none;
+  box-sizing: border-box;
+  padding: 0 8px;
+  border-radius: 100px;
+  position: relative;
+  cursor: pointer;
+  &:focus {
+    outline: 0;
+    box-shadow: 0 0 6px 1px @blueColor;
+  }
+  &:active {
+    // box-shadow: 0 0 10px 3px red;
+  }
+}
+.@{prefixCls}-total-loading {
+  opacity: .6;
+  cursor: auto;
+}
+
+// 文本位置
+.@{prefixCls}-place {
+  text-align: left;
+  background-color: @blueColor;
+}
+.@{prefixCls}-place-normal {
+  background-color: @grayColor2;
+  text-align: right;
+  &:focus {
+    outline: 0;
+    box-shadow: 0 0 10px 3px @grayColor2;
+  }
+}
+
+// 开关是否选中的样式
+.@{prefixCls}-checked-normal {
+  &:extend(.checked-g);
+  &::after {
+    &:extend(.checked-after-g);
+    animation: ballFadeLeft .8s ease;
+    animation-fill-mode: forwards;
+  }
+  &:active {
+    &::after {
+      &:extend(.checked-after-g);
+      width: 50%;
+      transition: width .5s .25s ease;
+    }
+  }
+}
+@keyframes ballFadeLeft {
+  0% {
+    right: 2px;
+  }
+  50% {
+    right: 50%;
+  }
+  100% {
+    left: 2px;
+  }
+}
+
+.@{prefixCls}-checked {
+  &:extend(.checked-g);
+  &::after {
+    &:extend(.checked-after-g);
+    animation: ballFade .8s ease;
+    animation-fill-mode: forwards;
+  }
+  &:active {
+    &::after {
+      &:extend(.checked-after-g);
+      width: 50%;
+      transition: width .5s .25s ease;
+    }
+  }
+}
+@keyframes ballFade {
+  0% {
+    left: 2px;
+  }
+  50% {
+    left: 50%;
+  }
+  100% {
+    right: 2px;
+  }
+}
+
+
+// 文本样式
+.@{prefixCls}-text {
+  position: relative;
+  z-index: 1;
+  user-select: none;
+  display: inline-block;
+  color: white;
+  box-sizing: border-box;
+  font: 400 12px/12px @fontFamily;
+}
+
+// icon 样式
+.@{prefixCls}-icon {
+  width: 13px;
+  height: 22px;
+  box-sizing: border-box;
+}
+
+// loading 样式
+.@{prefixCls}-loading {
+  width: 18px;
+  height: 18px;
+  border-radius: 100%;
+  display: inline-block;
+  background-color: white;
+  position: absolute;
+  top: 2px;
+  .@{prefixCls}-loading-spin {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    animation: loadingCircle 1s infinite linear;
+  }
+
+  @keyframes loadingCircle {
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}
+
+.@{prefixCls}-checked-icon-normal {
+  left: 2px;
+}
+.@{prefixCls}-checked-icon {
+  right: 2px;
+}
+
+// 小号开关
+
+.@{prefixCls}-total-size {
+  transform: scale3d(.6,.6,.6);
+}

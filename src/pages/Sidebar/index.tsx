@@ -1,7 +1,7 @@
 import * as React from 'react';
 import info from "./info";
-const classNames = require("classnames");
 import { Link } from "react-router-dom";
+import classNames from 'classnames';
 
 import './index.less'
 

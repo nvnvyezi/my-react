@@ -2,13 +2,13 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import { IinputProps, IinputState } from "./interfance";
 import classNames from 'classnames';
-import './style/Input.less'
+import './style/input.less'
 import Search from './Search'
 import TextArea from './TextArea'
 
 class Input extends React.PureComponent<IinputProps> {
-  static Search = Search;
-  static TextArea = TextArea;
+  static Search: typeof Search;
+  static TextArea: typeof TextArea;
   static defaultProps = {
     prefixCls: 'nvnv-input',
   }
@@ -20,13 +20,13 @@ class Input extends React.PureComponent<IinputProps> {
     addonAfter: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
     defaultValue: PropTypes.string,
     classNameInput: PropTypes.string,
-    prefix: PropTypes.node,
-    suffix: PropTypes.node,
+    prefix: PropTypes.string,
+    suffix: PropTypes.string,
   }
   private selectInput: any;
 
   render() {
-    const { prefixCls, placeholder, addonBefore, addonAfter, className, style, onChange, classNameInput, ...others } = this.props;
+    const { prefixCls, placeholder, addonBefore, addonAfter, className, style, onChange, ...others } = this.props;
     const classes = classNames(`${prefixCls}-group-wrapper`, className);
     const classesBefore = classNames(`${prefixCls}-group-addon`, {
       [`${prefixCls}-group-multiple`]: addonBefore && typeof addonBefore !== 'string',
@@ -43,7 +43,7 @@ class Input extends React.PureComponent<IinputProps> {
               {addonBefore}
             </span>
           }
-          <BasicInput prefixCls={prefixCls} radiusLeft={!!addonBefore} radiusRight={!!addonAfter} placeholder={placeholder} onChange={onChange} classNameInput={classNameInput}  {...others}/>
+          <BasicInput prefixCls={prefixCls} radiusLeft={!!addonBefore} radiusRight={!!addonAfter} placeholder={placeholder} onChange={onChange}  {...others}/>
           {
             addonAfter &&
             <span className={classesAfter}>
@@ -54,7 +54,7 @@ class Input extends React.PureComponent<IinputProps> {
       )
     } else {
       return (
-        <BasicInput ref={node => this.selectInput = node} className={className} style={style} prefixCls={prefixCls} placeholder={placeholder} onChange={onChange} classNameInput={classNameInput} {...others} />
+        <BasicInput ref={node => this.selectInput = node} className={className} style={style} prefixCls={prefixCls} placeholder={placeholder} onChange={onChange} {...others} />
       );
     }
   }
@@ -73,6 +73,30 @@ class BasicInput extends React.PureComponent<IinputProps, IinputState> {
       value: this.props.defaultValue || '',
     }
   }
+
+  render () {
+    const { prefixCls, placeholder, style, radiusLeft, radiusRight, classNameInput, prefix, suffix, ...others } = this.props;
+    const { value } = this.state;
+    const classes = classNames(`${prefixCls}-input`, classNameInput, {
+      [`${prefixCls}-radius-left`]: radiusLeft,
+      [`${prefixCls}-radius-right`]: radiusRight,
+      [`${prefixCls}-icon-prefix`]: prefix,
+      [`${prefixCls}-icon-suffix`]: suffix,
+    });
+    console.log(prefix);
+    return (
+      <span className={`${prefixCls}-input-assist`}>
+        {
+          prefix && <span className={`${prefixCls}-prefix`}><img className={`${prefixCls}-icon-box`} src={prefix} /></span>
+        }
+        <input ref={this.saveSelectInput} {...others} type="text" defaultValue={value} className={classes} style={style} onChange={this.handleChange} placeholder={placeholder}/>
+        {
+          suffix && <span className={`${prefixCls}-suffix`}><img className={`${prefixCls}-icon-box`} src={suffix} /></span>
+        }
+      </span>
+    )
+  }
+
   // ref input
   saveSelectInput = (node: any) => {
     this.selectInput = node;
@@ -95,18 +119,6 @@ class BasicInput extends React.PureComponent<IinputProps, IinputState> {
   }
   handleSearch = () => {
     return this.selectInput;
-  }
-
-  render () {
-    const { prefixCls, className, placeholder, style, radiusLeft, radiusRight, classNameInput, ...others } = this.props;
-    const { value } = this.state;
-    const classesInput = classNames(`${prefixCls}-input`, className, classNameInput, {
-      [`${prefixCls}-radius-left`]: radiusLeft,
-      [`${prefixCls}-radius-right`]: radiusRight,
-    });
-    return (
-      <input ref={this.saveSelectInput} {...others} type="text" defaultValue={value} className={classesInput} style={style} onChange={this.handleChange} placeholder={placeholder}/>
-    )
   }
 }
 export default Input;

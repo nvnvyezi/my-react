@@ -9,10 +9,12 @@ export interface Igong {
 export interface IinputProps extends Igong {
   addonAfter?: string | React.ReactNode;
   addonBefore?: string | React.ReactNode;
+  classNameInput?: string;
+  onSearch?: Function;
+  prefix?: string;
   radiusLeft?: boolean;
   radiusRight?: boolean;
-  onSearch?: Function;
-  classNameInput?: string;
+  suffix?: string;
 }
 export interface IinputState extends Igong {
   value: string | undefined;

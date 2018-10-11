@@ -1,8 +1,8 @@
 import * as React from 'react';
+import { Radio, Input } from "../../components/nvnvyezi";
 
 import './index.less'
-import { ShowContent, InfoCode } from "../common/index";
-import { Radio, Input } from "../../components/nvnvyezi";
+import { ShowContent, Header as ShowHeader, ShowUser, ShowCode, ShowLayout, InfoCode } from "../common/index";
 
 interface IradioProps {
   prefixCls: string;
@@ -36,21 +36,15 @@ class index extends React.PureComponent<IradioProps, IradioState> {
     const { prefixCls, options, radioStyle } = this.props;
     const { value, value1 } = this.state;
     return (
-      <div className={prefixCls}>
-        <div className={`${prefixCls}-aide`}>
-          <header className={`${prefixCls}-header`}>
-            <h1>Radio 单选框</h1>
-            <p>单选框</p>
-          </header>
-          <section className={`${prefixCls}-use`}>
-            <h2>何时使用</h2>
+        <ShowLayout prefixCls={prefixCls}>
+          <ShowHeader prefixCls={prefixCls} title="Radio 单选框" text="单选框"/>
+          <ShowUser prefixCls={prefixCls}>
             <ul>
               <li>用于在多个备选项中选中单个状态。</li>
               <li>和 Select 的区别是，Radio 所有选项默认可见，方便用户在比较中选择，因此选项不宜过多。</li>
             </ul>
-          </section>
-          <section className={`${prefixCls}-code`}>
-            <h2>代码演示</h2>
+          </ShowUser>
+          <ShowCode prefixCls={prefixCls}>
             <section className={`${prefixCls}-code-content`}>
               <div className={`${prefixCls}-code-content-box`}>
                 <ShowContent prefixCls={prefixCls}>
@@ -158,7 +152,7 @@ class index extends React.PureComponent<IradioProps, IradioState> {
                 <InfoCode prefixCls={prefixCls} title={'填底的按钮样式'} text={'实色填底的单选按钮样式'} />
               </div>
             </section>
-          </section>
+          </ShowCode>
           <footer className={`${prefixCls}-footer`}>
             <hgroup>
               <h2>API</h2>
@@ -284,8 +278,7 @@ class index extends React.PureComponent<IradioProps, IradioState> {
               </tbody>
             </table>
           </footer>
-        </div>
-      </div>
+        </ShowLayout>
     );
   }
 

@@ -6,7 +6,8 @@ import Autocomplete from '../AutoComplete/index'
 import Checkbox from '../Checkbox/index'
 import Input from '../Input/index'
 import Select from '../Select/index'
-import DataPicker from '../Data-picker/index'
+import Slider from '../Slider/index'
+import Switch from '../Switch/index'
 
 export default [
   {
@@ -65,8 +66,12 @@ export default [
     url: '/select',
     template: Select
   },{
-    name: 'DataPicker 日期选择器',
-    url: '/datapicker',
-    template: DataPicker
+    name: 'Slider 滑动输入条',
+    url: '/slider',
+    template: Slider
+  },{
+    name: 'Switch 开关',
+    url: '/switch',
+    template: Switch
   }
 ]
