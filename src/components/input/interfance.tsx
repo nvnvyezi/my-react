@@ -4,20 +4,23 @@ export interface Igong {
   style?: object;
   onChange?: Function;
   placeholder?: string;
-  defaultValue?: string;
+  defaultValue?: any;
 }
 export interface IinputProps extends Igong {
   addonAfter?: string | React.ReactNode;
   addonBefore?: string | React.ReactNode;
+  autoFocus?: boolean;
   classNameInput?: string;
   onSearch?: Function;
   prefix?: string;
   radiusLeft?: boolean;
   radiusRight?: boolean;
   suffix?: string;
+  value?: any;
+  type?: string;
 }
-export interface IinputState extends Igong {
-  value: string | undefined;
+export interface IinputState {
+  currentValue: any;
 }
 
 export interface IsearchProps extends Igong {
@@ -26,11 +29,12 @@ export interface IsearchProps extends Igong {
 }
 
 export interface ItextAreaProps extends Igong {
-  onPressEnter?: Function;
   autosize?: boolean | AutoSizeType;
+  autoFocus?: boolean;
+  onPressEnter?: Function;
   rows?: number;
 }
-export interface ItextAreaState extends Igong {
+export interface ItextAreaState {
   value: string | undefined;
 }
 interface AutoSizeType {

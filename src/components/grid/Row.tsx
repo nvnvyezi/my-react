@@ -41,11 +41,6 @@ class Row extends React.Component<IrowProps> {
       [`${prefixCls}-${justify}`]: type && justify,
       [`${prefixCls}-${align}`]: type && align,
     })
-    // const rowStyle = (gutter as number) > 0 ? {
-    //   marginLeft: (gutter as number) / -2,
-    //   marginRight: (gutter as number) / -2,
-    //   ...style
-    // } : style;
     const cols = Children.map(children, (col: React.ReactElement<HTMLDivElement>) => {
       if (!col) {
         return null;

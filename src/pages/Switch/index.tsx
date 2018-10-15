@@ -33,47 +33,49 @@ class index extends React.PureComponent<Tprops, Istate> {
           </ul>
         </ShowUser>
         <ShowCode prefixCls={prefixCls}>
-          <div className={`${prefixCls}-code-content-box`}>
-            <ShowContent prefixCls={prefixCls}>
-              <Switch style={{marginRight: '20px'}} onChange={this.onChange} />
-              <Switch defaultChecked onChange={this.onChange} />
-            </ShowContent>
-            <InfoCode prefixCls={prefixCls} title="基本" text="最简单的用法。"/>
-          </div>
-          <div className={`${prefixCls}-code-content-box`}>
-            <ShowContent prefixCls={prefixCls}>
-              <Switch checkedChildren="开" unCheckedChildren="关" defaultChecked/>
-              <br/><br/>
-              <Switch checkedChildren="1" unCheckedChildren="0" />
-              <br/><br/>
-              <Switch checkedChildren={successIcon} unCheckedChildren={wrongIcon} />
-            </ShowContent>
-            <InfoCode prefixCls={prefixCls} title="文字和图标" text="带有文字和图标。"/>
-          </div>
-          <div className={`${prefixCls}-code-content-box`}>
-            <ShowContent prefixCls={prefixCls}>
-              <Switch loading defaultChecked/>
-              <br/><br/>
-              <Switch loading size="small" />
-              <br/><br/>
-            </ShowContent>
-            <InfoCode prefixCls={prefixCls} title="加载中" text="标识开关操作仍在执行中。"/>
-          </div>
-          <div className={`${prefixCls}-code-content-box`}>
-            <ShowContent prefixCls={prefixCls}>
-              <Switch disabled={disabled} defaultChecked/>
-              <br/><br/>
-              <Button type="primary" onClick={this.toggle}>Toggle disabled</Button>
-            </ShowContent>
-            <InfoCode prefixCls={prefixCls} title="不可用" text="Switch 失效状态。"/>
-          </div>
-          <div className={`${prefixCls}-code-content-box`}>
-            <ShowContent prefixCls={prefixCls}>
-              <Switch autoFocus defaultChecked/>
-              <br/><br/>
-              <Switch size="small" checked/>
-            </ShowContent>
-            <InfoCode prefixCls={prefixCls} title="两种大小" text="size=＇small＇ 表示小号开关。"/>
+          <div className={`${prefixCls}-code-content`}>
+            <div className={`${prefixCls}-code-content-box`}>
+              <ShowContent prefixCls={prefixCls}>
+                <Switch style={{marginRight: '20px'}} onChange={this.onChange} />
+                <Switch defaultChecked onChange={this.onChange} />
+              </ShowContent>
+              <InfoCode prefixCls={prefixCls} title="基本" text="最简单的用法。"/>
+            </div>
+            <div className={`${prefixCls}-code-content-box`}>
+              <ShowContent prefixCls={prefixCls}>
+                <Switch checkedChildren="开" unCheckedChildren="关" defaultChecked/>
+                <br/><br/>
+                <Switch checkedChildren="1" unCheckedChildren="0" />
+                <br/><br/>
+                <Switch checkedChildren={successIcon} unCheckedChildren={wrongIcon} />
+              </ShowContent>
+              <InfoCode prefixCls={prefixCls} title="文字和图标" text="带有文字和图标。"/>
+            </div>
+            <div className={`${prefixCls}-code-content-box`}>
+              <ShowContent prefixCls={prefixCls}>
+                <Switch loading defaultChecked/>
+                <br/><br/>
+                <Switch loading size="small" />
+                <br/><br/>
+              </ShowContent>
+              <InfoCode prefixCls={prefixCls} title="加载中" text="标识开关操作仍在执行中。"/>
+            </div>
+            <div className={`${prefixCls}-code-content-box`}>
+              <ShowContent prefixCls={prefixCls}>
+                <Switch disabled={disabled} defaultChecked/>
+                <br/><br/>
+                <Button type="primary" onClick={this.toggle}>Toggle disabled</Button>
+              </ShowContent>
+              <InfoCode prefixCls={prefixCls} title="不可用" text="Switch 失效状态。"/>
+            </div>
+            <div className={`${prefixCls}-code-content-box`}>
+              <ShowContent prefixCls={prefixCls}>
+                <Switch autoFocus defaultChecked/>
+                <br/><br/>
+                <Switch size="small" checked/>
+              </ShowContent>
+              <InfoCode prefixCls={prefixCls} title="两种大小" text="size=＇small＇ 表示小号开关。"/>
+            </div>
           </div>
           <footer className={`${prefixCls}-footer`}>
             <h2>API</h2>

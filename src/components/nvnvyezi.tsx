@@ -13,3 +13,5 @@ export { default as Row } from './grid/Row';
 export { default as Select } from './select/Select';
 export { default as Slider } from './slider/Slider';
 export { default as Switch } from './switch/Switch';
+export { default as Tooltip } from './tooltip/Tooltip';
+export { default as InputNumber } from './input-number/InputNumber';

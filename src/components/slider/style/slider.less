@@ -1,2 +1,71 @@
-@import (reference) '../../style/default.less';
+@import '../../style/default.less';
 
+@prefixCls: nvnv-slider;
+
+// slider basic style
+.@{prefixCls} {
+  width: 100%;
+  height: 4px;
+  margin: 10px 0;
+  position: relative;
+  cursor: pointer;
+}
+
+// slider 线条样式
+.@{prefixCls}-rail {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  background-color: @grayColor1;
+  &:hover {
+    background-color: @grayColor;
+  }
+}
+
+// track style
+.@{prefixCls}-track {
+  height: 100%;
+  position: absolute;
+  background-color: @blueColor3;
+  &:hover {
+    background-color: @blueColor2;
+  }
+}
+
+// 球的样式
+.@{prefixCls}-handle {
+  position: absolute;
+  display: block;
+  margin-top: -5px;
+  margin-left: -7px;
+  height: 14px;
+  width: 14px;
+  border-radius: 100%;
+  background-color: white;
+  border: 2px solid @blueColor3;
+  &:hover {
+    border-color: @blueColor2;
+  }
+  &:focus {
+    border-color: @blueColor2;
+    box-shadow: 0 0 5px 5px @blueColor3;
+    outline: 0;
+    border-radius: 100%;
+  }
+}
+
+
+// disabled style 
+.@{prefixCls}-handle-disabled {
+  border-color: @grayColor;
+  &:hover {
+    border-color: @grayColor;
+  }
+}
+.@{prefixCls}-track-disabled {
+  background-color: @grayColor;
+  &:hover {
+    background-color: @grayColor;
+  }
+}

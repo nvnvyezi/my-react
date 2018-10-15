@@ -8,6 +8,8 @@ import Input from '../Input/index'
 import Select from '../Select/index'
 import Slider from '../Slider/index'
 import Switch from '../Switch/index'
+import Tooltip from "../Tooltip/index";
+import InputNumber from "../Input-number/index";
 
 export default [
   {
@@ -73,5 +75,13 @@ export default [
     name: 'Switch 开关',
     url: '/switch',
     template: Switch
+  },{
+    name: 'Tooltip 文字提示',
+    url: '/tooltip',
+    template: Tooltip
+  },{
+    name: 'InputNumber 数字输入框',
+    url: '/inputnumber',
+    template: InputNumber
   }
 ]

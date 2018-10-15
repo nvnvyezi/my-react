@@ -60,208 +60,141 @@ class index extends React.Component {
         </ShowUser>
         <ShowCode prefixCls={prefixCls}>
           <div className={`${prefixCls}-code-content-box`}>
-              <ShowContent>
-                <Row className={`${prefixCls}-row`}>
-                    <Col className={`${prefixCls}-col`} span={12}><div className={`${prefixCls}-coli`}>col-12</div></Col>
-                    <Col className={`${prefixCls}-col`} span={12}><div className={`${prefixCls}-coli`}>col-12</div></Col>
-                </Row>
-                <Row className={`${prefixCls}-row`}>
-                    <Col className={`${prefixCls}-col`} span={8}><div className={`${prefixCls}-coli`}>col-8</div></Col>
-                    <Col className={`${prefixCls}-col`} span={8}><div className={`${prefixCls}-coli`}>col-8</div></Col>
-                    <Col className={`${prefixCls}-col`} span={8}><div className={`${prefixCls}-coli`}>col-8</div></Col>
-                </Row>
-                <Row className={`${prefixCls}-row`}>
-                    <Col className={`${prefixCls}-col`} span={6}><div className={`${prefixCls}-coli`}>col-6</div></Col>
-                    <Col className={`${prefixCls}-col`} span={6}><div className={`${prefixCls}-coli`}>col-6</div></Col>
-                    <Col className={`${prefixCls}-col`} span={6}><div className={`${prefixCls}-coli`}>col-6</div></Col>
-                    <Col className={`${prefixCls}-col`} span={6}><div className={`${prefixCls}-coli`}>col-6</div></Col>
-                </Row>
-              </ShowContent>
-            <InfoCode prefixCls={prefixCls} title="基础栅格" text="从堆叠到水平排列。使用单一的一组 <code>Row</code> 和 <code>Col</code> 栅格组件，就可以创建一个基本的栅格系统，所有列（Col）必须放在 <code>Row</code> 内。" />
+            <ShowContent prefixCls={prefixCls}>
+              <Row className={`${prefixCls}-row`}>
+                  <Col className={`${prefixCls}-col`} span={12}><div className={`${prefixCls}-coli`}>col-12</div></Col>
+                  <Col className={`${prefixCls}-col`} span={12}><div className={`${prefixCls}-coli`}>col-12</div></Col>
+              </Row>
+              <Row className={`${prefixCls}-row`}>
+                  <Col className={`${prefixCls}-col`} span={8}><div className={`${prefixCls}-coli`}>col-8</div></Col>
+                  <Col className={`${prefixCls}-col`} span={8}><div className={`${prefixCls}-coli`}>col-8</div></Col>
+                  <Col className={`${prefixCls}-col`} span={8}><div className={`${prefixCls}-coli`}>col-8</div></Col>
+              </Row>
+              <Row className={`${prefixCls}-row`}>
+                  <Col className={`${prefixCls}-col`} span={6}><div className={`${prefixCls}-coli`}>col-6</div></Col>
+                  <Col className={`${prefixCls}-col`} span={6}><div className={`${prefixCls}-coli`}>col-6</div></Col>
+                  <Col className={`${prefixCls}-col`} span={6}><div className={`${prefixCls}-coli`}>col-6</div></Col>
+                  <Col className={`${prefixCls}-col`} span={6}><div className={`${prefixCls}-coli`}>col-6</div></Col>
+              </Row>
+            </ShowContent>
+            <InfoCode prefixCls={prefixCls} title="基础栅格" text="从堆叠到水平排列。<br />使用单一的一组 <code>Row</code> 和 <code>Col</code> 栅格组件，就可以创建一个基本的栅格系统，所有列（Col）必须放在 <code>Row</code> 内。" />
           </div>
           <div className={`${prefixCls}-code-content-box`}>
-              <ShowContent>
-                <Row className={`${prefixCls}-row`} gutter={16}>
-                    <Col className={`${prefixCls}-col`} span={6}><div className={`${prefixCls}-coli`}>col-6</div></Col>
-                    <Col className={`${prefixCls}-col`} span={6}><div className={`${prefixCls}-coli`}>col-6</div></Col>
-                    <Col className={`${prefixCls}-col`} span={6}><div className={`${prefixCls}-coli`}>col-6</div></Col>
-                    <Col className={`${prefixCls}-col`} span={6}><div className={`${prefixCls}-coli`}>col-6</div></Col>
-                </Row>
-              </ShowContent>
-            <div className={`${prefixCls}-box-info`}>
-              <div className={`${prefixCls}-info-title`}>
-                <span>区块间隔</span>
-              </div>
-              <p>栅格常常需要和间隔进行配合，你可以使用 <code>Row</code> 的 <code>gutter</code> 属性，我们推荐使用 <code>(16+8n)px</code> 作为栅格间隔。(n 是自然数)。</p>
-            </div>
-            <footer className={`${prefixCls}-box-info`}>
-              <pre>
-                sdd
-              </pre>
-            </footer>
+            <ShowContent prefixCls={prefixCls}>
+              <Row className={`${prefixCls}-row`} gutter={16}>
+                  <Col className={`${prefixCls}-col`} span={6}><div className={`${prefixCls}-coli`}>col-6</div></Col>
+                  <Col className={`${prefixCls}-col`} span={6}><div className={`${prefixCls}-coli`}>col-6</div></Col>
+                  <Col className={`${prefixCls}-col`} span={6}><div className={`${prefixCls}-coli`}>col-6</div></Col>
+                  <Col className={`${prefixCls}-col`} span={6}><div className={`${prefixCls}-coli`}>col-6</div></Col>
+              </Row>
+            </ShowContent>
+            <InfoCode prefixCls={prefixCls} title="区块间隔" text="栅格常常需要和间隔进行配合，你可以使用 <code>Row</code> 的 <code>gutter</code> 属性，我们推荐使用 <code>(16+8n)px</code> 作为栅格间隔。(n 是自然数)。" />
           </div>
           <div className={`${prefixCls}-code-content-box`}>
-              <ShowContent>
-                <Row className={`${prefixCls}-row`}>
-                    <Col className={`${prefixCls}-col`} span={8}><div className={`${prefixCls}-coli`}>col-8</div></Col>
-                    <Col className={`${prefixCls}-col`} span={8} offset={8}><div className={`${prefixCls}-coli`}>col-8</div></Col>
-                </Row>
-                <Row className={`${prefixCls}-row`}>
-                    <Col className={`${prefixCls}-col`} span={6} offset={6}><div className={`${prefixCls}-coli`}>col-6 col-offset-6</div></Col>
-                    <Col className={`${prefixCls}-col`} span={6} offset={6}><div className={`${prefixCls}-coli`}>col-6 col-offset-6</div></Col>
-                </Row>
-                <Row className={`${prefixCls}-row`}>
-                    <Col className={`${prefixCls}-col`} span={12} offset={6}><div className={`${prefixCls}-coli`}>col-12 col-offset-6</div></Col>
-                </Row>
-              </ShowContent>
-            <div className={`${prefixCls}-box-info`}>
-              <div className={`${prefixCls}-info-title`}>
-                <span>左右偏移</span>
-              </div>
-              <p>列偏移。<br/>
-                使用 <code>offset</code> 可以将列向右侧偏。例如，<code>offset={4}</code> 将元素向右侧偏移了 4 个列（column）的宽度。
-              </p>
-            </div>
-            <footer className={`${prefixCls}-box-info`}>
-              <pre>
-                sd
-              </pre>
-            </footer>
+            <ShowContent prefixCls={prefixCls}>
+              <Row className={`${prefixCls}-row`}>
+                  <Col className={`${prefixCls}-col`} span={8}><div className={`${prefixCls}-coli`}>col-8</div></Col>
+                  <Col className={`${prefixCls}-col`} span={8} offset={8}><div className={`${prefixCls}-coli`}>col-8</div></Col>
+              </Row>
+              <Row className={`${prefixCls}-row`}>
+                  <Col className={`${prefixCls}-col`} span={6} offset={6}><div className={`${prefixCls}-coli`}>col-6 col-offset-6</div></Col>
+                  <Col className={`${prefixCls}-col`} span={6} offset={6}><div className={`${prefixCls}-coli`}>col-6 col-offset-6</div></Col>
+              </Row>
+              <Row className={`${prefixCls}-row`}>
+                  <Col className={`${prefixCls}-col`} span={12} offset={6}><div className={`${prefixCls}-coli`}>col-12 col-offset-6</div></Col>
+              </Row>
+            </ShowContent>
+            <InfoCode prefixCls={prefixCls} title="左右偏移" text="列偏移。<br/>
+                使用 <code>offset</code> 可以将列向右侧偏。例如，<code>offset={4}</code> 将元素向右侧偏移了 4 个列（column）的宽度。" />
           </div>
           <div className={`${prefixCls}-code-content-box`}>
-              <ShowContent>
-                <Row className={`${prefixCls}-row`}>
-                    <Col className={`${prefixCls}-col`} span={18} push={6}><div className={`${prefixCls}-coli`}>col-18 col-push-6</div></Col>
-                    <Col className={`${prefixCls}-col`} span={6} pull={18}><div className={`${prefixCls}-coli`}>col-6 col-pull-18</div></Col>
-                </Row>
-              </ShowContent>
-            <div className={`${prefixCls}-box-info`}>
-              <div className={`${prefixCls}-info-title`}>
-                <span>栅格排序</span>
-              </div>
-              <p>列排序。<br/>
-                通过使用 <code>push</code> <code>pull</code> 类就可以很容易的改变列（column）的顺序。
-              </p>
-            </div>
-            <footer className={`${prefixCls}-box-info`}>
-              <pre>
-                sd
-              </pre>
-            </footer>
+            <ShowContent prefixCls={prefixCls}>
+              <Row className={`${prefixCls}-row`}>
+                  <Col className={`${prefixCls}-col`} span={18} push={6}><div className={`${prefixCls}-coli`}>col-18 col-push-6</div></Col>
+                  <Col className={`${prefixCls}-col`} span={6} pull={18}><div className={`${prefixCls}-coli`}>col-6 col-pull-18</div></Col>
+              </Row>
+            </ShowContent>
+            <InfoCode prefixCls={prefixCls} title="栅格排序" text=">列排序。<br/>
+                通过使用 <code>push</code> <code>pull</code> 类就可以很容易的改变列（column）的顺序。" />
           </div>
           <div className={`${prefixCls}-code-content-box`}>
-              <ShowContent>
-                <p>sub-element align left</p>
-                <Row className={`${prefixCls}-row`} type="flex" justify="start">
-                    <Col className={`${prefixCls}-col`} span={4}><div className={`${prefixCls}-coli`}>col-4</div></Col>
-                    <Col className={`${prefixCls}-col`} span={4}><div className={`${prefixCls}-coli`}>col-4</div></Col>
-                    <Col className={`${prefixCls}-col`} span={4}><div className={`${prefixCls}-coli`}>col-4</div></Col>
-                    <Col className={`${prefixCls}-col`} span={4}><div className={`${prefixCls}-coli`}>col-4</div></Col>
-                </Row>
-                <p>sub-element align center</p>
-                <Row className={`${prefixCls}-row`} type="flex" justify="center">
-                    <Col className={`${prefixCls}-col`} span={4}><div className={`${prefixCls}-coli`}>col-4</div></Col>
-                    <Col className={`${prefixCls}-col`} span={4}><div className={`${prefixCls}-coli`}>col-4</div></Col>
-                    <Col className={`${prefixCls}-col`} span={4}><div className={`${prefixCls}-coli`}>col-4</div></Col>
-                    <Col className={`${prefixCls}-col`} span={4}><div className={`${prefixCls}-coli`}>col-4</div></Col>
-                </Row>
-                <p>sub-element align right</p>
-                <Row className={`${prefixCls}-row`} type="flex" justify="end">
-                    <Col className={`${prefixCls}-col`} span={4}><div className={`${prefixCls}-coli`}>col-4</div></Col>
-                    <Col className={`${prefixCls}-col`} span={4}><div className={`${prefixCls}-coli`}>col-4</div></Col>
-                    <Col className={`${prefixCls}-col`} span={4}><div className={`${prefixCls}-coli`}>col-4</div></Col>
-                    <Col className={`${prefixCls}-col`} span={4}><div className={`${prefixCls}-coli`}>col-4</div></Col>
-                </Row>
-                <p>sub-element monospaced arrangement</p>
-                <Row className={`${prefixCls}-row`} type="flex" justify="space-between">
-                    <Col className={`${prefixCls}-col`} span={4}><div className={`${prefixCls}-coli`}>col-4</div></Col>
-                    <Col className={`${prefixCls}-col`} span={4}><div className={`${prefixCls}-coli`}>col-4</div></Col>
-                    <Col className={`${prefixCls}-col`} span={4}><div className={`${prefixCls}-coli`}>col-4</div></Col>
-                    <Col className={`${prefixCls}-col`} span={4}><div className={`${prefixCls}-coli`}>col-4</div></Col>
-                </Row>
-                <p>sub-element align full</p>
-                <Row className={`${prefixCls}-row`} type="flex" justify="space-around">
-                    <Col className={`${prefixCls}-col`} span={4}><div className={`${prefixCls}-coli`}>col-4</div></Col>
-                    <Col className={`${prefixCls}-col`} span={4}><div className={`${prefixCls}-coli`}>col-4</div></Col>
-                    <Col className={`${prefixCls}-col`} span={4}><div className={`${prefixCls}-coli`}>col-4</div></Col>
-                    <Col className={`${prefixCls}-col`} span={4}><div className={`${prefixCls}-coli`}>col-4</div></Col>
-                </Row>
-              </ShowContent>
-            <div className={`${prefixCls}-box-info`}>
-              <div className={`${prefixCls}-info-title`}>
-                <span>Flex 布局</span>
-              </div>
-              <p>Flex 布局基础。<br/>
-                使用 <code>row-flex</code> 定义 <code>flex</code> 布局，其子元素根据不同的值 。<br/>
-                <code>start</code>, <code>center</code>, <code>end</code>, <code>space-between</code>, <code>space-around</code> ，分别定义其在父节点里面的排版方式。
-              </p>
-            </div>
-            <footer className={`${prefixCls}-box-info`}>
-              <pre>
-                sd
-              </pre>
-            </footer>
+            <ShowContent prefixCls={prefixCls}>
+              <p>sub-element align left</p>
+              <Row className={`${prefixCls}-row`} type="flex" justify="start">
+                  <Col className={`${prefixCls}-col`} span={4}><div className={`${prefixCls}-coli`}>col-4</div></Col>
+                  <Col className={`${prefixCls}-col`} span={4}><div className={`${prefixCls}-coli`}>col-4</div></Col>
+                  <Col className={`${prefixCls}-col`} span={4}><div className={`${prefixCls}-coli`}>col-4</div></Col>
+                  <Col className={`${prefixCls}-col`} span={4}><div className={`${prefixCls}-coli`}>col-4</div></Col>
+              </Row>
+              <p>sub-element align center</p>
+              <Row className={`${prefixCls}-row`} type="flex" justify="center">
+                  <Col className={`${prefixCls}-col`} span={4}><div className={`${prefixCls}-coli`}>col-4</div></Col>
+                  <Col className={`${prefixCls}-col`} span={4}><div className={`${prefixCls}-coli`}>col-4</div></Col>
+                  <Col className={`${prefixCls}-col`} span={4}><div className={`${prefixCls}-coli`}>col-4</div></Col>
+                  <Col className={`${prefixCls}-col`} span={4}><div className={`${prefixCls}-coli`}>col-4</div></Col>
+              </Row>
+              <p>sub-element align right</p>
+              <Row className={`${prefixCls}-row`} type="flex" justify="end">
+                  <Col className={`${prefixCls}-col`} span={4}><div className={`${prefixCls}-coli`}>col-4</div></Col>
+                  <Col className={`${prefixCls}-col`} span={4}><div className={`${prefixCls}-coli`}>col-4</div></Col>
+                  <Col className={`${prefixCls}-col`} span={4}><div className={`${prefixCls}-coli`}>col-4</div></Col>
+                  <Col className={`${prefixCls}-col`} span={4}><div className={`${prefixCls}-coli`}>col-4</div></Col>
+              </Row>
+              <p>sub-element monospaced arrangement</p>
+              <Row className={`${prefixCls}-row`} type="flex" justify="space-between">
+                  <Col className={`${prefixCls}-col`} span={4}><div className={`${prefixCls}-coli`}>col-4</div></Col>
+                  <Col className={`${prefixCls}-col`} span={4}><div className={`${prefixCls}-coli`}>col-4</div></Col>
+                  <Col className={`${prefixCls}-col`} span={4}><div className={`${prefixCls}-coli`}>col-4</div></Col>
+                  <Col className={`${prefixCls}-col`} span={4}><div className={`${prefixCls}-coli`}>col-4</div></Col>
+              </Row>
+              <p>sub-element align full</p>
+              <Row className={`${prefixCls}-row`} type="flex" justify="space-around">
+                  <Col className={`${prefixCls}-col`} span={4}><div className={`${prefixCls}-coli`}>col-4</div></Col>
+                  <Col className={`${prefixCls}-col`} span={4}><div className={`${prefixCls}-coli`}>col-4</div></Col>
+                  <Col className={`${prefixCls}-col`} span={4}><div className={`${prefixCls}-coli`}>col-4</div></Col>
+                  <Col className={`${prefixCls}-col`} span={4}><div className={`${prefixCls}-coli`}>col-4</div></Col>
+              </Row>
+            </ShowContent>
+            <InfoCode prefixCls={prefixCls} title="Flex 布局" text=">Flex 布局基础。<br/>
+              使用 <code>row-flex</code> 定义 <code>flex</code> 布局，其子元素根据不同的值 。<br/>
+              <code>start</code>, <code>center</code>, <code>end</code>, <code>space-between</code>, <code>space-around</code> ，分别定义其在父节点里面的排版方式。" />
           </div>
           <div className={`${prefixCls}-code-content-box`}>
-              <ShowContent>
-                <p>Align Top</p>
-                <Row className={`${prefixCls}-row`} type="flex" justify="center" align="top">
-                    <Col className={`${prefixCls}-col`} span={4}><div className={`${prefixCls}-coli`} style={{height: '100px'}}>col-4</div></Col>
-                    <Col className={`${prefixCls}-col`} span={4}><div className={`${prefixCls}-coli`}>col-4d</div></Col>
-                    <Col className={`${prefixCls}-col`} span={4}><div className={`${prefixCls}-coli`} style={{height: '100px'}}>col-4</div></Col>
-                    <Col className={`${prefixCls}-col`} span={4}><div className={`${prefixCls}-coli`}>col-4</div></Col>
-                </Row>
-                <p>Align Center</p>
-                <Row className={`${prefixCls}-row`} type="flex" justify="space-around" align="middle">
-                    <Col className={`${prefixCls}-col`} span={4}><div className={`${prefixCls}-coli`} style={{height: '100px'}}>col-4</div></Col>
-                    <Col className={`${prefixCls}-col`} span={4}><div className={`${prefixCls}-coli`}>col-4</div></Col>
-                    <Col className={`${prefixCls}-col`} span={4}><div className={`${prefixCls}-coli`} style={{height: '100px'}}>col-4</div></Col>
-                    <Col className={`${prefixCls}-col`} span={4}><div className={`${prefixCls}-coli`}>col-4</div></Col>
-                </Row>
-                <p>Align Bottom</p>
-                <Row className={`${prefixCls}-row`} type="flex" justify="space-between" align="bottom">
-                    <Col className={`${prefixCls}-col`} span={4}><div className={`${prefixCls}-coli`} style={{height: '100px'}}>col-4</div></Col>
-                    <Col className={`${prefixCls}-col`} span={4}><div className={`${prefixCls}-coli`}>col-4</div></Col>
-                    <Col className={`${prefixCls}-col`} span={4}><div className={`${prefixCls}-coli`} style={{height: '100px'}}>col-4</div></Col>
-                    <Col className={`${prefixCls}-col`} span={4}><div className={`${prefixCls}-coli`}>col-4</div></Col>
-                </Row>
-              </ShowContent>
-            <div className={`${prefixCls}-box-info`}>
-              <div className={`${prefixCls}-info-title`}>
-                <span>Flex 对齐</span>
-              </div>
-              <p>
-                Flex子元素垂直对齐。
-              </p>
-            </div>
-            <footer className={`${prefixCls}-box-info`}>
-              <pre>
-                sds
-              </pre>
-            </footer>
+            <ShowContent prefixCls={prefixCls}>
+              <p>Align Top</p>
+              <Row className={`${prefixCls}-row`} type="flex" justify="center" align="top">
+                  <Col className={`${prefixCls}-col`} span={4}><div className={`${prefixCls}-coli`} style={{height: '100px'}}>col-4</div></Col>
+                  <Col className={`${prefixCls}-col`} span={4}><div className={`${prefixCls}-coli`}>col-4d</div></Col>
+                  <Col className={`${prefixCls}-col`} span={4}><div className={`${prefixCls}-coli`} style={{height: '100px'}}>col-4</div></Col>
+                  <Col className={`${prefixCls}-col`} span={4}><div className={`${prefixCls}-coli`}>col-4</div></Col>
+              </Row>
+              <p>Align Center</p>
+              <Row className={`${prefixCls}-row`} type="flex" justify="space-around" align="middle">
+                  <Col className={`${prefixCls}-col`} span={4}><div className={`${prefixCls}-coli`} style={{height: '100px'}}>col-4</div></Col>
+                  <Col className={`${prefixCls}-col`} span={4}><div className={`${prefixCls}-coli`}>col-4</div></Col>
+                  <Col className={`${prefixCls}-col`} span={4}><div className={`${prefixCls}-coli`} style={{height: '100px'}}>col-4</div></Col>
+                  <Col className={`${prefixCls}-col`} span={4}><div className={`${prefixCls}-coli`}>col-4</div></Col>
+              </Row>
+              <p>Align Bottom</p>
+              <Row className={`${prefixCls}-row`} type="flex" justify="space-between" align="bottom">
+                  <Col className={`${prefixCls}-col`} span={4}><div className={`${prefixCls}-coli`} style={{height: '100px'}}>col-4</div></Col>
+                  <Col className={`${prefixCls}-col`} span={4}><div className={`${prefixCls}-coli`}>col-4</div></Col>
+                  <Col className={`${prefixCls}-col`} span={4}><div className={`${prefixCls}-coli`} style={{height: '100px'}}>col-4</div></Col>
+                  <Col className={`${prefixCls}-col`} span={4}><div className={`${prefixCls}-coli`}>col-4</div></Col>
+              </Row>
+            </ShowContent>
+            <InfoCode prefixCls={prefixCls} title="Flex 对齐" text=">Flex子元素垂直对齐。" />
           </div>
           <div className={`${prefixCls}-code-content-box`}>
-              <ShowContent>
-                <Row className={`${prefixCls}-row`} type="flex">
-                    <Col className={`${prefixCls}-col`} span={6} order={4}><div className={`${prefixCls}-coli`}>1 col-order-4</div></Col>
-                    <Col className={`${prefixCls}-col`} span={6} order={3}><div className={`${prefixCls}-coli`}>2 col-order-3</div></Col>
-                    <Col className={`${prefixCls}-col`} span={6} order={2}><div className={`${prefixCls}-coli`}>3 col-order-2</div></Col>
-                    <Col className={`${prefixCls}-col`} span={6} order={1}><div className={`${prefixCls}-coli`}>4 col-order-1</div></Col>
-                </Row>
-              </ShowContent>
-            <div className={`${prefixCls}-box-info`}>
-              <div className={`${prefixCls}-info-title`}>
-                <span>Flex 排序</span>
-              </div>
-              <p>
-                通过 Flex 布局的 Order 来改变元素的排序。
-              </p>
-            </div>
-            <footer className={`${prefixCls}-box-info`}>
-              <pre>
-                sd
-              </pre>
-            </footer>
+            <ShowContent prefixCls={prefixCls}>
+              <Row className={`${prefixCls}-row`} type="flex">
+                  <Col className={`${prefixCls}-col`} span={6} order={4}><div className={`${prefixCls}-coli`}>1 col-order-4</div></Col>
+                  <Col className={`${prefixCls}-col`} span={6} order={3}><div className={`${prefixCls}-coli`}>2 col-order-3</div></Col>
+                  <Col className={`${prefixCls}-col`} span={6} order={2}><div className={`${prefixCls}-coli`}>3 col-order-2</div></Col>
+                  <Col className={`${prefixCls}-col`} span={6} order={1}><div className={`${prefixCls}-coli`}>4 col-order-1</div></Col>
+              </Row>
+            </ShowContent>
+            <InfoCode prefixCls={prefixCls} title="Flex 排序" text=">通过 Flex 布局的 Order 来改变元素的排序。" />
           </div>
         </ShowCode>
         <footer className={`${prefixCls}-footer`}>

@@ -1,0 +1,94 @@
+@import '../../style/default.less';
+
+@prefixCls: nvnv-inputnumber;
+
+.@{prefixCls} {
+  width: 88px;
+  position: relative;
+  display: inline-block;
+  margin: 5px 5px;
+  height: 30px;
+}
+// 大小尺寸
+.@{prefixCls}-size-large {
+  width: 88px;
+  height: 38px;
+}
+.@{prefixCls}-size-small {
+  width: 88px;
+  height: 22px;
+}
+
+// 去除右边的上下小箭头
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button{
+    -webkit-appearance: none !important;
+}
+input[type="number"]{-moz-appearance:textfield;}
+
+// 自定义上下小箭头
+.@{prefixCls}-arrow-assist {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 22px;
+  border-radius: 0 5px 5px 0;
+  border: 1px solid @grayColor;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+}
+.@{prefixCls}-arrow-top {
+  height: 50%;
+  flex: 0 1 auto;
+  background: url('../image/arrow_down.svg') no-repeat center;
+  background-size: 10px;
+  transform: rotate(180deg);
+  &:hover {
+    height: 65%;
+  }
+}
+.@{prefixCls}-arrow-bottom {
+  height: 50%;
+  flex: 0 1 auto;
+  border-top: 1px solid @grayColor;
+  background: url('../image/arrow_down.svg') no-repeat center;
+  background-size: 10px;
+  &:hover {
+    height: 65%;
+  }
+}
+// 禁止点击
+.@{prefixCls}-arrow-click {
+  cursor: not-allowed;
+}
+
+// input style 
+.@{prefixCls}-input {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 0 12px;
+  color: @blackColor;
+  font: 400 14px @fontFamily;
+  border-radius: 5px;
+  border: 1px solid @grayColor;
+  &::placeholder {
+    color: @grayColor;
+    font: 400 14px @fontFamily;
+  }
+  &:focus {
+    outline: 0;
+    border-color: @blueColor2;
+    border-radius: 5px;
+    box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+  }
+}
+// 禁止input
+.@{prefixCls}-input-disabled {
+  cursor: not-allowed;
+  background-color: @grayColor1;
+  color: @grayColor2;
+}

@@ -11,17 +11,21 @@ class Input extends React.PureComponent<IinputProps> {
   static TextArea: typeof TextArea;
   static defaultProps = {
     prefixCls: 'nvnv-input',
+    type: 'text',
   }
   static propTypes = {
-    prefixCls: PropTypes.string,
-    placeholder: PropTypes.string,
-    onChange: PropTypes.func,
-    addonBefore: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
     addonAfter: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-    defaultValue: PropTypes.string,
+    addonBefore: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+    autoFocus: PropTypes.bool,
     classNameInput: PropTypes.string,
+    defaultValue: PropTypes.any,
+    onChange: PropTypes.func,
+    placeholder: PropTypes.string,
     prefix: PropTypes.string,
+    prefixCls: PropTypes.string,
     suffix: PropTypes.string,
+    type: PropTypes.string,
+    value: PropTypes.any,
   }
   private selectInput: any;
 
@@ -59,37 +63,39 @@ class Input extends React.PureComponent<IinputProps> {
     }
   }
 
+  // 点击搜索返回input
   handleSearch = () => {
     return this.selectInput.handleSearch();
   }
 }
 
 class BasicInput extends React.PureComponent<IinputProps, IinputState> {
-
-  public selectInput: any;
+  private selectInput: any;
   constructor(props: IinputProps) {
     super(props);
     this.state = {
-      value: this.props.defaultValue || '',
+      currentValue: props.value || props.defaultValue || '',
     }
   }
 
   render () {
-    const { prefixCls, placeholder, style, radiusLeft, radiusRight, classNameInput, prefix, suffix, ...others } = this.props;
-    const { value } = this.state;
+    const { prefixCls, className, placeholder, style, radiusLeft, radiusRight, classNameInput, prefix, suffix, type, onChange, value, defaultValue,  ...others } = this.props;
+    const { currentValue } = this.state;
     const classes = classNames(`${prefixCls}-input`, classNameInput, {
       [`${prefixCls}-radius-left`]: radiusLeft,
       [`${prefixCls}-radius-right`]: radiusRight,
       [`${prefixCls}-icon-prefix`]: prefix,
       [`${prefixCls}-icon-suffix`]: suffix,
     });
-    console.log(prefix);
+
+    const classess = classNames(`${prefixCls}-input-assist`, className);
+
     return (
-      <span className={`${prefixCls}-input-assist`}>
+      <span className={classess}>
         {
           prefix && <span className={`${prefixCls}-prefix`}><img className={`${prefixCls}-icon-box`} src={prefix} /></span>
         }
-        <input ref={this.saveSelectInput} {...others} type="text" defaultValue={value} className={classes} style={style} onChange={this.handleChange} placeholder={placeholder}/>
+        <input ref={this.saveSelectInput} {...others} type={type} value={currentValue} className={classes} style={style} onChange={this.handleChange} placeholder={placeholder}/>
         {
           suffix && <span className={`${prefixCls}-suffix`}><img className={`${prefixCls}-icon-box`} src={suffix} /></span>
         }
@@ -101,6 +107,7 @@ class BasicInput extends React.PureComponent<IinputProps, IinputState> {
   saveSelectInput = (node: any) => {
     this.selectInput = node;
   }
+
   // focus blur
   focus = () => {
     this.selectInput.focus();
@@ -108,15 +115,19 @@ class BasicInput extends React.PureComponent<IinputProps, IinputState> {
   blur = () => {
     this.selectInput.blur();
   }
+
+  // change
   handleChange = (e: any) => {
     this.setState({
-      value: e.target.value,
+      currentValue: e.target.value,
     })
     const { onChange } = this.props;
     if (onChange && typeof onChange === 'function') {
       onChange(e);
     }
   }
+
+  // 点击搜索返回input
   handleSearch = () => {
     return this.selectInput;
   }

@@ -1,0 +1,165 @@
+@import '../../style/default.less';
+
+@prefixCls: nvnv-tooltip;
+
+// 公共组件
+.tip-after-g {
+  border: solid transparent;
+  content: '';
+  width: 0;
+  height: 0;
+  position: absolute;
+  border-width: 5px;
+  background-color: @blackColor1;
+  z-index: 999;
+}
+
+// tooltip 样式
+.@{prefixCls} {
+  position: relative;
+  box-sizing: border-box;
+  display: inline-block;
+  margin: 5px 5px;
+  font: 400 14px/14px @fontFamily;
+  color: @blackColor;
+  white-space: nowrap;
+}
+
+// 气泡样式
+.@{prefixCls}-tip {
+  position: absolute;
+  box-sizing: border-box;
+  padding: 9px 8px;
+  border-radius: 4px;
+  color: white;
+  background-color: @blackColor1;
+}
+
+// 是否显示气泡
+.@{prefixCls}-tip-visible {
+  visibility: hidden;
+}
+
+//气泡layout
+// top
+.@{prefixCls}-tip-top {
+  left: 50%;
+  transform: translateX(-50%);
+  &::after {
+    &:extend(.tip-after-g);
+    bottom: -3px;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+  }
+}
+// tl
+.@{prefixCls}-tip-topLeft {
+  left: 0;
+  &::after {
+    &:extend(.tip-after-g);
+    bottom: -3px;
+    left: 17%;
+    transform: rotate(45deg);
+  }
+}
+// tr
+.@{prefixCls}-tip-topRight {
+  right: 0;
+  &::after {
+    &:extend(.tip-after-g);
+    bottom: -3px;
+    right: 17%;
+    transform: rotate(45deg);
+  }
+}
+// bottom
+.@{prefixCls}-tip-bottom {
+  left: 50%;
+  transform: translateX(-50%);
+  &::after {
+    &:extend(.tip-after-g);
+    top: -3px;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+  }
+}
+// bl
+.@{prefixCls}-tip-bottomLeft {
+  left: 0;
+  &::after {
+    &:extend(.tip-after-g);
+    top: -3px;
+    left: 17%;
+    transform: rotate(45deg);
+  }
+}
+// br
+.@{prefixCls}-tip-bottomRight {
+  right: 0;
+  &::after {
+    &:extend(.tip-after-g);
+    top: -3px;
+    right: 17%;
+    transform: rotate(45deg);
+  }
+}
+// left
+.@{prefixCls}-tip-left {
+  top: 0;
+  &::after {
+    &:extend(.tip-after-g);
+    top: 50%;
+    left: calc( 100% - 7.5px);
+    transform: translateY(-50%) rotate(45deg);
+  }
+}
+// lt
+.@{prefixCls}-tip-leftTop {
+  top: 0;
+  &::after {
+    &:extend(.tip-after-g);
+    top: 20%;
+    left: calc( 100% - 7.5px);
+    transform: rotate(45deg);
+  }
+}
+// lb
+.@{prefixCls}-tip-leftBottom {
+  top: 0;
+  &::after {
+    &:extend(.tip-after-g);
+    bottom: 20%;
+    left: calc( 100% - 7.5px);
+    transform: rotate(45deg);
+  }
+}
+// right
+.@{prefixCls}-tip-right {
+  top: 0;
+  &::after {
+    &:extend(.tip-after-g);
+    top: 50%;
+    left: -2.5px;
+    transform: translateY(-50%) rotate(45deg);
+  }
+}
+// rt
+.@{prefixCls}-tip-rightTop {
+  top: 0;
+  &::after {
+    &:extend(.tip-after-g);
+    top: 20%;
+    left: -2.5px;
+    transform: rotate(45deg);
+  }
+}
+// rb
+.@{prefixCls}-tip-rightBottom {
+  top: 0;
+  &::after {
+    &:extend(.tip-after-g);
+    bottom: 20%;
+    left: -2.5px;
+    transform: rotate(45deg);
+  }
+}
