@@ -3,7 +3,6 @@ import * as ReactDOM from 'react-dom';
 import App from './App';
 import './index.css';
 import { BrowserRouter, Switch } from "react-router-dom";
-import registerServiceWorker from './registerServiceWorker';
 
 ReactDOM.render(
   <BrowserRouter>
@@ -13,4 +12,3 @@ ReactDOM.render(
   </BrowserRouter>,
   document.getElementById('root') as HTMLElement,
 );
-registerServiceWorker();
