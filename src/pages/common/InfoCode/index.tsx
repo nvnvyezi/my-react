@@ -4,7 +4,7 @@ export const InfoCode = (props: any) => {
   const { prefixCls, flag, code, text, title, onFlag } = props;
   return(
     <React.Fragment>
-      <div className={`${prefixCls}-box-info`}>
+      <div className={`${prefixCls}-info`}>
       <div className={`${prefixCls}-info-title`}>
         <span>{ title }</span>
       </div>

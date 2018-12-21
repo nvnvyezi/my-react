@@ -10,7 +10,6 @@ class index extends React.Component {
     const prefixCls = 'nvnv-sidebar';
     return (
       <div className={prefixCls}>
-        <div className={`${prefixCls}-img`}>sd</div>
         <ul className={`${prefixCls}-ul`}>
           {
             info.map((item, key) => {

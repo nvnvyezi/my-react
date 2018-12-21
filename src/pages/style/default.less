@@ -5,6 +5,7 @@
 @fontFamily: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 @redColor: #f81d22;
 @grayColor: #999;
+@grayColor1: rgb(204, 204, 204);
 @greenColor: #0b8235;
 
 .whg {
@@ -12,6 +13,10 @@
   height: auto;
 }
 
+.h1g {
+  font: 600 26px/38px @fontFamily;
+  font-weight: normal;
+}
 .h2g {
   color: @hColor;
   font: 400 24px/32px @fontFamily;
@@ -23,29 +28,9 @@
   margin: 20px 0;
 }
 
-.h1g {
-  font: 600 30px/38px @fontFamily;
-  margin: 20px 0;
-}
-
-.codeg {
-  @media screen and (max-width: 800px) {
-    width: 100%;
-  }
-  @media screen and (min-width: 800px) {
-    width: 49%;
-  }
-  height: auto;
-  border-radius: 5px;
-}
-.aideg {
-  width: 91%;
-  height: auto;
-  margin: 30px auto 40px;
-}
 .pg {
   width: 100%;
-  margin: 0px auto;
+  margin: 0 auto;
   &:last-child {
     margin-bottom: 20px;
   }
@@ -67,126 +52,120 @@
 // layout
 .@{prefixCls} {
   .whg;
-  .@{prefixCls}-aide {
-    .aideg;
-  }
-}
-
-// header
-.@{prefixCls}-header {
-  h1 {
-    .h1g;
-  }
-  p {
-    .pg;
-  }
-}
-
-// 如何使用
-.@{prefixCls}-user {
-  h2 {
-    .h2g;
-  }
-  ul {
-    list-style-type: circle;
-    margin-left: 25px;
-    li {
-      .pg;
+  &-header {
+    h1 {
+      .h1g;
     }
-  }
-  p {
-    .pg;
-  }
-}
-
-// 展示区代码框
-.@{prefixCls}-code {
-  h2 {
-    .h2g;
-  }
-}
-.@{prefixCls}-code-content-box {
-  .codeg;
-  margin-bottom: 20px;
-  .@{prefixCls}-box-header {
-    border: 1px solid #ebedf0;
     p {
       .pg;
     }
   }
-  .@{prefixCls}-box-aide {
-    .aideg;
-
+  &-user {
+    h2 {
+      .h2g;
+    }
     ul {
-      list-style: none;
       li {
-        display: inline-block;
-        margin: 0 10px 12px 0;
-      }
-      // li 100%
-      .ww {
-        width: 100%;
+        .pg;
       }
     }
-    .backbutton {
-      background-color: rgb(190, 200, 200);
+    p {
+      .pg;
     }
   }
-}
-// 代码框的信息
-.@{prefixCls}-box-info {
-  border: 1px solid #ebedf0;
-  border-top: none;
-  position: relative;
-  color: @wordColor;
-  font: 400 14px @fontFamily;
-  .@{prefixCls}-info-title {
-    padding: 0 12px;
-    position: absolute;
-    background-color: white;
-    top: -10px;
-    margin-left: 20px;
+  &-content {
+    h2 {
+      .h2g;
+    }
+    &-box {
+      border-radius: 4px;
+      margin-bottom: 20px;
+      &-header {
+        border: 1px solid #ebedf0;
+        p {
+          .pg;
+        }
+      }
+      &-aide {
+        box-sizing: border-box;
+        padding: 15px 0;
+        ul {
+          list-style: none;
+          li {
+            display: inline-block;
+            margin: 0 10px 12px 0;
+          }
+        }
+      }
+    }
   }
-  .@{prefixCls}-info-code-show {
-    position: absolute;
-    right: 16px;
-    bottom: 29px;
-    cursor: pointer;
-    width: 16px;
-    height: 16px;
-    line-height: 16px;
-    text-align: center;
-    img {
+  &-info {
+    position: relative;
+    border: 1px solid #ebedf0;
+    border-top: none;
+    font: 400 14px @fontFamily;
+    &-title {
+      box-sizing: border-box;
+      padding: 0 12px;
+      position: absolute;
+      background-color: white;
+      top: -10px;
+      margin-left: 20px;
+    }
+    &-code-show {
+      position: absolute;
+      right: 16px;
+      bottom: 29px;
+      cursor: pointer;
       width: 16px;
       height: 16px;
+      line-height: 16px;
+      text-align: center;
+      img {
+        width: 16px;
+        height: 16px;
+      }
+    }
+  
+    p, pre {
+      .pg;
+      width: calc(100% - 64px);
+      padding: 25px 0 25px 0;
+    }
+  
+    pre {
+      white-space: pre-wrap;
+      padding: 20px 0 0 0;
+      color: red;
+      font: 550 13px/20px @fontFamily;
+      letter-spacing: .5px;
+      span {
+        color: @redColor;
+      }
+      .@{prefixCls}-nature {
+        color: @greenColor;
+      }
     }
   }
-
-  p, pre {
-    .pg;
-    width: calc(100% - 64px);
-    padding: 25px 0 25px 0;
-  }
-
-  pre {
-    white-space: pre-wrap;
-    padding: 20px 0 0 0;
-    color: red;
-    font: 550 13px/20px @fontFamily;
-    letter-spacing: .5px;
-    span {
-      color: @redColor;
+  &-footer {
+    width: 100%;
+    height: auto;
+    margin-top: 35px;
+    h2 {
+      .h2g;
     }
-    .@{prefixCls}-nature {
-      color: @greenColor;
+    h3 {
+      .h3g;
+    }
+    p {
+      .pg;
     }
   }
-}
-// 参数表格信息
-.@{prefixCls}-table {
-  width: 100%;
-  text-align: left;
-  .@{prefixCls}-thead {
+  &-table {
+    width: 100%;
+    text-align: left;
+  }
+  &-thead {
     background: #f8f8f8;
     width: 200px;
     tr {
@@ -194,8 +173,7 @@
         padding: 14px 16px;
         white-space: nowrap;
         color: #5c6b77;
-        // width: 200px;
-        font: 500 14px/1.5 @fontFamily;
+        font: 500 14px @fontFamily;
         border-bottom: 2px solid rgb(224, 224, 224);
         &:nth-child(1) {
           width: 15%;
@@ -212,12 +190,12 @@
       }
     }
   }
-  .@{prefixCls}-tbody {
+  &-tbody {
     tr {
       td {
+        font: 400 12px @fontFamily;
         &:first-child {
           color: #003a8c;
-          font: 400 15px/15px @fontFamily;
           letter-spacing: 1px;
         }
         &:nth-child(3) {
@@ -225,7 +203,6 @@
         }
         padding: 14px 16px;
         color: #314659;
-        font: 500 14px/1.5 @fontFamily;
         border-bottom: 1px solid rgb(224, 224, 224);
       }
     }
@@ -238,29 +215,4 @@
       color: #1890ff;
     }
   }
-}
-
-.@{prefixCls}-footer {
-  width: 100%;
-  height: auto;
-  margin-top: 35px;
-  color: @wordColor;
-  h2 {
-    .h2g;
-  }
-  h3 {
-    .h3g;
-  }
-  p {
-    .pg;
-  }
-}
-
-//展示区布局
-.@{prefixCls}-code-content {
-  width: 100%;
-  height: auto;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
 }

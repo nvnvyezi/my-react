@@ -15,90 +15,88 @@ class index extends React.PureComponent {
           <p>标记了一个（或封装一组）操作命令，响应用户点击行为，触发相应的业务逻辑。</p>
         </ShowUser>
         <ShowCode prefixCls={prefixCls}>
-          <section className={`${prefixCls}-code-content`}>
-            <div className={`${prefixCls}-code-content-box`}>
-              <ShowContent prefixCls={prefixCls}>
-                <ul>
-                  {
-                    button.map((item, key) => (
-                      <li key={key}>
-                        <Button type={item.toLocaleLowerCase()}>{item}</Button>
-                      </li>
-                    ))
-                  }
-                </ul>
-              </ShowContent>
-              <InfoCode prefixCls={prefixCls} title="按钮类型" text="按钮有四种类型：主按钮、次按钮、虚线按钮、危险按钮。主按钮在同一个操作区域最多出现一次。" />
-            </div>
-            <div className={`${prefixCls}-code-content-box`}>
-              <ShowContent prefixCls={prefixCls}>
-                <ul>
-                  <li><Button type="default" size="small">Small</Button></li>
-                  <li><Button type="default" size="default">Default</Button></li>
-                  <li><Button type="default" size="large">Large</Button></li>
-                  <li><Button>默认</Button></li>
-                </ul>
-              </ShowContent>
-              <InfoCode prefixCls={prefixCls} title="按钮尺寸" text="按钮有大、中、小三种尺寸。<br />通过设置 <code>size</code> 为 <code>large</code> <code>small</code> 分别把按钮设为大、小尺寸。若不设置 <code>size</code>，则尺寸为中。" />
-            </div>
-            <div className={`${prefixCls}-code-content-box`}>
-              <ShowContent prefixCls={prefixCls}>
-                <ul>
-                  <li><Button type="default" size="small" disabled>Disabled</Button></li>
-                  <li><Button type="primary" disabled>Disabled Primary</Button></li>
-                  <li><Button type="dashed" disabled>Disabled dashed</Button></li>
-                </ul>
-              </ShowContent>
-              <InfoCode prefixCls={prefixCls} title="不可用状态" text="添加 <code>disabled</code> 属性即可让按钮处于不可用状态，同时按钮样式也会改变。" />
-            </div>
-            <div className={`${prefixCls}-code-content-box`}>
-              <ShowContent prefixCls={prefixCls}>
-                <ul>
-                  <li><Button size="small" shape="circle">C</Button></li>
-                  <li><Button type="primary" size="default" shape="circle">C</Button></li>
-                  <li><Button type="dashed" size="large" shape="circle">C</Button></li>
-                  <li><Button type="danger" shape="circle">圆</Button></li>
-                </ul>
-              </ShowContent>
-              <InfoCode prefixCls={prefixCls} title="按钮形状" text="添加 <code>shape</code> 属性即可让按钮处于规定状态。" />
-            </div>
-            <div className={`${prefixCls}-code-content-box`}>
-              <ShowContent prefixCls={prefixCls}>
-                <ul>
-                  <li><Button type="primary" size="small" loading>Click me</Button></li>
-                  <li><Button type="primary" size="default" loading>Click me</Button></li>
-                  <li><Button type="danger" size="large" loading>Click me</Button></li>
-                  <li><Button loading>默认</Button></li>
-                  <br />
-                  <li><Button shape="circle" loading /></li>
-                  <li><Button shape="circle" type="primary" loading /></li>
-                </ul>
-              </ShowContent>
-              <InfoCode prefixCls={prefixCls} title="加载中状态" text="添加 <code>loading</code> 属性即可让按钮处于加载状态，最后两个按钮演示点击后进入加载状态。" />
-            </div>
-            <div className={`${prefixCls}-code-content-box`}>
-              <ShowContent prefixCls={prefixCls}>
-                <ul>
-                  <li className='ww'><Button block type="dashed">Dashed</Button></li>
-                  <li className='ww'><Button block type="primary">Primary</Button></li>
-                  <li className='ww'><Button block type="danger">Danger</Button></li>
-                  <li className='ww'><Button block>默认</Button></li>
-                </ul>
-              </ShowContent>
-              <InfoCode prefixCls={prefixCls} title="block 按钮" text="<code>block</code> 属性将使按钮适合其父宽度。" />
-            </div>
-            <div className={`${prefixCls}-code-content-box`}>
-              <ShowContent prefixCls={prefixCls}>
-                <ul className="backbutton">
-                  <li><Button ghost type="dashed">Click me</Button></li>
-                  <li><Button ghost type="primary">Click me</Button></li>
-                  <li><Button ghost type="danger">Click me</Button></li>
-                  <li><Button ghost>默认</Button></li>
-                </ul>
-              </ShowContent>
-              <InfoCode prefixCls={prefixCls} title="幽灵按钮" text="<code>ghost</code> 幽灵按钮将按钮的内容反色，背景变为透明，常用在有色背景上。" />
-            </div>
-          </section>
+          <div className={`${prefixCls}-content-box`}>
+            <ShowContent prefixCls={prefixCls}>
+              <ul>
+                {
+                  button.map((item, key) => (
+                    <li key={key}>
+                      <Button type={item.toLocaleLowerCase()}>{item}</Button>
+                    </li>
+                  ))
+                }
+              </ul>
+            </ShowContent>
+            <InfoCode prefixCls={prefixCls} title="按钮类型" text="按钮有四种类型：主按钮、次按钮、虚线按钮、危险按钮。主按钮在同一个操作区域最多出现一次。" />
+          </div>
+          <div className={`${prefixCls}-content-box`}>
+            <ShowContent prefixCls={prefixCls}>
+              <ul>
+                <li><Button type="default" size="small">Small</Button></li>
+                <li><Button type="default" size="default">Default</Button></li>
+                <li><Button type="default" size="large">Large</Button></li>
+                <li><Button>默认</Button></li>
+              </ul>
+            </ShowContent>
+            <InfoCode prefixCls={prefixCls} title="按钮尺寸" text="按钮有大、中、小三种尺寸。<br />通过设置 <code>size</code> 为 <code>large</code> <code>small</code> 分别把按钮设为大、小尺寸。若不设置 <code>size</code>，则尺寸为中。" />
+          </div>
+          <div className={`${prefixCls}-content-box`}>
+            <ShowContent prefixCls={prefixCls}>
+              <ul>
+                <li><Button type="default" size="small" disabled>Disabled</Button></li>
+                <li><Button type="primary" disabled>Disabled Primary</Button></li>
+                <li><Button type="dashed" disabled>Disabled dashed</Button></li>
+              </ul>
+            </ShowContent>
+            <InfoCode prefixCls={prefixCls} title="不可用状态" text="添加 <code>disabled</code> 属性即可让按钮处于不可用状态，同时按钮样式也会改变。" />
+          </div>
+          <div className={`${prefixCls}-content-box`}>
+            <ShowContent prefixCls={prefixCls}>
+              <ul>
+                <li><Button size="small" shape="circle">C</Button></li>
+                <li><Button type="primary" size="default" shape="circle">C</Button></li>
+                <li><Button type="dashed" size="large" shape="circle">C</Button></li>
+                <li><Button type="danger" shape="circle">圆</Button></li>
+              </ul>
+            </ShowContent>
+            <InfoCode prefixCls={prefixCls} title="按钮形状" text="添加 <code>shape</code> 属性即可让按钮处于规定状态。" />
+          </div>
+          <div className={`${prefixCls}-content-box`}>
+            <ShowContent prefixCls={prefixCls}>
+              <ul>
+                <li><Button type="primary" size="small" loading>Click me</Button></li>
+                <li><Button type="primary" size="default" loading>Click me</Button></li>
+                <li><Button type="danger" size="large" loading>Click me</Button></li>
+                <li><Button loading>默认</Button></li>
+                <br />
+                <li><Button shape="circle" loading /></li>
+                <li><Button shape="circle" type="primary" loading /></li>
+              </ul>
+            </ShowContent>
+            <InfoCode prefixCls={prefixCls} title="加载中状态" text="添加 <code>loading</code> 属性即可让按钮处于加载状态，最后两个按钮演示点击后进入加载状态。" />
+          </div>
+          <div className={`${prefixCls}-content-box`}>
+            <ShowContent prefixCls={prefixCls}>
+              <ul>
+                <li className='ww'><Button block type="dashed">Dashed</Button></li>
+                <li className='ww'><Button block type="primary">Primary</Button></li>
+                <li className='ww'><Button block type="danger">Danger</Button></li>
+                <li className='ww'><Button block>默认</Button></li>
+              </ul>
+            </ShowContent>
+            <InfoCode prefixCls={prefixCls} title="block 按钮" text="<code>block</code> 属性将使按钮适合其父宽度。" />
+          </div>
+          <div className={`${prefixCls}-content-box`}>
+            <ShowContent prefixCls={prefixCls}>
+              <ul className="backbutton">
+                <li><Button ghost type="dashed">Click me</Button></li>
+                <li><Button ghost type="primary">Click me</Button></li>
+                <li><Button ghost type="danger">Click me</Button></li>
+                <li><Button ghost>默认</Button></li>
+              </ul>
+            </ShowContent>
+            <InfoCode prefixCls={prefixCls} title="幽灵按钮" text="<code>ghost</code> 幽灵按钮将按钮的内容反色，背景变为透明，常用在有色背景上。" />
+          </div>
         </ShowCode>
         <footer className={`${prefixCls}-footer`}>
             <h2>API</h2>

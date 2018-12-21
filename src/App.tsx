@@ -1,5 +1,5 @@
 import * as React from 'react';
-import './App.css';
+import './App.less';
 import { Route } from "react-router-dom";
 
 import info from "./pages/Sidebar/info";
@@ -11,7 +11,7 @@ class App extends React.Component {
   public render() {
     const prefixCls = 'app';
     return (
-      <React.Fragment>
+      <div className={prefixCls}>
         <Header />
         <div className={`${prefixCls}-body`}>
           <Sidebar />
@@ -21,7 +21,7 @@ class App extends React.Component {
             })
           }
         </div>
-      </React.Fragment>
+      </div>
     );
   }
 }

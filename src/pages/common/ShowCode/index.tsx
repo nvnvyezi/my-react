@@ -3,7 +3,7 @@ import * as React from 'react'
 export const ShowCode = (props: any) => {
   const { prefixCls, children } = props;
   return(
-    <section className={`${prefixCls}-code`}>
+    <section className={`${prefixCls}-content`}>
       <h2>代码演示</h2>
       {children}
     </section>
