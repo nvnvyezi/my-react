@@ -69,10 +69,14 @@
     "webpack-parallel-uglify-plugin": "^1.1.0"
   },
   "dependencies": {
+    "@types/classnames": "^2.2.7",
+    "@types/lodash": "^4.14.123",
     "@types/react": "^16.8.14",
     "@types/react-dom": "^16.8.4",
+    "classnames": "^2.2.6",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "rxjs-hooks": "^0.4.3"
   },
   "browserslist": {
     "production": [

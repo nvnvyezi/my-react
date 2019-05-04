@@ -1,0 +1,46 @@
+.tailor {
+  position: relative;
+  border: 1px solid #999;
+  user-select: none;
+}
+.tailor > img {
+  position: absolute;
+  left: 0;
+  width: 100%;
+}
+.cropper {
+  position: absolute;
+  width: 100%;
+  overflow: hidden;
+}
+.resizer {
+  position: absolute;
+  border: 1px dashed gray;
+  cursor: move;
+  outline: 1000px solid rgba(0, 0, 0, 0.4);
+}
+.resize-bar {
+  position: absolute;
+}
+.ord-n {
+  width: 100%;
+  height: 7px;
+  margin-top: -1px;
+  cursor: n-resize;
+}
+.ord-s {
+  width: 100%;
+  height: 7px;
+  margin-bottom: -1px;
+  cursor: s-resize;
+}
+.ord-w {
+  width: 7px;
+  margin-left: -1px;
+  cursor: w-resize;
+}
+.ord-e {
+  width: 7px;
+  margin-right: -1px;
+  cursor: e-resize;
+}

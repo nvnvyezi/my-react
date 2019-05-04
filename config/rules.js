@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path')
 
-const { ENTRY_PATH } = require('./config')
+const { ENTRY_PATH, PACKAGE_PATH } = require('./config')
 
 const common = {
-  include: ENTRY_PATH,
+  include: [ENTRY_PATH, PACKAGE_PATH],
   exclude: /node_modules/,
 }
 
