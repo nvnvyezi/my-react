@@ -22,13 +22,13 @@
 .resize-bar {
   position: absolute;
 }
-.ord-n {
+.ord-hn {
   width: 100%;
   height: 7px;
   margin-top: -1px;
   cursor: n-resize;
 }
-.ord-s {
+.ord-hs {
   left: 0;
   bottom: 0;
   width: 100%;
@@ -36,14 +36,14 @@
   margin-bottom: -1px;
   cursor: s-resize;
 }
-.ord-w {
+.ord-hw {
   top: 0;
   left: 0;
   width: 7px;
   margin-left: -1px;
   cursor: w-resize;
 }
-.ord-e {
+.ord-he {
   top: 0;
   right: 0;
   width: 7px;

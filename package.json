@@ -120,7 +120,7 @@
   "lint-staged": {
     "concurrent": false,
     "linters": {
-      "src/**/*.{js,jsx,ts,tsx}": [
+      "packages/**/*.{js,jsx,ts,tsx}": [
         "prettier --write",
         "eslint --fix",
         "git add"
