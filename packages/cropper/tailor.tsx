@@ -1,16 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import classnames from 'classnames'
 
-import { fromEvent } from 'rxjs'
-import { useEventCallback, useObservable } from 'rxjs-hooks'
-import {
-  map,
-  withLatestFrom,
-  switchMap,
-  takeUntil,
-  delay,
-} from 'rxjs/operators'
-
 import './styles/tailor.css'
 
 export interface ITailor {
@@ -27,48 +17,19 @@ export interface ITailor {
 export default function Tailor(props: ITailor) {
   const { src, tailorHeight = 400, tailorWidth = 400, tailorClassName } = props
 
+  // 图片最后的详细信息
   const [imgInfo, setImgInfo] = useState({
     height: 0,
     top: 0,
   })
-  const [cropperBox, setCropperBox] = useState({
-    width: 50,
-    height: 50,
+  // 裁剪框信息
+  const [cropper, setCropper] = useState({
+    size: 100,
+    top: 0,
+    left: 0,
   })
-
-  const [onMouseDown, [x, y]] = useEventCallback(
-    (event$: any, state$) =>
-      event$.pipe(
-        withLatestFrom(state$),
-        map(([event, prev]: [MouseEvent, number[]]) => [
-          event.clientX,
-          event.clientY,
-          prev,
-        ]),
-        switchMap(([startX, startY, prev]) => {
-          return fromEvent(window, 'mousemove').pipe(
-            map((event: any) => [
-              event.clientX - startX + prev[0],
-              event.clientY - startY + prev[1],
-            ]),
-            takeUntil(fromEvent(window, 'mouseup'))
-          )
-        })
-      ),
-    [0, 0]
-  )
-  function useStyle(x: number, y: number) {
-    const [left, top] = useObservable(
-      inputs$ => inputs$.pipe(delay(0)),
-      [0, 0],
-      [x, y]
-    )
-    return { left, top }
-  }
-
-  const cropperStyle = useStyle(x, y)
-
-  const imgRef = useRef(null)
+  const imgRef = useRef<HTMLImageElement>(null)
+  const cropperRef = useRef({ startX: 0, startY: 0 })
 
   useEffect(() => {
     const img = new Image()
@@ -78,6 +39,89 @@ export default function Tailor(props: ITailor) {
       setImgInfo({ height, top: tailorHeight / 2 - height / 2 })
     }
   }, [])
+
+  // 取消裁剪框订阅事件
+  function upCropper() {
+    document.onmousemove = null
+  }
+  // 裁剪框移动
+  function moveCropper(e: MouseEvent) {
+    const init = cropperRef.current
+    const moveX = e.clientX - init.startX + cropper.left
+    const moveY = e.clientY - init.startY + cropper.top
+    const leftDistance = tailorWidth - cropper.size
+    const topDistance = imgInfo.height - cropper.size
+
+    if (moveY < 0) {
+      if (moveX < 0) {
+        return setCropper({
+          ...cropper,
+          top: 0,
+          left: 0,
+        })
+      }
+      if (moveX > leftDistance) {
+        return setCropper({
+          ...cropper,
+          top: 0,
+          left: leftDistance - 2,
+        })
+      }
+      return setCropper({
+        ...cropper,
+        top: 0,
+        left: moveX,
+      })
+    }
+    if (moveY > topDistance) {
+      if (moveX < 0) {
+        return setCropper({
+          ...cropper,
+          top: topDistance - 2,
+          left: 0,
+        })
+      }
+      if (moveX > leftDistance) {
+        return setCropper({
+          ...cropper,
+          top: topDistance - 2,
+          left: leftDistance - 2,
+        })
+      }
+      return setCropper({
+        ...cropper,
+        top: topDistance - 2,
+        left: moveX,
+      })
+    }
+    if (moveX < 0) {
+      return setCropper({
+        ...cropper,
+        top: moveY,
+        left: 0,
+      })
+    }
+    if (moveX > leftDistance) {
+      return setCropper({
+        ...cropper,
+        top: moveY,
+        left: leftDistance - 2,
+      })
+    }
+    return setCropper({
+      ...cropper,
+      top: moveY,
+      left: moveX,
+    })
+  }
+  // 裁剪框初始位置
+  function startCropper(e: React.MouseEvent<HTMLDivElement, MouseEvent>) {
+    const startX = e.clientX
+    const startY = e.clientY
+    cropperRef.current = { startX, startY }
+    document.onmousemove = moveCropper
+    document.onmouseup = upCropper
+  }
 
   return (
     <section
@@ -98,22 +142,36 @@ export default function Tailor(props: ITailor) {
         <div
           className="resizer"
           style={{
-            width: `${cropperBox.width}px`,
-            height: `${cropperBox.height}px`,
-            ...cropperStyle,
+            width: `${cropper.size}px`,
+            height: `${cropper.size}px`,
+            top: `${cropper.top}px`,
+            left: `${cropper.left}px`,
           }}
-          onMouseDown={onMouseDown}
+          onMouseDown={startCropper}
         >
           <div className="ord-n resize-bar" />
-          <div className="ord-s resize-bar" style={{ bottom: 0, left: 0 }} />
+          <div className="ord-s resize-bar" />
           <div
             className="ord-w resize-bar"
-            style={{ left: 0, top: 0, height: `${cropperBox.height}px` }}
+            style={{ height: `${cropper.size}px` }}
           />
           <div
             className="ord-e resize-bar"
-            style={{ right: 0, top: 0, height: `${cropperBox.height}px` }}
+            style={{ height: `${cropper.size}px` }}
           />
+          <div className="ord-nw resize-handle" />
+          <div className="ord-n resize-handle" />
+          <div className="ord-ne resize-handle" />
+          <div className="ord-w resize-handle" />
+          <div className="ord-e resize-handle" />
+          <div className="ord-sw resize-handle" />
+          <div
+            className="ord-s resize-handle"
+            onMouseDown={e => {
+              e.stopPropagation()
+            }}
+          />
+          <div className="ord-se resize-handle" />
         </div>
       </div>
     </section>
