@@ -19,13 +19,11 @@ export default function CropperDemo() {
           setFile(e.target.files)
         }}
       />
-      {file ? (
-        <Cropper
-          file={file}
-          src="https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/0F/00/ChMkJlwuAEuIMbmBAAMSpPUXEUkAAuKRAMRt0IAAxK8664.jpg"
-        />
-      ) : null}
-      <Cropper src="https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/0F/00/ChMkJlwuAEuIMbmBAAMSpPUXEUkAAuKRAMRt0IAAxK8664.jpg" />
+      {file ? <Cropper file={file} onUpload={() => {}} /> : null}
+      <Cropper
+        url="https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/0F/00/ChMkJlwuAEuIMbmBAAMSpPUXEUkAAuKRAMRt0IAAxK8664.jpg"
+        onUpload={() => {}}
+      />
     </div>
   )
 }

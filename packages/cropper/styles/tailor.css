@@ -1,5 +1,9 @@
+.cropper-box {
+  min-width: 700px;
+}
 .tailor {
   position: relative;
+  display: inline-block;
   border: 1px solid #999;
   user-select: none;
 }

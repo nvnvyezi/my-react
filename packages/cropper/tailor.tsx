@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react'
 import classnames from 'classnames'
 
+import ShowPhoto from './show'
+
 import './styles/tailor.css'
 
 export interface ITailor {
@@ -12,13 +14,25 @@ export interface ITailor {
   tailorHeight?: number
   // 自定义裁剪框class
   tailorClassName?: string
+  className?: string
+  style?: React.CSSProperties
+  onUpload: (e: any) => void
 }
 
 export default function Tailor(props: ITailor) {
-  const { src, tailorHeight = 400, tailorWidth = 400, tailorClassName } = props
+  const {
+    src,
+    tailorHeight = 400,
+    tailorWidth = 400,
+    tailorClassName,
+    className,
+    style,
+  } = props
 
   // 图片最后的详细信息
   const [imgInfo, setImgInfo] = useState({
+    originalW: 0,
+    originalH: 0,
     height: 0,
     top: 0,
   })
@@ -36,7 +50,12 @@ export default function Tailor(props: ITailor) {
     img.src = src
     img.onload = function() {
       const height = (img.height * tailorWidth) / img.width
-      setImgInfo({ height, top: tailorHeight / 2 - height / 2 })
+      setImgInfo({
+        height,
+        top: tailorHeight / 2 - height / 2,
+        originalH: img.height,
+        originalW: img.width,
+      })
     }
   }, [])
 
@@ -300,83 +319,97 @@ export default function Tailor(props: ITailor) {
   }
 
   return (
-    <section
-      className={classnames('tailor', tailorClassName)}
-      style={{ width: `${tailorWidth}px`, height: `${tailorHeight}px` }}
-    >
-      <img
-        ref={imgRef}
-        height={imgInfo.height}
-        src={src}
-        style={{ top: `${imgInfo.top}px` }}
-        alt=""
-      />
+    <section className={classnames('cropper-box', className)} style={style}>
       <div
-        className="cropper"
-        style={{ top: `${imgInfo.top}px`, height: `${imgInfo.height}px` }}
+        className={classnames('tailor', tailorClassName)}
+        style={{ width: `${tailorWidth}px`, height: `${tailorHeight}px` }}
       >
+        <img
+          ref={imgRef}
+          height={imgInfo.height}
+          src={src}
+          style={{ top: `${imgInfo.top}px` }}
+          alt=""
+        />
         <div
-          className="resizer"
-          style={{
-            width: `${cropper.size}px`,
-            height: `${cropper.size}px`,
-            top: `${cropper.top}px`,
-            left: `${cropper.left}px`,
-          }}
-          onMouseDown={e => handleDown(moveCropper, e)}
+          className="cropper"
+          style={{ top: `${imgInfo.top}px`, height: `${imgInfo.height}px` }}
         >
           <div
-            className="ord-hn resize-bar"
-            onMouseDown={e => handleDown(moveN, e)}
-          />
-          <div
-            className="ord-hs resize-bar"
-            onMouseDown={e => handleDown(moveS, e)}
-          />
-          <div
-            className="ord-hw resize-bar"
-            style={{ height: `${cropper.size}px` }}
-            onMouseDown={e => handleDown(moveW, e)}
-          />
-          <div
-            className="ord-he resize-bar"
-            style={{ height: `${cropper.size}px` }}
-            onMouseDown={e => handleDown(moveE, e)}
-          />
-          <div
-            className="ord-nw resize-handle"
-            onMouseDown={e => handleDown(moveNW, e)}
-          />
-          <div
-            className="ord-n resize-handle"
-            onMouseDown={e => handleDown(moveN, e)}
-          />
-          <div
-            className="ord-ne resize-handle"
-            onMouseDown={e => handleDown(moveNE, e)}
-          />
-          <div
-            className="ord-w resize-handle"
-            onMouseDown={e => handleDown(moveW, e)}
-          />
-          <div
-            className="ord-e resize-handle"
-            onMouseDown={e => handleDown(moveE, e)}
-          />
-          <div
-            className="ord-sw resize-handle"
-            onMouseDown={e => handleDown(moveSW, e)}
-          />
-          <div
-            className="ord-s resize-handle"
-            onMouseDown={e => handleDown(moveS, e)}
-          />
-          <div
-            className="ord-se resize-handle"
-            onMouseDown={e => handleDown(moveSE, e)}
-          />
+            className="resizer"
+            style={{
+              width: `${cropper.size}px`,
+              height: `${cropper.size}px`,
+              top: `${cropper.top}px`,
+              left: `${cropper.left}px`,
+            }}
+            onMouseDown={e => handleDown(moveCropper, e)}
+          >
+            <div
+              className="ord-hn resize-bar"
+              onMouseDown={e => handleDown(moveN, e)}
+            />
+            <div
+              className="ord-hs resize-bar"
+              onMouseDown={e => handleDown(moveS, e)}
+            />
+            <div
+              className="ord-hw resize-bar"
+              style={{ height: `${cropper.size}px` }}
+              onMouseDown={e => handleDown(moveW, e)}
+            />
+            <div
+              className="ord-he resize-bar"
+              style={{ height: `${cropper.size}px` }}
+              onMouseDown={e => handleDown(moveE, e)}
+            />
+            <div
+              className="ord-nw resize-handle"
+              onMouseDown={e => handleDown(moveNW, e)}
+            />
+            <div
+              className="ord-n resize-handle"
+              onMouseDown={e => handleDown(moveN, e)}
+            />
+            <div
+              className="ord-ne resize-handle"
+              onMouseDown={e => handleDown(moveNE, e)}
+            />
+            <div
+              className="ord-w resize-handle"
+              onMouseDown={e => handleDown(moveW, e)}
+            />
+            <div
+              className="ord-e resize-handle"
+              onMouseDown={e => handleDown(moveE, e)}
+            />
+            <div
+              className="ord-sw resize-handle"
+              onMouseDown={e => handleDown(moveSW, e)}
+            />
+            <div
+              className="ord-s resize-handle"
+              onMouseDown={e => handleDown(moveS, e)}
+            />
+            <div
+              className="ord-se resize-handle"
+              onMouseDown={e => handleDown(moveSE, e)}
+            />
+          </div>
         </div>
       </div>
+      {imgInfo.height ? (
+        <ShowPhoto
+          src={src}
+          tailorWidth={tailorWidth}
+          height={imgInfo.height}
+          top={cropper.top}
+          left={cropper.left}
+          size={cropper.size}
+          originalW={imgInfo.originalW}
+          originalH={imgInfo.originalH}
+        />
+      ) : null}
     </section>
   )
 }
