@@ -1,12 +1,12 @@
 import React from 'react'
 import ReactDom from 'react-dom'
 
-import { Cropper } from '../packages/demo-index'
+import { Radio } from '../packages/demo-index'
 
 function App() {
   return (
     <div>
-      <Cropper />
+      <Radio />
     </div>
   )
 }

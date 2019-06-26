@@ -42,9 +42,9 @@ const rules = [
     ],
   },
   {
-    test: /\.(c|le)ss$/,
+    test: /\.(css|less)$/,
     ...common,
-    use: 'happypack/loader?id=css',
+    use: 'happypack/loader?id=styles',
   },
   {
     test: /\.(png|jpg|gif|svg|webp)/,

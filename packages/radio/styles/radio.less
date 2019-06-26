@@ -1,0 +1,72 @@
+@prefixCls: nvnv-radio-;
+
+.@{prefixCls}label {
+  position: relative;
+  box-sizing: border-box;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.@{prefixCls}radio {
+  input[type='radio'] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+    z-index: 1;
+    cursor: pointer;
+
+    &:focus + .@{prefixCls}input,
+    &:hover + .@{prefixCls}input {
+      border-color: #1890ff;
+    }
+  }
+}
+
+.@{prefixCls}input {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border: 1px solid #ebedf0;
+  border-radius: 8px;
+  vertical-align: sub;
+  transition: all 0.1s ease;
+
+  &:hover {
+    border-color: #1890ff;
+  }
+}
+
+.@{prefixCls}checked {
+  width: 4px;
+  height: 4px;
+  border: 5px solid #1890ff;
+}
+
+.@{prefixCls}content {
+  display: inline-block;
+  margin: 0 6px;
+  vertical-align: middle;
+}
+
+.@{prefixCls}disabled {
+  color: #ebedf0;
+  cursor: not-allowed;
+
+  input[type='radio'] {
+    cursor: not-allowed;
+
+    &:focus + .@{prefixCls}input,
+    &:hover + .@{prefixCls}input {
+      border-color: #ebedf0;
+    }
+  }
+
+  .@{prefixCls}checked {
+    border-color: #ebedf0;
+  }
+}

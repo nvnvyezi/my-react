@@ -21,8 +21,8 @@ const plugins = [
   // }),
 
   new HappyPack({
-    id: 'css',
-    loaders: ['style-loader', 'css-loader', 'less-loader', 'postcss-loader'],
+    id: 'styles',
+    loaders: ['style-loader', 'css-loader', 'postcss-loader', 'less-loader'],
   }),
 ]
 

@@ -1,1 +1,1 @@
-export { default as Cropper } from './cropper/index'
+export { default as Cropper } from './cropper'

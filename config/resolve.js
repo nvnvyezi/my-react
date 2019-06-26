@@ -11,6 +11,7 @@ const resolve = {
     Images: path.resolve(__dirname, '../src/assets/images/'),
   },
   extensions: ['.tsx', '.ts', '.js', '.json', '.jsx'],
+  mainFiles: ['index'],
 }
 
 module.exports = resolve
